@@ -52,11 +52,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyHocTap.cs">
+    <Compile Include="QuanLyHocTap\GhiNhanKetQua.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLyHocTap.Designer.cs">
-      <DependentUpon>QuanLyHocTap.cs</DependentUpon>
+    <Compile Include="QuanLyHocTap\GhiNhanKetQua.Designer.cs">
+      <DependentUpon>GhiNhanKetQua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyHocTap\PhanCongGiangDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyHocTap\PhanCongGiangDay.Designer.cs">
+      <DependentUpon>PhanCongGiangDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyHocTap\QuanLyDiemDanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyHocTap\QuanLyDiemDanh.Designer.cs">
+      <DependentUpon>QuanLyDiemDanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyHocTap\ThemChuongTrinhHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyHocTap\ThemChuongTrinhHoc.Designer.cs">
+      <DependentUpon>ThemChuongTrinhHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="QuanLyNhanVien.cs">
       <SubType>Form</SubType>
@@ -82,8 +100,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="QuanLyHocTap.resx">
-      <DependentUpon>QuanLyHocTap.cs</DependentUpon>
+    <EmbeddedResource Include="QuanLyHocTap\GhiNhanKetQua.resx">
+      <DependentUpon>GhiNhanKetQua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyHocTap\PhanCongGiangDay.resx">
+      <DependentUpon>PhanCongGiangDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyHocTap\QuanLyDiemDanh.resx">
+      <DependentUpon>QuanLyDiemDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyHocTap\ThemChuongTrinhHoc.resx">
+      <DependentUpon>ThemChuongTrinhHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyNhanVien.resx">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
