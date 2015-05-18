@@ -12,23 +12,25 @@ namespace QuanLyNhaTre.DataAccessLayer
     {
         DataConnection _connection = new DataConnection();
 
+        public DataTable LayDanhSachMaTreEm(int lop)
+        {
+            return _connection.Read("select TREEM.MaTre from TREEM join DANGKIHOC on TREEM.MaTre=DANGKIHOC.MaTre where DANGKIHOC.MaKeHoach=" + lop);
+        }
+
+        public DataTable LayDanhSachLop(int khoi)
+        {
+            return _connection.Read("select KEHOACHGIANGDAY.MaKeHoach from KEHOACHGIANGDAY join CHUONGTRINH on KEHOACHGIANGDAY.MaKhoi=CHUONGTRINHHOC.MaKhoi where CHUONGTRINHHOC.MaKhoi="+khoi);
+        }
+
         public DataTable LayDanhSachPhieuSucKhoe()
         {
             return _connection.Read("select* from PHIEUSUCKHOE");
         }
-        public DataTable TimPhieuSucKhoe(int matre)
-        {
-            return _connection.Read("select* PHIEUSUCKHOE where Matre='"+ matre +"'");
-        }
-        public DataTable TimPhieuSucKhoe(string khoi, string lop)
-        {
-            return _connection.Read("select matre, thangtuoi, chieucao, cannang, dalieu,"+
-            "taimuihong, from PHIEUSUCKHOE inner join where Matre");
-       }
+
         public void ThemPhieuSucKhoe(string thangtuoi, int chieucao, int cannang,
             string dalieu, string taimuihong, string ranghammat, string hohap)
         {
-            string cmd=" Insert into PHIEUSUCKHOE  {0},{1}, {2}, N'{3}', N'{4}', N'{5}',N'{6}'";
+            string cmd = " Insert into PHIEUSUCKHOE  {0},{1}, {2}, N'{3}', N'{4}', N'{5}',N'{6}'";
             _connection.Write(string.Format(cmd, thangtuoi, chieucao, cannang, dalieu, taimuihong, ranghammat, hohap));
 
         }
@@ -40,8 +42,27 @@ namespace QuanLyNhaTre.DataAccessLayer
         }
         public void XoaPhieuSucKhoe(int matre)
         {
-            _connection.Write("Delete from PHIEUSUCKHOE where Matre= "+ matre);
+            _connection.Write("Delete from PHIEUSUCKHOE where Matre= " + matre);
         }
+        public DataTable TimPhieuSucKhoe(int matre)
+        {
+            return _connection.Read("select* PHIEUSUCKHOE where Matre='"+ matre +"'");
+        }
+        public DataTable TimPhieuSucKhoe(int khoi, int lop)
+        {
+            string cmd = "select MaPhieuSucKhoe, ThangTuoi, ChieuCao, CanNang, DaLieu, TaiMuiHong " +
+            "from PHIEUSUCKHOE join DANGKYHOC on PHIEUSUCKHOE.MaDangKy=DANGKYHOC.MaDangKy join KEHOACHGIANGDAY " +
+            "on DANGKYHOC.MaKeHoach= KEHOACHGIANGDAY.MaKeHoach join CHUONGTRINHHOC on KEHOACHGIANGDAY.MaChuongTrinh=CHUONGTRINHHOC.MaChuongTrinh " +
+            "join KHOI on CHUONGTRINHHOC.MaKhoi="+ khoi +")";
+            return _connection.Read(cmd);
+       }
+        public DataTable TimPhieuSucKhoe(int thang, int nam, int khoi, int lop)
+        {
 
+        }      
+        public void XepTang(int MaPhieuSucKhoe)
+        {
+
+        }
     }
 }
