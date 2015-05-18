@@ -35,5 +35,9 @@ namespace QuanLyNhaTre.DataAccessLayer
         {
             return data_connection.Read(" select HoTen,PhatTrienTheChat,PhatTrienNhanThuc,PhatTrienNangKhieu,PhatTrienNgonNgu,PhatTrienQuanHe, BeNgoan from PHIEUTONGKET,DANGKYHOC,TREEM where PHIEUTONGKET.MaDangKy = DANGKYHOC.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre =" + maHocSinh);
         }
+        public DataTable LayHoSoHocSinh(int maHocSinh)
+        {
+            return data_connection.Read("select * from HOSOTREEM where MaHoSoTreEm in (select TREEM.MaHoSoTreEm from TREEM where TREEM.MaTre = " + maHocSinh + ")");
+        }
     }
 }
