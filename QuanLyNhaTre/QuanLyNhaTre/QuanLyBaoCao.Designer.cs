@@ -42,12 +42,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -183,10 +186,12 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.crystalReportViewer2);
+            this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.comboBox3);
+            this.tabPage1.Controls.Add(this.comboBox2);
             this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -196,58 +201,76 @@
             this.tabPage1.Text = "Xem báo cáo";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(621, 6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 26);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Load";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(333, 8);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 1;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Nhập mã học sinh:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(266, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Chọn ngày:";
-            // 
             // crystalReportViewer2
             // 
             this.crystalReportViewer2.ActiveViewIndex = -1;
             this.crystalReportViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer2.Location = new System.Drawing.Point(26, 40);
+            this.crystalReportViewer2.Location = new System.Drawing.Point(9, 30);
             this.crystalReportViewer2.Name = "crystalReportViewer2";
-            this.crystalReportViewer2.Size = new System.Drawing.Size(708, 278);
+            this.crystalReportViewer2.Size = new System.Drawing.Size(744, 326);
             this.crystalReportViewer2.TabIndex = 4;
             this.crystalReportViewer2.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(466, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Chọn năm:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(250, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Chọn tháng:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Nhập mã học sinh:";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(530, 3);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 2;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(321, 3);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 2;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(108, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 2;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(691, -1);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(62, 26);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Load";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // QuanLyBaoCao
             // 
@@ -286,9 +309,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button4;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

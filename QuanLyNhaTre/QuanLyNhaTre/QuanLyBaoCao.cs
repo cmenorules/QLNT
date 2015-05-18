@@ -17,5 +17,8 @@ namespace QuanLyNhaTre.QuanLyHocTap
         {
             InitializeComponent();
         }
+
+  
+      
     }
 }
