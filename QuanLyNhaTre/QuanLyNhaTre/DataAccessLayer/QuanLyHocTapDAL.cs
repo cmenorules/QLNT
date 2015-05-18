@@ -59,33 +59,36 @@ namespace QuanLyNhaTre.DataAccessLayer
 
 
 
-        public bool TaoBangDiemDanh(string tenPhong)
+        public int TaoBangDiemDanh(string MaKeHoach, string thu, int tuan, string ngayThang)
         {
+            connection.Write("insert into PHIEUDIEMDANH values("+MaKeHoach+",'"+thu+"',"+tuan+",'"+ngayThang+"')");
+            return int.Parse(connection.Read("SELECT IDENT_CURRENT('PHONGHOC') as ID").Rows[0]["ID"].ToString());
+        }
+
+        public bool ThemChiTietDiemDanh(int maPhieu,int maHocsinh)
+        {
+            connection.Write("insert into CHITIETPHIEUDIEMDANH values("+maPhieu+","+maHocsinh+",1,0)");
             return true;
         }
 
-        public bool ThemChiTietDiemDanh(string tenPhong)
+        public bool ThemMotKeHoachGiangDay(int namHoc, int hocki,int magv,int maPhong,int maChuongTrinh)
         {
+            string sql = "insert into KEHOACHGIANGDAY values({0},{1},{2},{3},{4})";
+            connection.Write(string.Format(sql,namHoc,hocki,magv,maPhong,maChuongTrinh));
             return true;
         }
 
-        public bool ThemDanhSachHocSinh(string tenPhong)
+        public bool LuuKetQuaHocTap(int maKeHoach, string thechat,string nhanthuc, string nangkhieu, string ngonngu,string quanhe, string bengoan)
         {
+            string sql = "insert into PHIEUTONGKET values({0},'{1}','{2}','{3}','{4}','{5}','{6}')";
+            connection.Write(string.Format(sql, maKeHoach, thechat, nhanthuc, nangkhieu, ngonngu, quanhe, bengoan));
             return true;
         }
 
-        public bool ThemMotKeHoachGiangDay(string tenPhong)
+        public bool GhiNhanHanhViLa(string maKeHoach,string hoatDong, string ngayThang, string danhGia)
         {
-            return true;
-        }
-
-        public bool LuuKetQuaHocTap(string tenPhong)
-        {
-            return true;
-        }
-
-        public bool GhiNhanHanhViLa(string tenPhong)
-        {
+            string sql = "insert into PHIEUHOATDONG values({0},'{1}','{2}','{3}')";
+            connection.Write(string.Format(sql, maKeHoach, hoatDong, ngayThang, danhGia));
             return true;
         }
 
