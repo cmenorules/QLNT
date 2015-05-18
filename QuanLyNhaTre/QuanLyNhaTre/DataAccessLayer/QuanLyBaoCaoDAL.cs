@@ -28,7 +28,7 @@ namespace QuanLyNhaTre.DataAccessLayer
 
         public DataTable LayHoatDongHangNgay(int maHocSinh)
         {
-            return data_connection.Read("select HoatDong,Ngay,DanhGia,PHIEUHOATDONG.MaDangKy,TREEM.MaTre,HoTen from PHIEUHOATDONG,DANGKYHOC,TREEM where PHIEUHOATDONG.MaDangKy = DANGKYHOC.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and  TREEM.MaTre = "+maHocSinh);
+            return data_connection.Read("select HoTen,TREEM.MaTre,HoatDong,Ngay,DanhGiafrom PHIEUHOATDONG,DANGKYHOC,TREEM where PHIEUHOATDONG.MaDangKy = DANGKYHOC.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and  TREEM.MaTre = " + maHocSinh);
         }
 
         public DataTable LayPhieuHocTap(int maHocSinh)
