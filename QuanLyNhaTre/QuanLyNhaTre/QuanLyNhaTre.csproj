@@ -93,8 +93,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogicLayer\QuanLyHocTapBLL.cs" />
-    <Compile Include="BusinessLogicLayer\TimetableItem.cs" />
+    <Compile Include="DataAccessLayer\DangNhapDAL.cs" />
     <Compile Include="DataAccessLayer\DAO.cs" />
     <Compile Include="DataAccessLayer\DataConnection.cs" />
     <Compile Include="DataAccessLayer\DinhDuongDAL.cs" />
@@ -102,6 +101,7 @@
     <Compile Include="DataAccessLayer\QuanLyHocTapDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyNhanVienDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLySucKhoeDAL.cs" />
+    <Compile Include="DataAccessLayer\ThietLapHeThongDAL.cs" />
     <Compile Include="DataAccessLayer\TreEmDAL.cs" />
     <Compile Include="LoginCtrl.cs" />
     <Compile Include="Login.cs">
@@ -129,6 +129,18 @@
     </Compile>
     <Compile Include="QuanLyDinhDuong.Designer.cs">
       <DependentUpon>QuanLyDinhDuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyHeThong\DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyHeThong\DangNhap.Designer.cs">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyHeThong\ThietLapHeThong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyHeThong\ThietLapHeThong.Designer.cs">
+      <DependentUpon>ThietLapHeThong.cs</DependentUpon>
     </Compile>
     <Compile Include="QuanLyHocTap\GhiNhanKetQua.cs">
       <SubType>Form</SubType>
@@ -174,6 +186,7 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -182,16 +195,25 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="QuanLyBaoCao.resx">
       <DependentUpon>QuanLyBaoCao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyDinhDuong.resx">
       <DependentUpon>QuanLyDinhDuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyHeThong\DangNhap.resx">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyHeThong\ThietLapHeThong.resx">
+      <DependentUpon>ThietLapHeThong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyHocTap\GhiNhanKetQua.resx">
       <DependentUpon>GhiNhanKetQua.cs</DependentUpon>
@@ -227,7 +249,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="BusinessLogicLayer\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -18,7 +18,7 @@ namespace QuanLyNhaTre.DataAccessLayer
 
         public static DataConnection getInstance()
         {
-            return instance;
+            return instance; 
         }
 
         public void SetupConnection(string path, string databaseName)
