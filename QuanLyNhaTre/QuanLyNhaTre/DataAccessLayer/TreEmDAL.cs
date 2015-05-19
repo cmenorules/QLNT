@@ -20,7 +20,7 @@ namespace QuanLyNhaTre.DataAccessLayer
             dt_con.Write("insert into HOSOTREEM values('',hoTenCha, hoTenMe, hoTenNguoiGiamHo, emailNguoiGiamHo, soDienThoaiNguoiGiamHo,DiaChi)");
             return true;
         }
-        public bool 
+        
 
     }
 }

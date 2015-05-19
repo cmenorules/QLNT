@@ -58,7 +58,7 @@ namespace QuanLyNhaTre.DataAccessLayer
        }
         public DataTable TimPhieuSucKhoe(int thang, int nam, int khoi, int lop)
         {
-
+            return null;
         }      
         public void XepTang(int MaPhieuSucKhoe)
         {

@@ -93,8 +93,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\QuanLyHocTapBLL.cs" />
+    <Compile Include="BusinessLogicLayer\TimetableItem.cs" />
+    <Compile Include="DataAccessLayer\DAO.cs" />
     <Compile Include="DataAccessLayer\DataConnection.cs" />
+    <Compile Include="DataAccessLayer\DinhDuongDAL.cs" />
+    <Compile Include="DataAccessLayer\QuanLyBaoCaoDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyHocTapDAL.cs" />
+    <Compile Include="DataAccessLayer\QuanLyNhanVienDAL.cs" />
+    <Compile Include="DataAccessLayer\QuanLySucKhoeDAL.cs" />
+    <Compile Include="DataAccessLayer\TreEmDAL.cs" />
     <Compile Include="LoginCtrl.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -220,7 +228,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessLogicLayer\" />
+    <Folder Include="BusinessLogicLayer\QuanLyHocTap\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
