@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace QuanLyNhaTre.DataAccessLayer
 {
     class QuanLyHocTapDAL
-    {        
-        private DataConnection connection = new DataConnection();
+    {
+        private DataConnection connection = DataConnection.getInstance();
 
         //Lấy danh sách điểm danh
         public DataTable LayDanhSachDiemDanh(int maKeHoach)

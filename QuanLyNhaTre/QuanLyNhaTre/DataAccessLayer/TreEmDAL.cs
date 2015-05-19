@@ -8,7 +8,7 @@ namespace QuanLyNhaTre.DataAccessLayer
 {
     class TreEmDAL
     {
-        private DataConnection dt_con = new DataConnection();
+        private DataConnection dt_con = DataConnection.getInstance();
         public bool  ThemTreEm(string maPhuHuynh, string hoTen, string tenThanMat, string gioiTinh, string ngaySinh,
             string danToc, string tonGiao, string doiTuongUuTien, string tinhCach, string thoiQuen, string maHoSoTreEm)
         {

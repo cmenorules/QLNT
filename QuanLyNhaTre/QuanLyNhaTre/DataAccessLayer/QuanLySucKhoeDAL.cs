@@ -10,7 +10,7 @@ namespace QuanLyNhaTre.DataAccessLayer
 {
     class QuanLySucKhoeDAL
     {
-        DataConnection _connection = new DataConnection();
+        DataConnection _connection = DataConnection.getInstance();
 
         public DataTable LayDanhSachMaTreEm(int lop)
         {

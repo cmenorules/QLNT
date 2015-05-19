@@ -9,7 +9,7 @@ namespace QuanLyNhaTre.DataAccessLayer
 {
     class QuanLyNhanVienDAL
     {
-        private DataConnection _connection = new DataConnection();
+        private DataConnection _connection = DataConnection.getInstance();
         
         public void ThemNhanVien(string hoten, string email)
         {

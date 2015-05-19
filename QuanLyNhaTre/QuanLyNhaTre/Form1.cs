@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,20 @@ namespace QuanLyNhaTre
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void hướngDẫnToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void DangXuatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var dangNhap = new QuanLyHeThong.DangNhap();
+            dangNhap.Closed += (s, args) => this.Close();
+            dangNhap.Show();
+        }       
     }
 }

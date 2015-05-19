@@ -9,7 +9,7 @@ namespace QuanLyNhaTre.DataAccessLayer
 {
     class QuanLyBaoCaoDAL
     {
-        DataConnection data_connection = new DataConnection();
+        DataConnection data_connection = DataConnection.getInstance();
 
         public DataTable LayNgayDiHoc(int maHocSinh)
         {
