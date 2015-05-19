@@ -56,10 +56,10 @@ namespace QuanLyNhaTre.DataAccessLayer
             "join KHOI on CHUONGTRINHHOC.MaKhoi="+ khoi +")";
             return _connection.Read(cmd);
        }
-        public DataTable TimPhieuSucKhoe(int thang, int nam, int khoi, int lop)
-        {
+        //public DataTable TimPhieuSucKhoe(int thang, int nam, int khoi, int lop)
+        //{
             return null;
-        }      
+        //}      
         public void XepTang(int MaPhieuSucKhoe)
         {
 
