@@ -108,6 +108,7 @@
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.button7 = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -363,6 +364,7 @@
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.groupBox2);
@@ -507,7 +509,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(164, 18);
+            this.label20.Location = new System.Drawing.Point(111, 20);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(350, 37);
             this.label20.TabIndex = 7;
@@ -515,9 +517,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(153, 513);
+            this.button2.Location = new System.Drawing.Point(118, 513);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(290, 34);
+            this.button2.Size = new System.Drawing.Size(130, 34);
             this.button2.TabIndex = 5;
             this.button2.Text = "Ghi nhận";
             this.button2.UseVisualStyleBackColor = true;
@@ -873,6 +875,15 @@
             this.tabControl1.Size = new System.Drawing.Size(582, 591);
             this.tabControl1.TabIndex = 0;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(265, 513);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(130, 34);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "Đóng";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // QuanLySucKhoe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -982,6 +993,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button7;
 
     }
 }
