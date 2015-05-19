@@ -211,9 +211,9 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(244, 23);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(40, 13);
+            this.label26.Size = new System.Drawing.Size(37, 13);
             this.label26.TabIndex = 3;
-            this.label26.Text = "Mã HS";
+            this.label26.Text = "Mã trẻ";
             // 
             // comboBox2
             // 

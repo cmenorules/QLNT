@@ -18,7 +18,7 @@ namespace QuanLyNhaTre
         {
             InitializeComponent();
 
-            this.dgvKQKham.DataSource = _sk.LayDanhSach();
+            this.dgvKQKham.DataSource = _sk.LayDanhSachPhieuSucKhoe();
         }
 
     }
