@@ -11,30 +11,39 @@ namespace QuanLyNhaTre.DataAccessLayer
     {
         private DataConnection _connection = DataConnection.getInstance();
         
-        public void ThemNhanVien(string hoten, string email)
+        public void ThemNhanVien(string hoTen, string email)
         {
-            _connection.Write("Insert into NhanVien(Hoten, Email) values ("+"'"+hoten+"','"+email+"')");
+            _connection.Write("Insert into NhanVien(Hoten, Email) values ("+"'"+hoTen+"','"+email+"')");
         }
         public void XoaNhanVien(int maNV)
         {
-            _connection.Write("Delete from NhanVien where MaNhanVien=" + maNV);
+            _connection.Write("Delete from NHANVIEN where MaNhanVien=" + maNV);
         }
-        public DataTable LayDanhSachQuyen(int maNV)
+        public DataTable LayDanhSachMaNhomNguoiDung(int maNV)
         {
-            return _connection.Read("Select * from QuyenHan where MaNhanVien="+maNV);
+            return _connection.Read("Select MaNhomNguoiDung from QUYENHAN where MaNhanVien="+maNV);
         }
-        public void ThemQuyenHan(int maNV, int MaNhomNguoiDung)
+        public void ThemQuyenHan(int maNV, int maNhomNguoiDung)
         {
-            _connection.Write("Insert into QuyenHan * values (" + maNV + "," + MaNhomNguoiDung + ")");
+            _connection.Write("Insert into QUYENHAN * values (" + maNV + "," + maNhomNguoiDung + ")");
         }
-        public void ThayDoiQuyenHan(int maNV, int MaNhomNguoiDung)
+        public void ThayDoiQuyenHan(int maNV, int maNhomNguoiDung)
         {
-            _connection.Write("Update QuyenHan set MaNhomNguoiDung= " + MaNhomNguoiDung+" where NhanVien= "+ maNV);
+            _connection.Write("Update QUYENHAN set MaNhomNguoiDung= " + maNhomNguoiDung+" where NhanVien= "+ maNV);
         }
-        public void XoaQuyenHan(int maNV, int MaNhomNguoiDung)
+        public void XoaQuyenHan(int maNV, int maNhomNguoiDung)
         {
-            _connection.Write("Delete from QuyenHan where MaNhanVien="+maNV+", MaNhomNguoiDung="+ MaNhomNguoiDung);
+            _connection.Write("Delete from QUYENHAN where MaNhanVien="+maNV+" and MaNhomNguoiDung="+ maNhomNguoiDung);
         }
+        public void XoaQuyenHan(int maNV)
+        {
+            _connection.Write("Delete from QUYENHAN where MaNhanVien=" + maNV);
+        }
+        public DataTable LayDanhSachNhomNguoiDung()
+        {
+            return _connection.Read("Select TenNhomNguoiDung from NHOMNGUOIDUNG");
+        }
+        
        
     }
 }
