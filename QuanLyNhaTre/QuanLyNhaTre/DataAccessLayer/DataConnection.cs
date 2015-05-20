@@ -57,7 +57,7 @@ namespace QuanLyNhaTre.DataAccessLayer
             SqlConnection sql_con = OpenConnnection();
             SqlCommand sql_cmd = new SqlCommand(sql_query, sql_con);            
             sql_cmd.ExecuteNonQuery();
-            sql_cmd.Dispose();
+            sql_cmd.Dispose(); 
         }
     }
 }
