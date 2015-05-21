@@ -124,6 +124,21 @@ namespace QuanLyNhaTre.DataAccessLayer
             connection.Write(string.Format(sql, maDangKi, hoatDong, ngayThang, danhGia));
             return true;
         }
+
+
+        //láy các kế hoạch haingr dạy
+        public DataTable LayKeHoachGiangDay(string namHoc)
+        {
+            string sql = "select MaKeHoach, NamHoc, HocKy, NHANVIEN.HoTen, PHONGHOC.TenPhong, KHOI.TenKhoi,CHUONGTRINHHOC.MaChuongTrinh from KEHOACHGIANGDAY, NHANVIEN, PHONGHOC, KHOI, CHUONGTRINHHOC where KEHOACHGIANGDAY.MaNhanVien = NHANVIEN.MaNhanVien and KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and KEHOACHGIANGDAY.MaPhong = PHONGHOC.MaPhong  and KEHOACHGIANGDAY.NamHoc = " + namHoc;
+            return connection.Read(sql);
+        }
+
+        //xóa kế hoạch giảng dạy
+        public bool XoaKeHoachGiangDay(string maKeHoach)
+        {
+            connection.Write("delete from KEHOACHGIANGDAY where MaKeHoach = " + maKeHoach);
+            return true;
+        }
         
     }
 }

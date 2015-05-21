@@ -96,6 +96,16 @@ namespace QuanLyNhaTre.BusinessLogicLayer
         {
             return dal.LayDanhSachGiaoVien();
         }
+        //lấy danh sách kế hoạch gaingr dạy
+        public DataTable LayDanhSachKeHoachGiangDay(string namHoc)
+        {
+            return dal.LayKeHoachGiangDay(namHoc);
+        }
+        //xoa ke hoach giang day
+        public void XoaKeHoachGiangDay(string maKeHoach)
+        {
+            dal.XoaKeHoachGiangDay(maKeHoach);
+        }
         
     }
 }

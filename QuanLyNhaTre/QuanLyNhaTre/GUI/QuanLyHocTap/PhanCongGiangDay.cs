@@ -21,6 +21,7 @@ namespace QuanLyNhaTre.QuanLyHocTap
         private void PhanCongGiangDay_Load(object sender, EventArgs e)
         {
             txt_namHoc.Text = DateTime.Now.Year.ToString();
+            dtg_danhSach.DataSource = bll.LayDanhSachKeHoachGiangDay(DateTime.Now.Year.ToString());
             cb_khoi.SelectedIndex = 0;
             cb_phongHoc.DataSource = bll.LayDanhSachPhongHoc();
             cb_phongHoc.DisplayMember = "TenPhong";
@@ -38,6 +39,8 @@ namespace QuanLyNhaTre.QuanLyHocTap
             cb_giaoVien.ValueMember = "MaNhanVien";
             //this.cb_namHoc.Items
             cb_hocKi.SelectedIndex = 0;
+
+
         }
 
         private void cb_khoi_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,6 +69,25 @@ namespace QuanLyNhaTre.QuanLyHocTap
               int maPhong = int.Parse(cb_phongHoc.SelectedValue.ToString());
               bll.PhanCongGiangDay(nam, hocKi, maGv, maPhong, cth);
               MessageBox.Show("Done!");
+        }
+
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+            if (dtg_danhSach.SelectedRows.Count > 0)
+            {
+                bll.XoaKeHoachGiangDay(dtg_danhSach.SelectedRows[0].Cells[0].Value.ToString());
+                this.dtg_danhSach.Rows.Remove(dtg_danhSach.SelectedRows[0]);
+                MessageBox.Show("Xong!");   
+            }
+            else
+            {
+                MessageBox.Show("Bạn phải chọn một hàng");
+            }
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            dtg_danhSach.DataSource = bll.LayDanhSachKeHoachGiangDay(DateTime.Now.Year.ToString());
         }
     }
 }
