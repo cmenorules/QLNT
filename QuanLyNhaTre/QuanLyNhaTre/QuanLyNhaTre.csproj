@@ -93,6 +93,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\QuanLyHocTapBLL.cs" />
+    <Compile Include="BusinessLogicLayer\QuanLyNhanVienBLL.cs" />
+    <Compile Include="BusinessLogicLayer\QuanLySucKhoeBLL.cs" />
+    <Compile Include="BusinessLogicLayer\TimetableItem.cs" />
     <Compile Include="DataAccessLayer\DangNhapDAL.cs" />
     <Compile Include="DataAccessLayer\DAO.cs" />
     <Compile Include="DataAccessLayer\DataConnection.cs" />
@@ -142,28 +146,28 @@
     <Compile Include="QuanLyHeThong\ThietLapHeThong.Designer.cs">
       <DependentUpon>ThietLapHeThong.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyHocTap\GhiNhanKetQua.cs">
+    <Compile Include="GUI\QuanLyHocTap\GhiNhanKetQua.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLyHocTap\GhiNhanKetQua.Designer.cs">
+    <Compile Include="GUI\QuanLyHocTap\GhiNhanKetQua.Designer.cs">
       <DependentUpon>GhiNhanKetQua.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyHocTap\PhanCongGiangDay.cs">
+    <Compile Include="GUI\QuanLyHocTap\PhanCongGiangDay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLyHocTap\PhanCongGiangDay.Designer.cs">
+    <Compile Include="GUI\QuanLyHocTap\PhanCongGiangDay.Designer.cs">
       <DependentUpon>PhanCongGiangDay.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyHocTap\QuanLyDiemDanh.cs">
+    <Compile Include="GUI\QuanLyHocTap\QuanLyDiemDanh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLyHocTap\QuanLyDiemDanh.Designer.cs">
+    <Compile Include="GUI\QuanLyHocTap\QuanLyDiemDanh.Designer.cs">
       <DependentUpon>QuanLyDiemDanh.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyHocTap\ThemChuongTrinhHoc.cs">
+    <Compile Include="GUI\QuanLyHocTap\ThemChuongTrinhHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLyHocTap\ThemChuongTrinhHoc.Designer.cs">
+    <Compile Include="GUI\QuanLyHocTap\ThemChuongTrinhHoc.Designer.cs">
       <DependentUpon>ThemChuongTrinhHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="QuanLyNhanVien.cs">
@@ -215,16 +219,16 @@
     <EmbeddedResource Include="QuanLyHeThong\ThietLapHeThong.resx">
       <DependentUpon>ThietLapHeThong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuanLyHocTap\GhiNhanKetQua.resx">
+    <EmbeddedResource Include="GUI\QuanLyHocTap\GhiNhanKetQua.resx">
       <DependentUpon>GhiNhanKetQua.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuanLyHocTap\PhanCongGiangDay.resx">
+    <EmbeddedResource Include="GUI\QuanLyHocTap\PhanCongGiangDay.resx">
       <DependentUpon>PhanCongGiangDay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuanLyHocTap\QuanLyDiemDanh.resx">
+    <EmbeddedResource Include="GUI\QuanLyHocTap\QuanLyDiemDanh.resx">
       <DependentUpon>QuanLyDiemDanh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuanLyHocTap\ThemChuongTrinhHoc.resx">
+    <EmbeddedResource Include="GUI\QuanLyHocTap\ThemChuongTrinhHoc.resx">
       <DependentUpon>ThemChuongTrinhHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyNhanVien.resx">
@@ -249,9 +253,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BusinessLogicLayer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

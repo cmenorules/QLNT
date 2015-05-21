@@ -17,6 +17,11 @@ namespace QuanLyNhaTre.DataAccessLayer
             //cai nay lam de test, khoi cho setup tren form
             //_connection.SetupConnection("THAOHO\\INSTANCE1","QuanLyNhaTre");
         }
+
+        public QuanLyNhanVienDAL()
+        {
+            // TODO: Complete member initialization
+        }
         public DataTable LayMaNhanVien()
         {
             return _connection.Read("Select MaNhanVien from NHANVIEN");

@@ -11,11 +11,7 @@ namespace QuanLyNhaTre.BusinessLogicLayer
 
     class QuanLyHocTapBLL
     {
-        private QuanLyHocTapDAL dal;
-
-
-
-
+        private QuanLyHocTapDAL dal = new QuanLyHocTapDAL();
         //thêm một chương trình học
         public void SoanChuongTrinhHoc(string khoi, string ngayApDung, string ghiChu,List<TimetableItem> items)
         {
@@ -75,19 +71,31 @@ namespace QuanLyNhaTre.BusinessLogicLayer
                 }
             }
         }
-
         //Ghi nhận kết quả học tập
         public void GhiNhanKetQuaHocTap(int maKeHoach, string thechat, string nhanthuc, string nangkhieu, string ngonngu, string quanhe, string bengoan)
         {
 
         }
-
         //Ghi nhận hành vi lạ
         public void GhiNhanHanhViLa(string maDangKi, string hoatDong, string ngayThang, string danhGia)
         {
             dal.GhiNhanHanhViLa(maDangKi, hoatDong, ngayThang, danhGia);
         }
-
+        //Lấy danh sách phòng học
+        public DataTable LayDanhSachPhongHoc()
+        {
+            return dal.LayDanhSachPhongHoc();
+        }
+        //lấy danh sách chương trình học
+        public DataTable LayDanhSachChuongTrinhHoc(int khoi)
+        {
+            return dal.LayDanhSachChuongTrinhHoc(khoi);
+        }
+        //lấy danh sách giáo vien trong he thogno
+        public DataTable LayDanhSachGiaoVien()
+        {
+            return dal.LayDanhSachGiaoVien();
+        }
         
     }
 }

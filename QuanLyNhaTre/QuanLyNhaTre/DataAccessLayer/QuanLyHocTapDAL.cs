@@ -39,13 +39,13 @@ namespace QuanLyNhaTre.DataAccessLayer
         public int TaoChuongTrinhHocMoi(string khoi, string ngayApdung, string ghiChu)
         {
             connection.Write("insert into CHUONGTRINHHOC values('"+ngayApdung+"',"+khoi+",'"+ghiChu+"')");
-            return int.Parse(connection.Read("SELECT IDENT_CURRENT('PHONGHOC') as ID").Rows[0]["ID"].ToString());
+            return int.Parse(connection.Read("SELECT IDENT_CURRENT('CHUONGTRINHHOC') as ID").Rows[0]["ID"].ToString());
         }
 
         //them thời khóa biểu vào chương trình học
         public bool ThemThoiKhoaBieu(string maChuongTrinh, string hoatDong, string buoi, string tuan)
         {
-            connection.Write("insert into THOIKHOABIEU values("+maChuongTrinh+",'"+hoatDong+"','"+buoi+"',"+tuan+")");
+            connection.Write("insert into THOIKHOABIEU values("+maChuongTrinh+",N'"+hoatDong+"','"+buoi+"',"+tuan+")");
             return true;
         }
 
@@ -70,7 +70,7 @@ namespace QuanLyNhaTre.DataAccessLayer
         //Lấy danh sách các giáo viên
         public DataTable LayDanhSachGiaoVien()
         {
-            return connection.Read("select MaNhanVien,HoTen,Email from NHANVIEN where MaNhanVien in (select QUYENHAN.MaNhanVien from QUYENHAN where QUYENHAN.MaNhomNguoiDung = 1)");
+            return connection.Read("select MaNhanVien,HoTen,Email from NHANVIEN where MaNhanVien in (select QUYENHAN.MaNhanVien from QUYENHAN where QUYENHAN.MaNhomNguoiDung = 8)");
         }
 
         //Thêm phòng học vào hệ thống
