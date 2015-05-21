@@ -38,7 +38,7 @@ namespace QuanLyNhaTre.DataAccessLayer
             return false;
         }
 
-        public void NhapThongTinTruong(string ten, string diaChi, string email, int sdt)
+        public void NhapThongTinTruong(string ten, string diaChi, string email, long sdt)
         {
             string sql_query = "insert into THONGTINNHATRE values (N'" + ten + "', N'" + diaChi + "', '" + email + "', " + sdt + ")";
             dtCon.Write(sql_query);
@@ -50,8 +50,17 @@ namespace QuanLyNhaTre.DataAccessLayer
             sql_query = "insert into KHOI values (N'Lá')";
             dtCon.Write(sql_query);
 
-            for (int i = 1; i < 10; i++ )
+            for (int i = 1; i < 10; i++)
                 dtCon.Write("insert into PHONGHOC values ('" + i + "')");
+
+            dtCon.Write("insert into NHOMNGUOIDUNG values (1,N'Hiệu trưởng')");
+            dtCon.Write("insert into NHOMNGUOIDUNG values (2,N'Hiệu phó chuyên môn')");
+            dtCon.Write("insert into NHOMNGUOIDUNG values (3,N'Hiệu phó bán trú')");
+            dtCon.Write("insert into NHOMNGUOIDUNG values (4,N'Kế toán')");
+            dtCon.Write("insert into NHOMNGUOIDUNG values (5,N'Văn thư')");
+            dtCon.Write("insert into NHOMNGUOIDUNG values (6,N'Nhân viên cấp dưỡng')");
+            dtCon.Write("insert into NHOMNGUOIDUNG values (7,N'Nhân viên y tế')");
+            dtCon.Write("insert into NHOMNGUOIDUNG values (8,N'Giáo viên')");
         }
 
         public void ThietLapTaiKhoanQuanTri(string ten, string email, string matKhau)

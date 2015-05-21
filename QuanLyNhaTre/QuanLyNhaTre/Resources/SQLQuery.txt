@@ -7,7 +7,7 @@ create table CHITIETPHIEUDIEMDANH(MaPhieuDiemDanh int not null,MaTre int not nul
 create table KHOI(MaKhoi int not null identity primary key,TenKhoi nvarchar(5))
 create table THOIKHOABIEU(MaThoiKhoaBieu int not null identity primary key,MaChuongTrinh int,HoatDong nvarchar(100),Buoi int,Tuan int)
 create table QUYDINH(MaQuyDinh int not null identity primary key,NoiDung nvarchar(50))
-create table THONGTINNHATRE(TenNhaTre nvarchar(50),Email nvarchar(50) unique,DiaChi nvarchar(50),SoDienThoai int)
+create table THONGTINNHATRE(TenNhaTre nvarchar(50),Email nvarchar(50) unique,DiaChi nvarchar(50),sodienthoai char(11))
 create table NHANVIEN(MaNhanVien int not null identity primary key,HoTen nvarchar(50),Email nvarchar(50),MatKhau nvarchar(50))
 create table QUYENHAN(MaNhomNguoiDung int not null,MaNhanVien int not null)
 create table NHOMNGUOIDUNG(MaNhomNguoiDung int not null primary key,TenNhomNguoiDung nvarchar(50))

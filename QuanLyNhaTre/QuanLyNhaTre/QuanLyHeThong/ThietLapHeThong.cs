@@ -24,7 +24,7 @@ namespace QuanLyNhaTre.QuanLyHeThong
             ThietLapHeThongDAL setting = new ThietLapHeThongDAL(txtDuongDan.Text, txtDatabaseName.Text.Replace(" ", ""));
             if (setting.TaoDatabase())
             {
-                setting.NhapThongTinTruong(txtTenTruong.Text, txtDiaChiTruong.Text, txtEmailTruong.Text, Int32.Parse(txtSDTTruong.Text));
+                setting.NhapThongTinTruong(txtTenTruong.Text, txtDiaChiTruong.Text, txtEmailTruong.Text, Int64.Parse(txtSDTTruong.Text));
                 setting.ThietLapTaiKhoanQuanTri(txtTenNQT.Text, txtEmailNQT.Text, txtMatKhauNQT.Text);
 
                 string content = txtDuongDan.Text + "\r\n" + txtDatabaseName.Text.Replace(" ", "");
