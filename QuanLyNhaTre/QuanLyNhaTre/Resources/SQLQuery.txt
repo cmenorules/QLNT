@@ -14,7 +14,7 @@ create table NHOMNGUOIDUNG(MaNhomNguoiDung int not null primary key,TenNhomNguoi
 create table NHOMCHUCNANG(MaNhomNguoiDung int not null,MaChucNang int not null)
 create table CHUCNANG(MaChucNang int not null identity primary key,TenChucNang nvarchar(50))
 create table DANGKYHOC(MaDangKy int not null identity primary key,MaKeHoach int,MaTre int,SoThuTu int)
-create table TREEM(MaTre int not null primary key,HoTen nvarchar(50),TenThanMat nvarchar(20),GioiTinh nvarchar(10),NgaySinh datetime,DanToc nvarchar(10),TonGiao nvarchar(10),DoiTuongUuTien int,TinhCach nvarchar(50),ThoiQuen nvarchar(50),MaHoSoTreEm int)
+create table TREEM(MaTre int not null primary key,HoTen nvarchar(50),TenThanMat nvarchar(20), GioiTinh nvarchar(10),NgaySinh datetime,DanToc nvarchar(10),TonGiao nvarchar(10),DoiTuongUuTien int,TinhCach nvarchar(50),ThoiQuen nvarchar(50),MaHoSoTreEm int)
 create table HOSOTREEM(MaHoSoTreEm int not null primary key,HoTenCha nvarchar(50),HoTenMe nvarchar(50),HoTenNguoiGiamHo nvarchar(50),EmailNguoiGiamHo nvarchar(50),SoDienThoaiNguoiGiamHo int,DiaChi nvarchar(50))
 create table PHIEUSUCKHOE(MaPhieuSucKhoe int not null identity primary key,NgayKham datetime,ChieuCao int,CanNang int,DaLieu nvarchar(50),TaiMuiHong nvarchar(50),RangHamMat nvarchar(50),HoHap nvarchar(50),MaDangKy int)
 create table PHIEUHOATDONG(MaPhieuHoatDong int not null identity primary key,HoatDong nvarchar(100),Ngay datetime,DanhGia nvarchar(100),MaDangKy int)
