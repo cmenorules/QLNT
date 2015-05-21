@@ -10,7 +10,7 @@ create table QUYDINH(MaQuyDinh int not null identity primary key,NoiDung nvarcha
 create table THONGTINNHATRE(TenNhaTre nvarchar(50),Email nvarchar(50) unique,DiaChi nvarchar(50),SoDienThoai int)
 create table NHANVIEN(MaNhanVien int not null identity primary key,HoTen nvarchar(50),Email nvarchar(50),MatKhau nvarchar(20))
 create table QUYENHAN(MaNhomNguoiDung int not null,MaNhanVien int not null)
-create table NHOMNGUOIDUNG(MaNhomNguoiDung int not null identity primary key,TenNhomNguoiDung nvarchar(20))
+create table NHOMNGUOIDUNG(MaNhomNguoiDung int not null identity primary key,TenNhomNguoiDung nvarchar(50))
 create table NHOMCHUCNANG(MaNhomNguoiDung int not null,MaChucNang int not null)
 create table CHUCNANG(MaChucNang int not null identity primary key,TenChucNang nvarchar(30))
 create table DANGKYHOC(MaDangKy int not null identity primary key,MaKeHoach int,MaTre int,SoThuTu int)
