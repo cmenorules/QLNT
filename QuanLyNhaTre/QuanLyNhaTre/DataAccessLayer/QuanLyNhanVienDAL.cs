@@ -10,11 +10,12 @@ namespace QuanLyNhaTre.DataAccessLayer
     class QuanLyNhanVienDAL
     {
         private DataConnection _connection = DataConnection.getInstance();
-        
-        public QuanLyNhanVienDAL()
+
+        public QuanLyNhanVienDAL(DataConnection _connection)
         {
+            
             //cai nay lam de test, khoi cho setup tren form
-            _connection.SetupConnection("THAOHO\\INSTANCE1","QuanLyNhaTre");
+            //_connection.SetupConnection("THAOHO\\INSTANCE1","QuanLyNhaTre");
         }
         public DataTable LayMaNhanVien()
         {
