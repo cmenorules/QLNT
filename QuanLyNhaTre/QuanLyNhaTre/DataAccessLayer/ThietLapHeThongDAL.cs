@@ -40,20 +40,23 @@ namespace QuanLyNhaTre.DataAccessLayer
 
         public void NhapThongTinTruong(string ten, string diaChi, string email, int sdt)
         {
-            string sql_query = "insert into THONGTINNHATRE values ('" + ten + "', '" + diaChi + "', '" + email + "', " + sdt + ")";
+            string sql_query = "insert into THONGTINNHATRE values (N'" + ten + "', N'" + diaChi + "', '" + email + "', " + sdt + ")";
             dtCon.Write(sql_query);
 
-            sql_query = "insert into KHOI values ('Mầm')";
+            sql_query = "insert into KHOI values (N'Mầm')";
             dtCon.Write(sql_query);
-            sql_query = "insert into KHOI values ('Chồi')";
+            sql_query = "insert into KHOI values (N'Chồi')";
             dtCon.Write(sql_query);
-            sql_query = "insert into KHOI values ('Lá')";
+            sql_query = "insert into KHOI values (N'Lá')";
             dtCon.Write(sql_query);
+
+            for (int i = 1; i < 10; i++ )
+                dtCon.Write("insert into PHONGHOC values ('" + i + "')");
         }
 
         public void ThietLapTaiKhoanQuanTri(string ten, string email, string matKhau)
         {
-            string sql_query = "insert into NHANVIEN values ('" + ten + "', '" + email + "', '" + matKhau + "')";
+            string sql_query = "insert into NHANVIEN values (N'" + ten + "', '" + email + "', '" + matKhau + "')";
             dtCon.Write(sql_query);
         }
     }

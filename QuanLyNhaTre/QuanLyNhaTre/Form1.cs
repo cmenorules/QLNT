@@ -30,6 +30,20 @@ namespace QuanLyNhaTre
             var dangNhap = new QuanLyHeThong.DangNhap();
             dangNhap.Closed += (s, args) => this.Close();
             dangNhap.Show();
-        }       
+        }
+     
+        private void NhapHocToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTreEm.QuanLyNhapHoc qlte = new QuanLyTreEm.QuanLyNhapHoc();
+            qlte.Show();
+        }
+
+        private void SuaThongTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTreEm.QuanLyCapNhat qlte = new QuanLyTreEm.QuanLyCapNhat();
+            qlte.Show();
+        }
+
+        
     }
 }
