@@ -38,14 +38,14 @@ namespace QuanLyNhaTre.DataAccessLayer
         //tạo một chương trình học
         public int TaoChuongTrinhHocMoi(string khoi, string ngayApdung, string ghiChu)
         {
-            connection.Write("insert into CHUONGTRINHHOC values('"+ngayApdung+"',"+khoi+",'"+ghiChu+"')");
+            connection.Write("insert into CHUONGTRINHHOC values('"+ngayApdung+"',"+khoi+","+ghiChu+"')");
             return int.Parse(connection.Read("SELECT IDENT_CURRENT('CHUONGTRINHHOC') as ID").Rows[0]["ID"].ToString());
         }
 
         //them thời khóa biểu vào chương trình học
         public bool ThemThoiKhoaBieu(string maChuongTrinh, string hoatDong, string buoi, string tuan)
         {
-            connection.Write("insert into THOIKHOABIEU values("+maChuongTrinh+",N'"+hoatDong+"','"+buoi+"',"+tuan+")");
+            connection.Write("insert into THOIKHOABIEU values("+maChuongTrinh+",N'"+hoatDong+"',"+buoi+"',"+tuan+")");
             return true;
         }
 
@@ -84,7 +84,7 @@ namespace QuanLyNhaTre.DataAccessLayer
         public int TaoBangDiemDanh(string MaKeHoach, string thu, int tuan, string ngayThang)
         {
 
-            connection.Write("insert into PHIEUDIEMDANH values("+MaKeHoach+",'"+thu+"',"+tuan+",'"+ngayThang+"')");
+            connection.Write("insert into PHIEUDIEMDANH values("+MaKeHoach+","+thu+"',"+tuan+","+ngayThang+"')");
             return int.Parse(connection.Read("SELECT IDENT_CURRENT('PHONGHOC') as ID").Rows[0]["ID"].ToString());
         }
 
@@ -112,7 +112,7 @@ namespace QuanLyNhaTre.DataAccessLayer
         //lưu kết quả học tập
         public bool LuuKetQuaHocTap(int maKeHoach, string thechat,string nhanthuc, string nangkhieu, string ngonngu,string quanhe, string bengoan)
         {
-            string sql = "insert into PHIEUTONGKET values({0},'{1}','{2}','{3}','{4}','{5}','{6}')";
+            string sql = "insert into PHIEUTONGKET values({0},{1}',{2}',{3}',{4}',{5}',{6}')";
             connection.Write(string.Format(sql, maKeHoach, thechat, nhanthuc, nangkhieu, ngonngu, quanhe, bengoan));
             return true;
         }
@@ -120,7 +120,7 @@ namespace QuanLyNhaTre.DataAccessLayer
         //ghi nhận các hành vi lạ
         public bool GhiNhanHanhViLa(string maDangKi,string hoatDong, string ngayThang, string danhGia)
         {
-            string sql = "insert into PHIEUHOATDONG values({0},'{1}','{2}','{3}')";
+            string sql = "insert into PHIEUHOATDONG values({0},{1}',{2}',{3}')";
             connection.Write(string.Format(sql, maDangKi, hoatDong, ngayThang, danhGia));
             return true;
         }

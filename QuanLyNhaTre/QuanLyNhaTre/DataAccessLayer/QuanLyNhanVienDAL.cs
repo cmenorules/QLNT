@@ -28,7 +28,7 @@ namespace QuanLyNhaTre.DataAccessLayer
         }
         public void ThemNhanVien(string hoTen, string email, string matKhau)
         {
-            _connection.Write("Insert into NhanVien(Hoten, Email, MatKhau) values (N'"+hoTen+"',N'"+email+"','"+matKhau+"')");
+            _connection.Write("Insert into NhanVien(Hoten, Email, MatKhau) values (N'"+hoTen+"',N'"+email+"',"+matKhau+"')");
         }
         public void XoaNhanVien(int maNV)
         {

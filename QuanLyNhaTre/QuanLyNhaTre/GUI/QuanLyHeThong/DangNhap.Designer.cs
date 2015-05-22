@@ -42,7 +42,7 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(202, 20);
-            this.txtMatKhau.TabIndex = 0;
+            this.txtMatKhau.TabIndex = 1;
             // 
             // txtEmail
             // 
@@ -84,7 +84,7 @@
             this.btnHuy.Location = new System.Drawing.Point(241, 102);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 2;
+            this.btnHuy.TabIndex = 3;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);

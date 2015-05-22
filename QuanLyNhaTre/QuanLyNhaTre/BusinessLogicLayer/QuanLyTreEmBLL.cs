@@ -47,5 +47,26 @@ namespace QuanLyNhaTre.BusinessLogicLayer
         {
             return quanLyTreEmDAL.LayKeHoachGiangDay(khoi, namHoc);
         }
+
+        public DataTable LayThongTinTreEm(int maTre)
+        {
+            return quanLyTreEmDAL.LayThongTinTre(maTre);
+        }
+
+        public DataTable LayThongTinHoSoTreEm(int maHoSo)
+        {
+            return quanLyTreEmDAL.LayThongTinHoSoTre(maHoSo);
+        }
+
+        public void CapNhatThongTinTre(int maTre, string hoTen, string tenThanMat, string gioiTinh, string ngaySinh,
+            string danToc, string tonGiao, int doiTuongUuTien, string tinhCach, string thoiQuen)
+        {
+            quanLyTreEmDAL.CapNhatThongTinTre(maTre, hoTen, tenThanMat, gioiTinh, ngaySinh, danToc, tonGiao, doiTuongUuTien, tinhCach, thoiQuen);
+        }
+
+        public void CapNhatThongTinHoSo(int maHoSo, string hoTenCha, string hoTenMe, string hoTenNguoiGiamHo, string emailNguoiGiamHo, int soDienThoaiNguoiGiamHo, string DiaChi)
+        {
+            quanLyTreEmDAL.CapNhatThongTinHoSo(maHoSo, hoTenCha, hoTenMe, hoTenNguoiGiamHo, emailNguoiGiamHo, soDienThoaiNguoiGiamHo, DiaChi);
+        }
     }
 }
