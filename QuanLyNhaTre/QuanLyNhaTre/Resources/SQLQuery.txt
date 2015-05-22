@@ -1,4 +1,4 @@
-create table KEHOACHGIANGDAY (MaKeHoach int not null identity primary key, NamHoc int not null, HocKy int not null, MaNhanVien int not null, MaPhong int not null, MaChuongTrinh int not null)
+create table KEHOACHGIANGDAY (MaKeHoach int not null primary key, NamHoc int not null, HocKy int not null, MaNhanVien int not null, MaPhong int not null, MaChuongTrinh int not null)
 create table PHONGHOC (MaPhong int not null identity primary key, TenPhong nvarchar(5))
 create table CHUONGTRINHHOC (MaChuongTrinh int not null identity primary key, NgayApDung datetime, MaKhoi int, GhiChu nvarchar(100))
 create table DINHDUONG (MaDinhDuong int not null identity primary key, MaKeHoach int not null,Buoi int,Thu nvarchar(10),Tuan int,NgayThangNam datetime,MonChinh nvarchar(50),MonCanh nvarchar(50),MonPhu nvarchar(50),MonTrangMieng nvarchar(50))

@@ -32,13 +32,13 @@ namespace QuanLyNhaTre.DataAccessLayer
 
         public DataTable LayKeHoachGiangDay(int khoi, int namHoc)
         {
-            string sqlQuery = "select MakeHoach from KEHOACHGIANGDAY, CHUONGTRINHHOC, KHOI where KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and KEHOACHGIANGDAY.NamHoc = '" + namHoc + "'";
+            string sqlQuery = "select MakeHoach from KEHOACHGIANGDAY, CHUONGTRINHHOC, KHOI where KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and KEHOACHGIANGDAY.NamHoc = '" + namHoc + "' and CHUONGTRINHHOC.MaKhoi =" + khoi;
             return dt_con.Read(sqlQuery);            
         }
 
         public void DangKyHoc(int lop, int khoi, int namHoc)
         {
-            dt_con.Write("insert into DANGKYHOC values ('" + lop + "','" + maTreEm + "','"+ TaoSoThuTu() + 1 + "')");
+            dt_con.Write("insert into DANGKYHOC values ('" + lop + "','" + maTreEm + "','"+ TaoSoThuTu() + "')");
         }
 
         private int TaoSoThuTu()
@@ -65,7 +65,8 @@ namespace QuanLyNhaTre.DataAccessLayer
         public DataTable LayDanhSachTre(int khoi, int lop)
         {
             DataTable dt = dt_con.Read("select TREEM.MaTre, TREEM.HoTen from TREEM, DANGKYHOC, KEHOACHGIANGDAY, CHUONGTRINHHOC" +
-            "where CHUONGTRINHHOC.MaKhoi =" + khoi + "and KEHOACHGIANGDAY.MaKeHoach = " + lop);
+            " where CHUONGTRINHHOC.MaKhoi =" + khoi + " and KEHOACHGIANGDAY.MaKeHoach = " + lop + 
+            " and CHUONGTRINHHOC.MaChuongTrinh = KEHOACHGIANGDAY.MaChuongTrinh and DANGKYHOC.MaKeHoach = KEHOACHGIANGDAY.MaKeHoach and TREEM.MaTre = DANGKYHOC.MaTre");
             return dt;
         }
     }

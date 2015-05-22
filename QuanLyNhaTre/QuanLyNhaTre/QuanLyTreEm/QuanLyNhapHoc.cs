@@ -29,7 +29,7 @@ namespace QuanLyNhaTre.QuanLyTreEm
             quanLyTreEmBLL.ThemTreEm(txtHoTen.Text, txtNickName.Text, txtGioiTinh.Text, txtNgaySinh.Text, txtDanToc.Text, txtTonGiao.Text, Int32.Parse(txtUuTien.Text), txtTinhCach.Text, txtThoiQuen.Text);
             soTreDaThem++;
             lbTinhTrang.Text = "Đã thêm " + soTreDaThem + " trẻ";
-            quanLyTreEmBLL.DangKyHoc(cbLop.SelectedIndex + 1, cbKhoi.SelectedIndex, Int32.Parse(txtNamHoc.Text));
+            quanLyTreEmBLL.DangKyHoc(Int32.Parse(cbLop.Text), cbKhoi.SelectedIndex, Int32.Parse(txtNamHoc.Text));
             Reset();
         }
 
@@ -67,7 +67,7 @@ namespace QuanLyNhaTre.QuanLyTreEm
 
         private void LoadComboBoxLop()
         {
-            cbLop.DataSource = quanLyTreEmBLL.LayKeHoachGD(cbKhoi.SelectedIndex, Int32.Parse(txtNamHoc.Text));
+            cbLop.DataSource = quanLyTreEmBLL.LayKeHoachGD(cbKhoi.SelectedIndex + 1, Int32.Parse(txtNamHoc.Text));
             cbLop.DisplayMember = "MaKeHoach";
             cbLop.ValueMember = "MaKeHoach";
         }

@@ -34,7 +34,7 @@ namespace QuanLyNhaTre
      
         private void NhapHocToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QuanLyTreEm.QuanLyNhapHoc qlte = new QuanLyTreEm.QuanLyNhapHoc();
+            QuanLyTreEm.QuanLyNhapHoc qlte = new QuanLyTreEm.QuanLyNhapHoc();            
             qlte.Show();
         }
 
