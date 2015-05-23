@@ -38,14 +38,14 @@ namespace QuanLyNhaTre.DataAccessLayer
         //tạo một chương trình học
         public int TaoChuongTrinhHocMoi(string khoi, string ngayApdung, string ghiChu)
         {
-            connection.Write("insert into CHUONGTRINHHOC values('"+ngayApdung+"',"+khoi+","+ghiChu+"')");
+            connection.Write("insert into CHUONGTRINHHOC values('"+ngayApdung+"',"+khoi+",'"+ghiChu+"')");
             return int.Parse(connection.Read("SELECT IDENT_CURRENT('CHUONGTRINHHOC') as ID").Rows[0]["ID"].ToString());
         }
 
         //them thời khóa biểu vào chương trình học
         public bool ThemThoiKhoaBieu(string maChuongTrinh, string hoatDong, string buoi, string tuan)
         {
-            connection.Write("insert into THOIKHOABIEU values("+maChuongTrinh+",N'"+hoatDong+"',"+buoi+"',"+tuan+")");
+            connection.Write("insert into THOIKHOABIEU values("+maChuongTrinh+",N'"+hoatDong+"',"+buoi+","+tuan+")");
             return true;
         }
 

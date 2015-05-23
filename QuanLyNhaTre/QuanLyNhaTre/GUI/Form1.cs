@@ -44,6 +44,12 @@ namespace QuanLyNhaTre
             qlte.Show();
         }
 
+        private void điểmDanhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyHocTap.QuanLyDiemDanh fm = new QuanLyHocTap.QuanLyDiemDanh();
+            fm.ShowDialog();
+        }
+
         
     }
 }

@@ -38,6 +38,7 @@ namespace QuanLyNhaTre.QuanLyHeThong
                     var form1 = new Form1();
                     form1.Closed += (s, args) => this.Close();
                     form1.Show();
+
                 }
                 else
                     MessageBox.Show("Email hoặc mật khẩu không đúng. Vui lòng nhập lại!", "Cảnh báo");

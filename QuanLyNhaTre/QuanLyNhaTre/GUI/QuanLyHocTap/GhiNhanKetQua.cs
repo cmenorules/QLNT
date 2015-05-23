@@ -16,5 +16,10 @@ namespace QuanLyNhaTre.QuanLyHocTap
         {
             InitializeComponent();
         }
+
+        private void GhiNhanKetQua_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

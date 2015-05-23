@@ -34,9 +34,11 @@ namespace QuanLyNhaTre.QuanLyHocTap
             {
                 cb_phongHoc.Text = "Không có phòng học";
             }
-            cb_giaoVien.DataSource = bll.LayDanhSachGiaoVien();
+
+            cb_giaoVien.DataSource = bll.LayDanhSachGiaoVien();            
             cb_giaoVien.DisplayMember = "HoTen";
             cb_giaoVien.ValueMember = "MaNhanVien";
+
             //this.cb_namHoc.Items
             cb_hocKi.SelectedIndex = 0;
 
@@ -67,8 +69,17 @@ namespace QuanLyNhaTre.QuanLyHocTap
               int maGv =   int.Parse(txt_maGiaoVien.Text);
               int cth = int.Parse(cb_chuongTrinhHoc.SelectedValue.ToString());
               int maPhong = int.Parse(cb_phongHoc.SelectedValue.ToString());
-              bll.PhanCongGiangDay(nam, hocKi, maGv, maPhong, cth);
-              MessageBox.Show("Done!");
+              try
+              {
+                  bll.PhanCongGiangDay(nam, hocKi, maGv, maPhong, cth);
+                  MessageBox.Show("Done!");
+              }
+              catch(Exception _e)
+              {
+                  MessageBox.Show("Nhân viên này đã được phân công!");
+              }
+              
+              
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)

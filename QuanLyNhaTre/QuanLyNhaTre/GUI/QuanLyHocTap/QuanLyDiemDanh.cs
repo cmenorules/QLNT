@@ -16,5 +16,10 @@ namespace QuanLyNhaTre.QuanLyHocTap
         {
             InitializeComponent();
         }
+
+        private void btn_dong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
