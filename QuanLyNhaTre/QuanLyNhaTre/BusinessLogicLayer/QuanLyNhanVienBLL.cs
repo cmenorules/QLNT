@@ -46,15 +46,6 @@ namespace QuanLyNhaTre.BusinessLogicLayer
             }
             return listDanhSachQuyen;
         }
-        // Cập nhật quyền han/chức vụ cua nhân viên
-        public void CapNhatQuyenHan(int maNV, int[] dsMaNhomNguoiDung)
-        {
-            _qlNhanVienDal.XoaQuyenHan(maNV);
-            foreach (int maNhomNguoiDung in dsMaNhomNguoiDung)
-            {
-                _qlNhanVienDal.ThemQuyenHan(maNV, maNhomNguoiDung);
-            }
-        }
         // Thêm quyền hạn cho nhân viên
         public void ThemQuyenHan(int maNV, int maNhomNguoiDung)
         {
@@ -69,6 +60,15 @@ namespace QuanLyNhaTre.BusinessLogicLayer
         public int SoLuongNhanVien()
         {
             return _qlNhanVienDal.LayMaNhanVien().Rows.Count;
+        }
+        // Cập nhật quyền han/chức vụ cua nhân viên
+        public void CapNhatQuyenHan(int maNV, List<int> dsMaNhomNguoiDung)
+        {
+            _qlNhanVienDal.XoaQuyenHan(maNV);
+            foreach (int maNhomNguoiDung in dsMaNhomNguoiDung)
+            {
+                _qlNhanVienDal.ThemQuyenHan(maNV, maNhomNguoiDung);
+            }
         }
     }
 }
