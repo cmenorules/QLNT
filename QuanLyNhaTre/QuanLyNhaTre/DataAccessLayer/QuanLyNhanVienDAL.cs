@@ -26,6 +26,7 @@ namespace QuanLyNhaTre.DataAccessLayer
         {
             return _connection.Read("Select MaNhanVien from NHANVIEN");
         }
+        //them nhan vien
         public void ThemNhanVien(string hoTen, string email, string matKhau)
         {
             _connection.Write("Insert into NhanVien(HoTen, Email, MatKhau) values (N'"+hoTen+"',N'"+email+"','"+matKhau+"')");
