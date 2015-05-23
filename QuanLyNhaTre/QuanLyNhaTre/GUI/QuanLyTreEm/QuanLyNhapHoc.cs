@@ -33,6 +33,7 @@ namespace QuanLyNhaTre.QuanLyTreEm
             quanLyTreEmBLL.DangKyHoc(Int32.Parse(cbLop.SelectedValue.ToString()), Int32.Parse(cbKhoi.SelectedValue.ToString()), Int32.Parse(txtNamHoc.Text));
             Reset();
             txtDanToc.Text = "Kinh";
+            txtNamHoc.Text = DateTime.Now.Year.ToString();
         }
 
         private void Reset()

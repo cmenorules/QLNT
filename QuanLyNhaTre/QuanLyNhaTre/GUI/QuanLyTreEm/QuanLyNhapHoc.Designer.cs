@@ -8,7 +8,7 @@
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Clean up any resources being used.lkadfjkjsdlfja
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbTonGiao = new System.Windows.Forms.ComboBox();
+            this.cbUuTien = new System.Windows.Forms.ComboBox();
+            this.cbGioiTinh = new System.Windows.Forms.ComboBox();
             this.txtDanToc = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -71,9 +74,6 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.lbTinhTrang = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.cbGioiTinh = new System.Windows.Forms.ComboBox();
-            this.cbUuTien = new System.Windows.Forms.ComboBox();
-            this.cbTonGiao = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -106,6 +106,52 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin học sinh";
+            // 
+            // cbTonGiao
+            // 
+            this.cbTonGiao.FormattingEnabled = true;
+            this.cbTonGiao.Items.AddRange(new object[] {
+            "Không",
+            "Phật",
+            "Thiên chúa",
+            "Kilô giáo",
+            "Ấn Độ giáo",
+            "Đạo giáo",
+            "Nho giáo",
+            "Đạo cao đài"});
+            this.cbTonGiao.Location = new System.Drawing.Point(91, 142);
+            this.cbTonGiao.Name = "cbTonGiao";
+            this.cbTonGiao.Size = new System.Drawing.Size(207, 21);
+            this.cbTonGiao.TabIndex = 4;
+            this.cbTonGiao.Text = "Không";
+            // 
+            // cbUuTien
+            // 
+            this.cbUuTien.FormattingEnabled = true;
+            this.cbUuTien.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.cbUuTien.Location = new System.Drawing.Point(417, 87);
+            this.cbUuTien.Name = "cbUuTien";
+            this.cbUuTien.Size = new System.Drawing.Size(207, 21);
+            this.cbUuTien.TabIndex = 7;
+            this.cbUuTien.Text = "1";
+            // 
+            // cbGioiTinh
+            // 
+            this.cbGioiTinh.FormattingEnabled = true;
+            this.cbGioiTinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ",
+            "N/A"});
+            this.cbGioiTinh.Location = new System.Drawing.Point(91, 87);
+            this.cbGioiTinh.Name = "cbGioiTinh";
+            this.cbGioiTinh.Size = new System.Drawing.Size(207, 21);
+            this.cbGioiTinh.TabIndex = 2;
+            this.cbGioiTinh.Text = "Nam";
             // 
             // txtDanToc
             // 
@@ -470,7 +516,7 @@
             // lbTinhTrang
             // 
             this.lbTinhTrang.AutoSize = true;
-            this.lbTinhTrang.Location = new System.Drawing.Point(728, 243);
+            this.lbTinhTrang.Location = new System.Drawing.Point(720, 224);
             this.lbTinhTrang.Name = "lbTinhTrang";
             this.lbTinhTrang.Size = new System.Drawing.Size(71, 13);
             this.lbTinhTrang.TabIndex = 20;
@@ -479,57 +525,11 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(664, 243);
+            this.label19.Location = new System.Drawing.Point(656, 224);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(58, 13);
             this.label19.TabIndex = 20;
             this.label19.Text = "Tình trạng:";
-            // 
-            // cbGioiTinh
-            // 
-            this.cbGioiTinh.FormattingEnabled = true;
-            this.cbGioiTinh.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "N/A"});
-            this.cbGioiTinh.Location = new System.Drawing.Point(91, 87);
-            this.cbGioiTinh.Name = "cbGioiTinh";
-            this.cbGioiTinh.Size = new System.Drawing.Size(207, 21);
-            this.cbGioiTinh.TabIndex = 2;
-            this.cbGioiTinh.Text = "Nam";
-            // 
-            // cbUuTien
-            // 
-            this.cbUuTien.FormattingEnabled = true;
-            this.cbUuTien.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.cbUuTien.Location = new System.Drawing.Point(417, 87);
-            this.cbUuTien.Name = "cbUuTien";
-            this.cbUuTien.Size = new System.Drawing.Size(207, 21);
-            this.cbUuTien.TabIndex = 7;
-            this.cbUuTien.Text = "1";
-            // 
-            // cbTonGiao
-            // 
-            this.cbTonGiao.FormattingEnabled = true;
-            this.cbTonGiao.Items.AddRange(new object[] {
-            "Không",
-            "Phật",
-            "Thiên chúa",
-            "Kilô giáo",
-            "Ấn Độ giáo",
-            "Đạo giáo",
-            "Nho giáo",
-            "Đạo cao đài"});
-            this.cbTonGiao.Location = new System.Drawing.Point(91, 142);
-            this.cbTonGiao.Name = "cbTonGiao";
-            this.cbTonGiao.Size = new System.Drawing.Size(207, 21);
-            this.cbTonGiao.TabIndex = 4;
-            this.cbTonGiao.Text = "Không";
             // 
             // QuanLyNhapHoc
             // 
