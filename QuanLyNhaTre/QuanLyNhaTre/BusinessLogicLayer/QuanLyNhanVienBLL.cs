@@ -12,17 +12,9 @@ namespace QuanLyNhaTre.BusinessLogicLayer
     {
         DataAccessLayer.QuanLyNhanVienDAL _qlNhanVienDal = new DataAccessLayer.QuanLyNhanVienDAL();
         // Lấy danh sách Chuc vu-còn gọi là Nhom Nguoi Dung
-        public List<string> LayDanhSachNhomNguoiDung()
+        public DataTable LayDanhSachNhomNguoiDung()
         {
-            List<string> listNhomNguoiDung= new List<string>();
-            DataTable dtNhomNguoiDung = _qlNhanVienDal.LayDanhSachNhomNguoiDung();
-            int i=0;
-            while (i < dtNhomNguoiDung.Rows.Count)
-            {
-                listNhomNguoiDung.Add(dtNhomNguoiDung.Rows[i][0].ToString());
-                i++;
-            }
-            return listNhomNguoiDung;
+            return _qlNhanVienDal.LayDanhSachNhomNguoiDung();
         }
         // Thêm một nhân viên, mật khẩu mặc định là user
         public void ThemNhanVien(string hoTen, string email, string matKhau)
