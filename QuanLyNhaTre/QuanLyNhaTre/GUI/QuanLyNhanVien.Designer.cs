@@ -32,7 +32,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtMaNhanVien = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.ckNu = new System.Windows.Forms.CheckBox();
             this.ckNam = new System.Windows.Forms.CheckBox();
             this.cbChucVu = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.txtMaNhanVienPhanQuyen = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lbNu = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -79,9 +79,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lbNu);
             this.tabPage1.Controls.Add(this.txtMaNhanVien);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.ckNu);
             this.tabPage1.Controls.Add(this.ckNam);
             this.tabPage1.Controls.Add(this.cbChucVu);
             this.tabPage1.Controls.Add(this.label1);
@@ -119,21 +119,10 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Mã nhân viên";
             // 
-            // ckNu
-            // 
-            this.ckNu.AutoSize = true;
-            this.ckNu.Location = new System.Drawing.Point(269, 220);
-            this.ckNu.Name = "ckNu";
-            this.ckNu.Size = new System.Drawing.Size(40, 17);
-            this.ckNu.TabIndex = 15;
-            this.ckNu.Text = "Nữ";
-            this.ckNu.UseVisualStyleBackColor = true;
-            this.ckNu.CheckedChanged += new System.EventHandler(this.ckNu_CheckedChanged);
-            // 
             // ckNam
             // 
             this.ckNam.AutoSize = true;
-            this.ckNam.Location = new System.Drawing.Point(188, 220);
+            this.ckNam.Location = new System.Drawing.Point(227, 220);
             this.ckNam.Name = "ckNam";
             this.ckNam.Size = new System.Drawing.Size(48, 17);
             this.ckNam.TabIndex = 4;
@@ -144,6 +133,7 @@
             // 
             // cbChucVu
             // 
+            this.cbChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChucVu.FormattingEnabled = true;
             this.cbChucVu.Location = new System.Drawing.Point(188, 193);
             this.cbChucVu.Name = "cbChucVu";
@@ -352,7 +342,7 @@
             this.btnDong.Location = new System.Drawing.Point(382, 330);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(88, 23);
-            this.btnDong.TabIndex = 16;
+            this.btnDong.TabIndex = 4;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
@@ -362,7 +352,7 @@
             this.btnCapNhat.Location = new System.Drawing.Point(288, 330);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(88, 23);
-            this.btnCapNhat.TabIndex = 16;
+            this.btnCapNhat.TabIndex = 2;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
@@ -372,7 +362,7 @@
             this.btnTimkiem.Location = new System.Drawing.Point(325, 84);
             this.btnTimkiem.Name = "btnTimkiem";
             this.btnTimkiem.Size = new System.Drawing.Size(75, 23);
-            this.btnTimkiem.TabIndex = 16;
+            this.btnTimkiem.TabIndex = 1;
             this.btnTimkiem.Text = "Tìm kiếm";
             this.btnTimkiem.UseVisualStyleBackColor = true;
             this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
@@ -382,7 +372,7 @@
             this.txtMaNhanVienPhanQuyen.Location = new System.Drawing.Point(152, 84);
             this.txtMaNhanVienPhanQuyen.Name = "txtMaNhanVienPhanQuyen";
             this.txtMaNhanVienPhanQuyen.Size = new System.Drawing.Size(135, 20);
-            this.txtMaNhanVienPhanQuyen.TabIndex = 15;
+            this.txtMaNhanVienPhanQuyen.TabIndex = 0;
             // 
             // label9
             // 
@@ -402,6 +392,15 @@
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 14;
             this.label8.Text = "Mã nhân viên";
+            // 
+            // lbNu
+            // 
+            this.lbNu.AutoSize = true;
+            this.lbNu.Location = new System.Drawing.Point(185, 220);
+            this.lbNu.Name = "lbNu";
+            this.lbNu.Size = new System.Drawing.Size(21, 13);
+            this.lbNu.TabIndex = 17;
+            this.lbNu.Text = "Nữ";
             // 
             // QuanLyNhanVien
             // 
@@ -450,12 +449,12 @@
         private System.Windows.Forms.TextBox txtMaNhanVienPhanQuyen;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox ckNu;
         private System.Windows.Forms.CheckBox ckNam;
         private System.Windows.Forms.ComboBox cbChucVu;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMaNhanVien;
+        private System.Windows.Forms.Label lbNu;
 
     }
 }

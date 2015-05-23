@@ -31,10 +31,10 @@ namespace QuanLyNhaTre
         //Lấy danh sách tất cả chức vụ trong tổ chức
         public void LoadChucVu()
         {
-            foreach(string nhomNguoiDung in _qlNhanVienBLL.LayDanhSachNhomNguoiDung())
-            {
-                cbChucVu.Items.Add(nhomNguoiDung);
-            }
+            cbChucVu.DataSource= _qlNhanVienBLL.LayDanhSachNhomNguoiDung();
+            cbChucVu.DisplayMember = "TenNhomNguoiDung";
+            cbChucVu.ValueMember = "MaNhomNguoiDung";
+            cbChucVu.SelectedIndex = 3;
         }
         //kiểm tra dữ liệu từ bàn phím
         public bool CheckInput()
@@ -43,16 +43,24 @@ namespace QuanLyNhaTre
                 return false;
             return true;
         }
+        public void SetInputtoNull()
+        {
+            txtHoten.Text = "";
+            txtEmail.Text = "";
+            cbChucVu.Text = "";
+            ckNam.Checked = false;
+            lbNu.Enabled = true;
+        }
         //xử lý sự kiện click button Thêm nhân viên
         private void btnThem_Click(object sender, EventArgs e)
-        {
+        {         
             if (CheckInput())
             {
                 try
                 {
                     _qlNhanVienBLL.ThemNhanVien(txtHoten.Text, txtEmail.Text, "user");
-                    _qlNhanVienBLL.ThemQuyenHan(int.Parse(txtMaNhanVien.Text), cbChucVu.SelectedIndex);
-                    MessageBox.Show("Them Thanh Cong!");
+                    _qlNhanVienBLL.ThemQuyenHan(int.Parse(txtMaNhanVien.Text), cbChucVu.SelectedIndex+1);
+                    MessageBox.Show("Them thành công!");
                 }
                 catch(Exception ex)
                 {
@@ -63,6 +71,8 @@ namespace QuanLyNhaTre
             {
                 MessageBox.Show("Thông tin không đầy đủ!");
             }
+            LoadMaNhanVien();
+            SetInputtoNull();
         }
         // xử lý sự kiện click button Đóng
         private void btnThoat_Click(object sender, EventArgs e)
@@ -72,11 +82,15 @@ namespace QuanLyNhaTre
 
         private void ckNam_CheckedChanged(object sender, EventArgs e)
         {
-            ckNu.Checked = false;
-        }
-        private void ckNu_CheckedChanged(object sender, EventArgs e)
-        {
-            ckNam.Checked = false;
+            if (ckNam.Checked == true)
+            {
+                lbNu.Visible = false;
+            }
+            else
+            {
+                lbNu.Visible = true;
+            }
+            
         }
         //------------------
         //tab Phan Quyen
@@ -154,7 +168,15 @@ namespace QuanLyNhaTre
                     listQuyen.Add(indexOfCheckBox(item));
                 }
             }
-            _qlNhanVienBLL.CapNhatQuyenHan(int.Parse(txtMaNhanVienPhanQuyen.Text), listQuyen);
+            try
+            {
+                MessageBox.Show("Cập nhật thành công!");
+                _qlNhanVienBLL.CapNhatQuyenHan(int.Parse(txtMaNhanVienPhanQuyen.Text), listQuyen);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+            }
         }
 
         //xử lý sự kiện click button đóng
