@@ -34,7 +34,7 @@ namespace QuanLyNhaTre.DataAccessLayer
 
         public DataTable LayThongTinDangNhap(string email, string matKhau)
         {
-            return dtCon.Read("select * from NHANVIEN where Email = '" + email + "', MatKhau = '" + matKhau + "'");
+            return dtCon.Read("select * from NHANVIEN where Email = '" + email + "' and  MatKhau = '" + matKhau + "'");
         }
     }
 }
