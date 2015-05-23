@@ -59,7 +59,7 @@ namespace QuanLyNhaTre.DataAccessLayer
         }
         public DataTable LayDanhSachNhomNguoiDung()
         {
-            return _connection.Read("Select TenNhomNguoiDung from NHOMNGUOIDUNG");
+            return _connection.Read("Select * from NHOMNGUOIDUNG");
         }
         
        
