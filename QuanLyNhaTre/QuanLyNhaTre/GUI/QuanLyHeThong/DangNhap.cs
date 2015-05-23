@@ -21,24 +21,7 @@ namespace QuanLyNhaTre.QuanLyHeThong
 
         private DangNhapDAL dangNhapDAL;
         private string email;
-        private string matKhau;
-        private int maNhanVien;
-        private string hoTen;
-
-        public string LayEmail()
-        {
-            return email;
-        }
-
-        public int LayMaNhanVien()
-        {
-            return maNhanVien;
-        }
-
-        public string LayHoTen()
-        {
-            return hoTen;
-        }    
+        private string matKhau;    
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
