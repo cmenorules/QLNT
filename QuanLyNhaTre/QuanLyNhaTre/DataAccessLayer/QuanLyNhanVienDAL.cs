@@ -11,14 +11,14 @@ namespace QuanLyNhaTre.DataAccessLayer
     {
         private DataConnection _connection = DataConnection.getInstance();
 
-        public QuanLyNhanVienDAL(DataConnection _connection)
+        public QuanLyNhanVienDAL()
         {
             
             //cai nay lam de test, khoi cho setup tren form
-            //_connection.SetupConnection("THAOHO\\INSTANCE1","QuanLyNhaTre");
+            _connection.SetupConnection("THAOHO\\INSTANCE1","QuanLyNhaTre");
         }
 
-        public QuanLyNhanVienDAL()
+        public QuanLyNhanVienDAL(DataConnection _connection)
         {
             // TODO: Complete member initialization
         }
@@ -28,7 +28,7 @@ namespace QuanLyNhaTre.DataAccessLayer
         }
         public void ThemNhanVien(string hoTen, string email, string matKhau)
         {
-            _connection.Write("Insert into NhanVien(Hoten, Email, MatKhau) values (N'"+hoTen+"',N'"+email+"',"+matKhau+"')");
+            _connection.Write("Insert into NhanVien(HoTen, Email, MatKhau) values (N'"+hoTen+"',N'"+email+"','"+matKhau+"')");
         }
         public void XoaNhanVien(int maNV)
         {
