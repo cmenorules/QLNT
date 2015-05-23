@@ -47,6 +47,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbTuan = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,6 +213,7 @@
             this.txtMonChinh.Name = "txtMonChinh";
             this.txtMonChinh.Size = new System.Drawing.Size(175, 20);
             this.txtMonChinh.TabIndex = 1;
+            this.txtMonChinh.Text = " ";
             // 
             // label5
             // 
@@ -229,6 +232,7 @@
             this.btnThem.TabIndex = 4;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnDong
             // 
@@ -238,12 +242,32 @@
             this.btnDong.TabIndex = 4;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(35, 71);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(32, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Tuần";
+            // 
+            // tbTuan
+            // 
+            this.tbTuan.Location = new System.Drawing.Point(97, 68);
+            this.tbTuan.Name = "tbTuan";
+            this.tbTuan.Size = new System.Drawing.Size(121, 20);
+            this.tbTuan.TabIndex = 2;
+            this.tbTuan.Text = "1";
             // 
             // QuanLyDinhDuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 277);
+            this.Controls.Add(this.tbTuan);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.groupBox1);
@@ -257,6 +281,7 @@
             this.Controls.Add(this.label1);
             this.Name = "QuanLyDinhDuong";
             this.Text = "Quản lý dinh dưỡng";
+            this.Load += new System.EventHandler(this.QuanLyDinhDuong_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -285,5 +310,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbTuan;
     }
 }
