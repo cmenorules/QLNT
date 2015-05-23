@@ -107,7 +107,8 @@
             this.txtMaNhanVien.Location = new System.Drawing.Point(188, 115);
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.Size = new System.Drawing.Size(100, 20);
-            this.txtMaNhanVien.TabIndex = 17;
+            this.txtMaNhanVien.TabIndex = 0;
+            this.txtMaNhanVien.Tag = "";
             // 
             // label3
             // 
@@ -135,7 +136,8 @@
             this.ckNam.Location = new System.Drawing.Point(188, 220);
             this.ckNam.Name = "ckNam";
             this.ckNam.Size = new System.Drawing.Size(48, 17);
-            this.ckNam.TabIndex = 15;
+            this.ckNam.TabIndex = 4;
+            this.ckNam.Tag = "";
             this.ckNam.Text = "Nam";
             this.ckNam.UseVisualStyleBackColor = true;
             this.ckNam.CheckedChanged += new System.EventHandler(this.ckNam_CheckedChanged);
@@ -146,13 +148,14 @@
             this.cbChucVu.Location = new System.Drawing.Point(188, 193);
             this.cbChucVu.Name = "cbChucVu";
             this.cbChucVu.Size = new System.Drawing.Size(121, 21);
-            this.cbChucVu.TabIndex = 14;
+            this.cbChucVu.TabIndex = 3;
+            this.cbChucVu.Tag = "";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(127, 13);
+            this.label1.Location = new System.Drawing.Point(127, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(259, 37);
             this.label1.TabIndex = 13;
@@ -164,6 +167,7 @@
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 12;
+            this.btnThoat.Tag = "6";
             this.btnThoat.Text = "Đóng";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -173,7 +177,8 @@
             this.btnThem.Location = new System.Drawing.Point(200, 288);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 12;
+            this.btnThem.TabIndex = 5;
+            this.btnThem.Tag = "";
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -201,7 +206,7 @@
             this.txtHoten.Location = new System.Drawing.Point(188, 141);
             this.txtHoten.Name = "txtHoten";
             this.txtHoten.Size = new System.Drawing.Size(165, 20);
-            this.txtHoten.TabIndex = 7;
+            this.txtHoten.TabIndex = 1;
             // 
             // label4
             // 
@@ -217,7 +222,7 @@
             this.txtEmail.Location = new System.Drawing.Point(188, 167);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(121, 20);
-            this.txtEmail.TabIndex = 3;
+            this.txtEmail.TabIndex = 2;
             // 
             // label2
             // 

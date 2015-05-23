@@ -72,18 +72,17 @@ namespace QuanLyNhaTre
 
         private void ckNam_CheckedChanged(object sender, EventArgs e)
         {
-            if (ckNu.Checked) ckNu.Checked = false;
+            ckNu.Checked = false;
         }
-
         private void ckNu_CheckedChanged(object sender, EventArgs e)
         {
-            if (ckNam.Checked) ckNu.Checked = false;
+            ckNam.Checked = false;
         }
         //------------------
         //tab Phan Quyen
         //-----------------
 
-        List<CheckBox> listCheckBox= new List<CheckBox>();
+        List<CheckBox> listCheckBox;
 
         //Gán mỗi checkbox 1 số thứ tự
         public void CheckInputPhanQuyen()
@@ -96,6 +95,7 @@ namespace QuanLyNhaTre
         }
         public void KhoiTaolistCheckBox()
         {
+            listCheckBox = new List<CheckBox>();
             listCheckBox.Add(ckHieuTruong);
             listCheckBox.Add(ckHieuPhoChuyenMon);
             listCheckBox.Add(ckHieuPhoBanTru);
@@ -125,29 +125,43 @@ namespace QuanLyNhaTre
                 listCheckBox[item].Checked = true;
             }
         }
+        public int indexOfCheckBox(CheckBox ck)
+        {
+
+            switch (ck.Name)
+            {
+                case "ckHieuTruong": return 1;
+                case "ckHieuPhoChuyenMon": return 2;
+                case "ckHieuPhoBanTru": return 3;
+                case "ckGiaoVien": return 4;
+                case "ckCapDuong": return 5;
+                case "ckYte": return 6;
+                case "ckVanThu": return 7;
+                case "ckQuanTri": return 8;
+                default: return 0;
+            }
+
+
+        }
+        // xử lý sự kiệu click button cập nhật quyền nhân viên
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            List<int> listQuyen = new List<int>();
+            foreach (CheckBox item in listCheckBox)
+            {
+                if (item.Checked == true)
+                {
+                    listQuyen.Add(indexOfCheckBox(item));
+                }
+            }
+            _qlNhanVienBLL.CapNhatQuyenHan(int.Parse(txtMaNhanVienPhanQuyen.Text), listQuyen);
+        }
+
         //xử lý sự kiện click button đóng
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        public void indexOfCheckBox(CheckBox ck)
-        {
-            
-        }
-        // xử lý sự kiệu click button cập nhật quyền nhân viên
-        private void btnCapNhat_Click(object sender, EventArgs e)
-        {
-            //List<int> listQuyen = new List<int>();
-            //foreach (CheckBox item in listCheckBox)
-            //{
-            //    if (item.Checked == true)
-            //    {
-
-            //    }
-            //}
-        }
-
-        
 
     }
 }
