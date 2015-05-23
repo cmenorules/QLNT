@@ -16,6 +16,7 @@ namespace QuanLyNhaTre.QuanLyTreEm
         {
             InitializeComponent();
             quanLyTreEmBLL = new BusinessLogicLayer.QuanLyTreEmBLL();
+            txtNamHoc.Text = DateTime.Now.Year.ToString();
             LoadComboBoxKhoi();
         }
 
@@ -26,11 +27,12 @@ namespace QuanLyNhaTre.QuanLyTreEm
         {
             
             quanLyTreEmBLL.ThemHoSoTreEm(txtTenCha.Text, txtTenMe.Text, txtNguoiGiamHo.Text, txtEmail.Text, Int32.Parse(txtSDT.Text), txtDiaChi.Text);
-            quanLyTreEmBLL.ThemTreEm(txtHoTen.Text, txtNickName.Text, txtGioiTinh.Text, txtNgaySinh.Text, txtDanToc.Text, txtTonGiao.Text, Int32.Parse(txtUuTien.Text), txtTinhCach.Text, txtThoiQuen.Text);
+            quanLyTreEmBLL.ThemTreEm(txtHoTen.Text, txtNickName.Text, cbGioiTinh.Text, txtNgaySinh.Text, txtDanToc.Text, cbTonGiao.Text, Int32.Parse(cbUuTien.Text), txtTinhCach.Text, txtThoiQuen.Text);
             soTreDaThem++;
             lbTinhTrang.Text = "Đã thêm " + soTreDaThem + " trẻ";
             quanLyTreEmBLL.DangKyHoc(Int32.Parse(cbLop.Text), cbKhoi.SelectedIndex, Int32.Parse(txtNamHoc.Text));
             Reset();
+            txtDanToc.Text = "Kinh";
         }
 
         private void Reset()
@@ -62,7 +64,7 @@ namespace QuanLyNhaTre.QuanLyTreEm
             cbKhoi.DataSource = quanLyTreEmBLL.LayThongTinKhoi();
             cbKhoi.DisplayMember = "TenKhoi";
             cbKhoi.ValueMember = "MaKhoi";
-            
+            cbLop.Enabled = true;
         }
 
         private void LoadComboBoxLop()
