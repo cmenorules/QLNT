@@ -30,14 +30,14 @@ namespace QuanLyNhaTre.QuanLyTreEm
 
         private void LoadComboBoxLopCu()
         {
-            cbLopCu.DataSource = quanLyTreEmBLL.LayKeHoachGD(cbKhoiCu.SelectedIndex + 1, Int32.Parse(txtNamHoc.Text));
+            cbLopCu.DataSource = quanLyTreEmBLL.LayKeHoachGD(Int32.Parse(cbKhoiCu.SelectedValue.ToString()), Int32.Parse(txtNamHoc.Text));
             cbLopCu.DisplayMember = "MaKeHoach";
             cbLopCu.ValueMember = "MaKeHoach";
         }
 
         private void LoadComboBoxDS()
         {
-            dsTre = quanLyTreEmBLL.LayDanhSachTreEm(cbKhoiCu.SelectedIndex + 1, Int32.Parse(cbLopCu.Text));
+            dsTre = quanLyTreEmBLL.LayDanhSachTreEm(Int32.Parse(cbKhoiCu.SelectedValue.ToString()), Int32.Parse(cbLopCu.Text));
             cbDS.DataSource = dsTre;
             cbDS.DisplayMember = "HoTen";
             cbDS.ValueMember = "MaTre";

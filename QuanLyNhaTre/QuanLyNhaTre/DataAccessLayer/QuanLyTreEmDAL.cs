@@ -32,7 +32,7 @@ namespace QuanLyNhaTre.DataAccessLayer
 
         public DataTable LayKeHoachGiangDay(int khoi, int namHoc)
         {
-            string sqlQuery = "select MakeHoach from KEHOACHGIANGDAY, CHUONGTRINHHOC, KHOI where KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and KEHOACHGIANGDAY.NamHoc = '" + namHoc + "' and CHUONGTRINHHOC.MaKhoi =" + khoi;
+            string sqlQuery = "select KEHOACHGIANGDAY.MaKeHoach, (TenKhoi +' - ' + cast(MaKeHoach as varchar(10))) as TenLop from KEHOACHGIANGDAY, CHUONGTRINHHOC, KHOI where KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and KEHOACHGIANGDAY.NamHoc = '" + namHoc + "' and CHUONGTRINHHOC.MaKhoi =" + khoi;
             return dt_con.Read(sqlQuery);            
         }
 
