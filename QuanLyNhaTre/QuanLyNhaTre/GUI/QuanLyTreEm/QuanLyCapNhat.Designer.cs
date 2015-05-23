@@ -50,9 +50,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNguoiGiamHo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtMaHoSo = new System.Windows.Forms.TextBox();
             this.txtTenCha = new System.Windows.Forms.TextBox();
             this.txtTenMe = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDanToc = new System.Windows.Forms.TextBox();
@@ -84,8 +86,6 @@
             this.cbKhoiCu = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txtMaHoSo = new System.Windows.Forms.TextBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -303,6 +303,15 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Người giám hộ";
             // 
+            // txtMaHoSo
+            // 
+            this.txtMaHoSo.Location = new System.Drawing.Point(91, 28);
+            this.txtMaHoSo.Name = "txtMaHoSo";
+            this.txtMaHoSo.ReadOnly = true;
+            this.txtMaHoSo.Size = new System.Drawing.Size(207, 20);
+            this.txtMaHoSo.TabIndex = 14;
+            this.txtMaHoSo.TabStop = false;
+            // 
             // txtTenCha
             // 
             this.txtTenCha.Location = new System.Drawing.Point(91, 54);
@@ -325,6 +334,15 @@
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 16;
             this.label1.Text = "Họ tên mẹ";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(13, 31);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(51, 13);
+            this.label24.TabIndex = 14;
+            this.label24.Text = "Mã hồ sơ";
             // 
             // label8
             // 
@@ -534,7 +552,8 @@
             this.cbDS.Name = "cbDS";
             this.cbDS.Size = new System.Drawing.Size(289, 21);
             this.cbDS.TabIndex = 4;
-            this.cbDS.SelectionChangeCommitted += new System.EventHandler(this.cbDS_SelectionChangeCommitted);
+            this.cbDS.SelectedIndexChanged += new System.EventHandler(this.cbDS_SelectedIndexChanged);
+
             // 
             // cbLopCu
             // 
@@ -617,24 +636,6 @@
             this.label18.Size = new System.Drawing.Size(28, 13);
             this.label18.TabIndex = 19;
             this.label18.Text = "Khối";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(13, 31);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(51, 13);
-            this.label24.TabIndex = 14;
-            this.label24.Text = "Mã hồ sơ";
-            // 
-            // txtMaHoSo
-            // 
-            this.txtMaHoSo.Location = new System.Drawing.Point(91, 28);
-            this.txtMaHoSo.Name = "txtMaHoSo";
-            this.txtMaHoSo.ReadOnly = true;
-            this.txtMaHoSo.Size = new System.Drawing.Size(207, 20);
-            this.txtMaHoSo.TabIndex = 14;
-            this.txtMaHoSo.TabStop = false;
             // 
             // QuanLyCapNhat
             // 

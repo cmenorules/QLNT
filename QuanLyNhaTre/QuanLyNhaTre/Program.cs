@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,12 @@ namespace QuanLyNhaTre
 {
     class Program
     {
-        static void Main()
+        private static void Main()
         {
-            Application.Run(new QuanLyNhaTre.QuanLyHocTap.QuanLyBaoCao());
+            if(File.Exists(@"..\..\Resources/setting.xml"))
+                Application.Run(new QuanLyHeThong.DangNhap());
+            else
+                Application.Run(new QuanLyHeThong.ThietLapHeThong());
         }
-
     }
 }

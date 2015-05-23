@@ -48,15 +48,6 @@ namespace QuanLyNhaTre.QuanLyTreEm
             LoadComboBoxLopCu();
         }     
 
-        private void cbDS_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in dsTre.Rows)
-            {
-                if (dr[1].ToString() == cbDS.SelectedText)
-                    txtMaTre.Text = dr[0].ToString();
-            }
-        }
-
         private void btnLayDS_Click(object sender, EventArgs e)
         {
             LoadComboBoxDS();
@@ -117,6 +108,15 @@ namespace QuanLyNhaTre.QuanLyTreEm
                         func(control.Controls);
             };
             func(Controls);
+        }
+
+        private void cbDS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (DataRow dr in dsTre.Rows)
+            {
+                if (dr[1].ToString() == cbDS.SelectedText)
+                    txtMaTre.Text = dr[0].ToString();
+            }
         }
     }
 }

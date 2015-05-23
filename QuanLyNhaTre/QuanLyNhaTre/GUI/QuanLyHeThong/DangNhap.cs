@@ -17,12 +17,36 @@ namespace QuanLyNhaTre.QuanLyHeThong
         {
             InitializeComponent();
             dangNhapDAL = new DangNhapDAL();
-        }       
+        }
+
+
+        private static DangNhap Instance = new DangNhap();
 
         private DangNhapDAL dangNhapDAL;
         private string email;
         private string matKhau;
-        
+        private int maNhanVien;
+        private string hoTen;
+
+        public string LayEmail()
+        {
+            return email;
+        }
+
+        public int LayMaNhanVien()
+        {
+            return maNhanVien;
+        }
+
+        public string LayHoTen()
+        {
+            return hoTen;
+        }
+
+        public static DangNhap getInstance()
+        {
+            return Instance;
+        }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
@@ -48,6 +72,12 @@ namespace QuanLyNhaTre.QuanLyHeThong
         private void btnHuy_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        public void LayThongTinDangNhap()
+        {
+            DataTable db = dangNhapDAL.LayThongTinDangNhap(txtEmail.Text, txtMatKhau.Text);
+            hoTen = db.Rows[0].Field<string>("HoTen");            
         }
     }
 }

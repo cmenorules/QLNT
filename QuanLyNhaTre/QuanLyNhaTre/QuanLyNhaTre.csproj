@@ -93,6 +93,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\DangNhapBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLyTreEmBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLyHocTapBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLyNhanVienBLL.cs" />
