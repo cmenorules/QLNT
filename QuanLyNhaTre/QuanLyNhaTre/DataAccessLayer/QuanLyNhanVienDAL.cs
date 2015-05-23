@@ -31,10 +31,12 @@ namespace QuanLyNhaTre.DataAccessLayer
         {
             _connection.Write("Insert into NhanVien(HoTen, Email, MatKhau) values (N'"+hoTen+"',N'"+email+"','"+matKhau+"')");
         }
+        // Xoa Nhan Vien
         public void XoaNhanVien(int maNV)
         {
             _connection.Write("Delete from NHANVIEN where MaNhanVien=" + maNV);
         }
+        //Lay danh sách nhóm nhười dùng
         public DataTable LayDanhSachMaNhomNguoiDung(int maNV)
         {
             return _connection.Read("Select MaNhomNguoiDung from QUYENHAN where MaNhanVien="+maNV);
