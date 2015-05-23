@@ -17,10 +17,7 @@ namespace QuanLyNhaTre.QuanLyHeThong
         {
             InitializeComponent();
             dangNhapDAL = new DangNhapDAL();
-        }
-
-
-        private static DangNhap Instance = new DangNhap();
+        }        
 
         private DangNhapDAL dangNhapDAL;
         private string email;
@@ -41,12 +38,7 @@ namespace QuanLyNhaTre.QuanLyHeThong
         public string LayHoTen()
         {
             return hoTen;
-        }
-
-        public static DangNhap getInstance()
-        {
-            return Instance;
-        }
+        }    
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
@@ -62,7 +54,7 @@ namespace QuanLyNhaTre.QuanLyHeThong
                     var form1 = new Form1();
                     form1.Closed += (s, args) => this.Close();
                     form1.Show();
-
+                    LayThongTinDangNhap();
                 }
                 else
                     MessageBox.Show("Email hoặc mật khẩu không đúng. Vui lòng nhập lại!", "Cảnh báo");
@@ -77,7 +69,7 @@ namespace QuanLyNhaTre.QuanLyHeThong
         public void LayThongTinDangNhap()
         {
             DataTable db = dangNhapDAL.LayThongTinDangNhap(txtEmail.Text, txtMatKhau.Text);
-            hoTen = db.Rows[0].Field<string>("HoTen");            
+            QuanLyDangNhap.getInstance().LuuThongTin(db.Rows[0].Field<string>("HoTen"), db.Rows[0].Field<int>("MaNhanVien").ToString());            
         }
     }
 }

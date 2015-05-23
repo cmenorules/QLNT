@@ -196,6 +196,7 @@
     <Compile Include="GUI\QuanLySucKhoe.Designer.cs">
       <DependentUpon>QuanLySucKhoe.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyDangNhap.cs" />
     <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
