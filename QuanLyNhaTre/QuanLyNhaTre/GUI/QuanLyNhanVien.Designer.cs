@@ -59,7 +59,7 @@
             this.txtMaNhanVienPhanQuyen = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.lbNu = new System.Windows.Forms.Label();
+            this.ckNu = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -79,9 +79,9 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.lbNu);
             this.tabPage1.Controls.Add(this.txtMaNhanVien);
             this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.ckNu);
             this.tabPage1.Controls.Add(this.ckNam);
             this.tabPage1.Controls.Add(this.cbChucVu);
             this.tabPage1.Controls.Add(this.label1);
@@ -122,7 +122,7 @@
             // ckNam
             // 
             this.ckNam.AutoSize = true;
-            this.ckNam.Location = new System.Drawing.Point(227, 220);
+            this.ckNam.Location = new System.Drawing.Point(240, 220);
             this.ckNam.Name = "ckNam";
             this.ckNam.Size = new System.Drawing.Size(48, 17);
             this.ckNam.TabIndex = 4;
@@ -393,14 +393,17 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Mã nhân viên";
             // 
-            // lbNu
+            // ckNu
             // 
-            this.lbNu.AutoSize = true;
-            this.lbNu.Location = new System.Drawing.Point(185, 220);
-            this.lbNu.Name = "lbNu";
-            this.lbNu.Size = new System.Drawing.Size(21, 13);
-            this.lbNu.TabIndex = 17;
-            this.lbNu.Text = "Nữ";
+            this.ckNu.AutoSize = true;
+            this.ckNu.Location = new System.Drawing.Point(188, 220);
+            this.ckNu.Name = "ckNu";
+            this.ckNu.Size = new System.Drawing.Size(40, 17);
+            this.ckNu.TabIndex = 4;
+            this.ckNu.Tag = "";
+            this.ckNu.Text = "Nữ";
+            this.ckNu.UseVisualStyleBackColor = true;
+            this.ckNu.CheckedChanged += new System.EventHandler(this.ckNu_CheckedChanged);
             // 
             // QuanLyNhanVien
             // 
@@ -454,7 +457,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMaNhanVien;
-        private System.Windows.Forms.Label lbNu;
+        private System.Windows.Forms.CheckBox ckNu;
 
     }
 }

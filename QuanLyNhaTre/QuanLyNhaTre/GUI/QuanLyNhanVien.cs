@@ -49,7 +49,7 @@ namespace QuanLyNhaTre
             txtEmail.Text = "";
             cbChucVu.Text = "";
             ckNam.Checked = false;
-            lbNu.Enabled = true;
+            ckNu.Checked = true;
         }
         //xử lý sự kiện click button Thêm nhân viên
         private void btnThem_Click(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace QuanLyNhaTre
                 try
                 {
                     _qlNhanVienBLL.ThemNhanVien(txtHoten.Text, txtEmail.Text, "user");
-                    _qlNhanVienBLL.ThemQuyenHan(int.Parse(txtMaNhanVien.Text), cbChucVu.SelectedIndex+1);
+                    _qlNhanVienBLL.ThemQuyenHan(int.Parse(txtMaNhanVien.Text), int.Parse(cbChucVu.SelectedValue.ToString()));
                     MessageBox.Show("Thêm thành công!");
                 }
                 catch(Exception ex)
@@ -79,18 +79,13 @@ namespace QuanLyNhaTre
         {
             this.Close();
         }
-
+        private void ckNu_CheckedChanged(object sender, EventArgs e)
+        {
+            QuanLySucKhoe.XuLyClickCheckBox(ckNu, ckNam);
+        }
         private void ckNam_CheckedChanged(object sender, EventArgs e)
         {
-            if (ckNam.Checked == true)
-            {
-                lbNu.Visible = false;
-            }
-            else
-            {
-                lbNu.Visible = true;
-            }
-            
+            QuanLySucKhoe.XuLyClickCheckBox(ckNam, ckNu);
         }
         //------------------
         //tab Phan Quyen
@@ -184,6 +179,8 @@ namespace QuanLyNhaTre
         {
             this.Close();
         }
+
+
 
     }
 }
