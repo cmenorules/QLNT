@@ -12,25 +12,22 @@ namespace QuanLyNhaTre.DataAccessLayer
     {
         DataConnection _connection = DataConnection.getInstance();
 
-        public DataTable LayDanhSachMaKhoi()
+        public DataTable LayDanhSachKhoi()
         {
-            return _connection.Read("Select TenKhoi from KHOI");
+            return _connection.Read("Select * from KHOI");
         }
-        public DataTable LayDanhSachMaDangKy(int maKhoi, int lop)
+        public DataTable LayDanhSachLop(int maKhoi, int namHoc)
         {
-            return _connection.Read("select DANGKYHOC.MaDangKy from DANGKYHOC"+
-                " join KEHOACHGIANGDAY on DANGKYHOC.MaKeHoach="+
-                " KEHOACHGIANGDAY.MaKeHoach join CHUONGTRINH on KEHOACHGIANGDAY.MaKhoi="+
-                " CHUONGTRINHHOC.MaKhoi where CHUONGTRINHHOC.MaKhoi=" + maKhoi+ " and DANGKYHOC.MaKeHoach=" + lop);
+            return _connection.Read("select KEHOACHGIANGDAY.MaKeHoach, (TenKhoi +' - ' + cast(KEHOACHGIANGDAY.MaKeHoach as varchar(10))) as TenLop from KEHOACHGIANGDAY join CHUONGTRINHHOC on KEHOACHGIANGDAY.MaChuongTrinh= CHUONGTRINHHOC.MaChuongTrinh join KHOI on KHOI.MaKhoi=CHUONGTRINHHOC.MaKhoi where KHOI.MaKhoi=" + maKhoi+" and KEHOACHGIANGDAY.NamHoc="+namHoc);
         }
-
-        public DataTable LayDanhSachMaLop(int maKhoi)
+        public DataTable LayDanhSachMaDangKy(int maKeHoach)
         {
-            return _connection.Read("select KEHOACHGIANGDAY.MaKeHoach from"+ 
-            " KEHOACHGIANGDAY join CHUONGTRINH on KEHOACHGIANGDAY.MaKhoi="+
-            " CHUONGTRINHHOC.MaKhoi where CHUONGTRINHHOC.MaKhoi=" + maKhoi);
+            return _connection.Read("select MaDangKy from DANGKYHOC where MaKeHoach =" + maKeHoach);
         }
-
+        public DataTable LayThongTinTre(int maDangKi)
+        {
+            return _connection.Read("select HoTen, NgaySinh from TREEM join DANGKYHOC on TREEM.MaTre= DANGKYHOC.Matre where DANGKYHOC.MaDangKy="+maDangKi);
+        }
         public DataTable LayDanhSachPhieuSucKhoe(int nam, int thang, int maKhoi)
         {
             return _connection.Read("select* from PHIEUSUCKHOE join DANGKYHOC on PHIEUSUCKHOE.MaDangKy=DANGKYHOC.MaDangKy join KEHOACHGIANGDAY " +
