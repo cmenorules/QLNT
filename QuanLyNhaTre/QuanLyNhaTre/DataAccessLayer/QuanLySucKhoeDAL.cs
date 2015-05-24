@@ -24,6 +24,10 @@ namespace QuanLyNhaTre.DataAccessLayer
         {
             return _connection.Read("select MaDangKy from DANGKYHOC where MaKeHoach =" + maKeHoach);
         }
+        public DataTable LaySoLuongDangKyMotLop(int maKeHoach)
+        {
+            return _connection.Read("select Count(MaDangKy) from DANGKYHOC where MaKeHoach =" + maKeHoach);
+        }
         public DataTable LayThongTinTre(int maDangKi)
         {
             return _connection.Read("select HoTen, NgaySinh from TREEM join DANGKYHOC on TREEM.MaTre= DANGKYHOC.Matre where DANGKYHOC.MaDangKy="+maDangKi);
