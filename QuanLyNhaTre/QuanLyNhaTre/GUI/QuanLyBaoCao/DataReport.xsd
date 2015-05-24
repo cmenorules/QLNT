@@ -14,7 +14,7 @@
   <xs:element name="DataReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataReport" msprop:Generator_UserDSName="DataReport">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="SHOWDD" msprop:Generator_TableClassName="SHOWDDDataTable" msprop:Generator_TableVarName="tableSHOWDD" msprop:Generator_RowChangedName="SHOWDDRowChanged" msprop:Generator_TablePropName="SHOWDD" msprop:Generator_RowDeletingName="SHOWDDRowDeleting" msprop:Generator_RowChangingName="SHOWDDRowChanging" msprop:Generator_RowEvHandlerName="SHOWDDRowChangeEventHandler" msprop:Generator_RowDeletedName="SHOWDDRowDeleted" msprop:Generator_RowClassName="SHOWDDRow" msprop:Generator_UserTableName="SHOWDD" msprop:Generator_RowEvArgName="SHOWDDRowChangeEvent">
+        <xs:element name="SHOWDD" msprop:Generator_TableClassName="SHOWDDDataTable" msprop:Generator_TableVarName="tableSHOWDD" msprop:Generator_TablePropName="SHOWDD" msprop:Generator_RowDeletingName="SHOWDDRowDeleting" msprop:Generator_RowChangingName="SHOWDDRowChanging" msprop:Generator_RowEvHandlerName="SHOWDDRowChangeEventHandler" msprop:Generator_RowDeletedName="SHOWDDRowDeleted" msprop:Generator_UserTableName="SHOWDD" msprop:Generator_RowChangedName="SHOWDDRowChanged" msprop:Generator_RowEvArgName="SHOWDDRowChangeEvent" msprop:Generator_RowClassName="SHOWDDRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaKeHoach" msprop:Generator_ColumnVarNameInTable="columnMaKeHoach" msprop:Generator_ColumnPropNameInRow="MaKeHoach" msprop:Generator_ColumnPropNameInTable="MaKeHoachColumn" msprop:Generator_UserColumnName="MaKeHoach" type="xs:string" minOccurs="0" />
@@ -48,7 +48,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SHOWPTK" msprop:Generator_TableClassName="SHOWPTKDataTable" msprop:Generator_TableVarName="tableSHOWPTK" msprop:Generator_RowChangedName="SHOWPTKRowChanged" msprop:Generator_TablePropName="SHOWPTK" msprop:Generator_RowDeletingName="SHOWPTKRowDeleting" msprop:Generator_RowChangingName="SHOWPTKRowChanging" msprop:Generator_RowEvHandlerName="SHOWPTKRowChangeEventHandler" msprop:Generator_RowDeletedName="SHOWPTKRowDeleted" msprop:Generator_RowClassName="SHOWPTKRow" msprop:Generator_UserTableName="SHOWPTK" msprop:Generator_RowEvArgName="SHOWPTKRowChangeEvent">
+        <xs:element name="SHOWPTK" msprop:Generator_TableClassName="SHOWPTKDataTable" msprop:Generator_TableVarName="tableSHOWPTK" msprop:Generator_TablePropName="SHOWPTK" msprop:Generator_RowDeletingName="SHOWPTKRowDeleting" msprop:Generator_RowChangingName="SHOWPTKRowChanging" msprop:Generator_RowEvHandlerName="SHOWPTKRowChangeEventHandler" msprop:Generator_RowDeletedName="SHOWPTKRowDeleted" msprop:Generator_UserTableName="SHOWPTK" msprop:Generator_RowChangedName="SHOWPTKRowChanged" msprop:Generator_RowEvArgName="SHOWPTKRowChangeEvent" msprop:Generator_RowClassName="SHOWPTKRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaPhieuTongKet" msprop:Generator_ColumnVarNameInTable="columnMaPhieuTongKet" msprop:Generator_ColumnPropNameInRow="MaPhieuTongKet" msprop:Generator_ColumnPropNameInTable="MaPhieuTongKetColumn" msprop:Generator_UserColumnName="MaPhieuTongKet" type="xs:string" minOccurs="0" />
@@ -67,7 +67,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SHOWPSK" msprop:Generator_TableClassName="SHOWPSKDataTable" msprop:Generator_TableVarName="tableSHOWPSK" msprop:Generator_RowChangedName="SHOWPSKRowChanged" msprop:Generator_TablePropName="SHOWPSK" msprop:Generator_RowDeletingName="SHOWPSKRowDeleting" msprop:Generator_RowChangingName="SHOWPSKRowChanging" msprop:Generator_RowEvHandlerName="SHOWPSKRowChangeEventHandler" msprop:Generator_RowDeletedName="SHOWPSKRowDeleted" msprop:Generator_RowClassName="SHOWPSKRow" msprop:Generator_UserTableName="SHOWPSK" msprop:Generator_RowEvArgName="SHOWPSKRowChangeEvent">
+        <xs:element name="SHOWPSK" msprop:Generator_TableClassName="SHOWPSKDataTable" msprop:Generator_TableVarName="tableSHOWPSK" msprop:Generator_TablePropName="SHOWPSK" msprop:Generator_RowDeletingName="SHOWPSKRowDeleting" msprop:Generator_RowChangingName="SHOWPSKRowChanging" msprop:Generator_RowEvHandlerName="SHOWPSKRowChangeEventHandler" msprop:Generator_RowDeletedName="SHOWPSKRowDeleted" msprop:Generator_UserTableName="SHOWPSK" msprop:Generator_RowChangedName="SHOWPSKRowChanged" msprop:Generator_RowEvArgName="SHOWPSKRowChangeEvent" msprop:Generator_RowClassName="SHOWPSKRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaPhieuSucKhoe" msprop:Generator_ColumnVarNameInTable="columnMaPhieuSucKhoe" msprop:Generator_ColumnPropNameInRow="MaPhieuSucKhoe" msprop:Generator_ColumnPropNameInTable="MaPhieuSucKhoeColumn" msprop:Generator_UserColumnName="MaPhieuSucKhoe" type="xs:string" minOccurs="0" />
