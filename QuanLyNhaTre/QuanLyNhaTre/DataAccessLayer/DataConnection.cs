@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,7 +54,12 @@ namespace QuanLyNhaTre.DataAccessLayer
             return data_table;
         }
         public void Write(string sql_query)
-        {
+        {            
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"..\..\Resources/data.txt", true))
+            {
+                file.WriteLine(sql_query);
+            }
+
             SqlConnection sql_con = OpenConnnection();
             SqlCommand sql_cmd = new SqlCommand(sql_query, sql_con);            
             sql_cmd.ExecuteNonQuery();

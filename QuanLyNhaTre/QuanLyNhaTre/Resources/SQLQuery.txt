@@ -39,3 +39,5 @@ alter table DANGKYHOC add constraint fk_DANGKYHOC foreign key (MaKeHoach) refere
 alter table TREEM add constraint fk_TREEM foreign key (MaHoSoTreEm) references HOSOTREEM(MaHoSoTreEm)
 alter table PHIEUSUCKHOE add constraint fk_PHIEUSUCKHOE foreign key (MaDangKy) references DANGKYHOC(MaDangKy)
 alter table PHIEUHOATDONG add constraint fk_PHIEUHOATDONG foreign key (MaDangKy) references DANGKYHOC(MaDangKy)
+alter table KEHOACHGIANGDAY  add constraint xxxx unique(NamHoc, HocKy, MaNhanVien)
+alter table DANGKYHOC add constraint hhhihi unique(MaKeHoach,MaTre)

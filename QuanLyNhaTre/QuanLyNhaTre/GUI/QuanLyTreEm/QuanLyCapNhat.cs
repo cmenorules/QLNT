@@ -36,18 +36,10 @@ namespace QuanLyNhaTre.QuanLyTreEm
 
         private void btnLayDS_Click(object sender, EventArgs e)
         {
-            try
-            {
-                dsTre = quanLyTreEmBLL.LayDanhSachTreEm(Int32.Parse(cbKhoiCu.SelectedValue.ToString()), Int32.Parse(cbLopCu.SelectedValue.ToString()));
-                cbDS.DataSource = dsTre;
-                cbDS.DisplayMember = "HoTen";
-                cbDS.ValueMember = "MaTre";
-                cbDS.SelectedValue = 1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin để tiếp tục!", "Thông báo");
-            }
+            dsTre = quanLyTreEmBLL.LayDanhSachTreEm(Int32.Parse(cbKhoiCu.SelectedValue.ToString()), Int32.Parse(cbLopCu.SelectedValue.ToString()));
+            cbDS.DataSource = dsTre;
+            cbDS.DisplayMember = "HoTen";
+            cbDS.ValueMember = "MaTre";           
         }
 
         private void btnChinhSua_Click(object sender, EventArgs e)
@@ -91,13 +83,34 @@ namespace QuanLyNhaTre.QuanLyTreEm
         int i = 0;
         private void btnThem_Click(object sender, EventArgs e)
         {
-            DateTime dt = DateTime.ParseExact(txtNgaySinh.Text.ToString(), "dd/mm/yyyy", CultureInfo.InvariantCulture);
-            string s = dt.ToString("mm/dd/yyyy");
-            quanLyTreEmBLL.CapNhatThongTinTre(Int32.Parse(txtMaTre.Text), txtHoTen.Text, txtNickName.Text, txtGioiTinh.Text, s, txtDanToc.Text, txtTonGiao.Text, Int32.Parse(txtUuTien.Text), txtTinhCach.Text, txtThoiQuen.Text);
-            quanLyTreEmBLL.CapNhatThongTinHoSo(Int32.Parse(txtMaHoSo.Text), txtTenCha.Text, txtTenMe.Text, txtNguoiGiamHo.Text, txtEmail.Text, Int32.Parse(txtSDT.Text), txtDiaChi.Text);
-            quanLyTreEmBLL.CapNhatDangKyHoc(Int32.Parse(cbLop.SelectedValue.ToString()), Int32.Parse(txtMaTre.Text));
-            Reset();
-            MessageBox.Show("Cập nhật thành công!", "Thông báo");
+            try
+            {
+                try
+                {
+                    DateTime dt = DateTime.ParseExact(txtNgaySinh.Text.ToString(), "dd/mm/yyyy", CultureInfo.InvariantCulture);
+                    string s = dt.ToString("mm/dd/yyyy");
+                    quanLyTreEmBLL.CapNhatThongTinTre(Int32.Parse(txtMaTre.Text), txtHoTen.Text, txtNickName.Text, txtGioiTinh.Text, s, txtDanToc.Text, txtTonGiao.Text, Int32.Parse(txtUuTien.Text), txtTinhCach.Text, txtThoiQuen.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Vui lòng nhập ngày tháng theo định dạng: ngày - tháng - năm \n(ngày & tháng có 2 chữ số)!", "Thông báo");
+                }
+                try
+                {
+                    quanLyTreEmBLL.CapNhatThongTinHoSo(Int32.Parse(txtMaHoSo.Text), txtTenCha.Text, txtTenMe.Text, txtNguoiGiamHo.Text, txtEmail.Text, Int32.Parse(txtSDT.Text), txtDiaChi.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Vui nhập chữ số cho số điện thoại!", "Thông báo");
+                }
+                quanLyTreEmBLL.CapNhatDangKyHoc(Int32.Parse(cbLop.SelectedValue.ToString()), Int32.Parse(txtMaTre.Text));
+                Reset();
+                MessageBox.Show("Cập nhật thành công!", "Thông báo");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin để tiếp tục!", "Thông báo");
+            }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

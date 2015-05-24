@@ -43,7 +43,7 @@ namespace QuanLyNhaTre.DataAccessLayer
 
         public void CapNhatDangKyHoc(int lop, int maTre)
         {
-            dt_con.Write("update DANGKYHOC set MaKeHoach = " + lop + ", MaTre = " + maTre);
+            dt_con.Write("update DANGKYHOC set MaKeHoach = " + lop + "where MaTre = " + maTre);
         }
 
         private int TaoSoThuTu()

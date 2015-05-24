@@ -44,9 +44,9 @@ namespace QuanLyNhaTre.DataAccessLayer
             dtCon.Write(sql_query);
 
             #region thong tin khoi
-            sql_query = "insert into KHOI values (N'M?m')";
+            sql_query = "insert into KHOI values (N'Mầm')";
             dtCon.Write(sql_query);
-            sql_query = "insert into KHOI values (N'Ch?i')";
+            sql_query = "insert into KHOI values (N'Chồi')";
             dtCon.Write(sql_query);
             sql_query = "insert into KHOI values (N'Lá')";
             dtCon.Write(sql_query);

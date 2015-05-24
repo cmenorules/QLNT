@@ -18,7 +18,7 @@ namespace QuanLyNhaTre
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
-            DataAccessLayer.DangNhapDAL d = new DataAccessLayer.DangNhapDAL();
+//            DataAccessLayer.DangNhapDAL d = new DataAccessLayer.DangNhapDAL();
             //Application.Run(new QuanLyNhaTre.QuanLyNhanVien());
            //Application.Run(new QuanLyNhaTre.QuanLyTreEm.QuanLyNhapHoc());
             //Application.Run(new QuanLyNhaTre.QuanLyHocTap.QuanLyDiemDanh());
