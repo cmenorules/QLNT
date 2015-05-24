@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyNhaTre.QuanLyHocTap;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,6 +55,21 @@ namespace QuanLyNhaTre
         {
             QuanLyDinhDuong ql = new QuanLyDinhDuong();
             ql.Show();
+        }
+
+        private void thêmNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            
+           
+
+        }
+
+        private void ghiNhậnKếtQuảHọcTậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GhiNhanKetQua fm = new GhiNhanKetQua();
+            fm.Show();
+            
         }
 
         
