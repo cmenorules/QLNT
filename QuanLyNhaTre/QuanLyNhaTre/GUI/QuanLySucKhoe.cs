@@ -17,8 +17,25 @@ namespace QuanLyNhaTre
         public QuanLySucKhoe()
         {
             InitializeComponent();
+            //load ngày thực hiện
+        }
+        public void LoadKhoi()
+        {
 
         }
+        public void LoadLop(int khoi)
+        {
 
+        }
+        public void LoadAllMaTre(int maKeHoach, int lop)
+        {
+
+        }
+        public void LoadThongTinHocSinh(int MaTre)
+        {
+
+        }
+        
+        
     }
 }
