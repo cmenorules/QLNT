@@ -52,10 +52,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rt_hanhDong = new System.Windows.Forms.RichTextBox();
+            this.rt_tot = new System.Windows.Forms.RadioButton();
+            this.rt_xau = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txt_ngay = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -246,7 +248,7 @@
             this.cb_maHocSinh.Location = new System.Drawing.Point(182, 129);
             this.cb_maHocSinh.Name = "cb_maHocSinh";
             this.cb_maHocSinh.Size = new System.Drawing.Size(100, 21);
-            this.cb_maHocSinh.TabIndex = 19;
+            this.cb_maHocSinh.TabIndex = 0;
             this.cb_maHocSinh.SelectedIndexChanged += new System.EventHandler(this.cb_maHocSinh_SelectedIndexChanged);
             // 
             // txt_maLop
@@ -271,16 +273,17 @@
             this.button1.Location = new System.Drawing.Point(503, 554);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(76, 23);
-            this.button1.TabIndex = 17;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Lưu";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(587, 554);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 23);
-            this.button2.TabIndex = 16;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Thoát";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -288,62 +291,80 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(132, 338);
+            this.label5.Location = new System.Drawing.Point(108, 375);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 13);
+            this.label5.Size = new System.Drawing.Size(100, 13);
             this.label5.TabIndex = 20;
-            this.label5.Text = "Hành động của trẻ";
+            this.label5.Text = "Hành động của trẻ:";
             // 
-            // richTextBox1
+            // rt_hanhDong
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(135, 363);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(494, 57);
-            this.richTextBox1.TabIndex = 21;
-            this.richTextBox1.Text = "";
+            this.rt_hanhDong.Location = new System.Drawing.Point(111, 399);
+            this.rt_hanhDong.Name = "rt_hanhDong";
+            this.rt_hanhDong.Size = new System.Drawing.Size(507, 57);
+            this.rt_hanhDong.TabIndex = 2;
+            this.rt_hanhDong.Text = "";
             // 
-            // radioButton1
+            // rt_tot
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(176, 457);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 22;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rt_tot.AutoSize = true;
+            this.rt_tot.Checked = true;
+            this.rt_tot.Location = new System.Drawing.Point(227, 480);
+            this.rt_tot.Name = "rt_tot";
+            this.rt_tot.Size = new System.Drawing.Size(41, 17);
+            this.rt_tot.TabIndex = 3;
+            this.rt_tot.TabStop = true;
+            this.rt_tot.Text = "Tốt";
+            this.rt_tot.UseVisualStyleBackColor = true;
+            this.rt_tot.CheckedChanged += new System.EventHandler(this.rt_tot_CheckedChanged);
             // 
-            // radioButton2
+            // rt_xau
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(379, 457);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 22;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton1";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rt_xau.AutoSize = true;
+            this.rt_xau.Location = new System.Drawing.Point(281, 480);
+            this.rt_xau.Name = "rt_xau";
+            this.rt_xau.Size = new System.Drawing.Size(44, 17);
+            this.rt_xau.TabIndex = 4;
+            this.rt_xau.Text = "Xấu";
+            this.rt_xau.UseVisualStyleBackColor = true;
+            this.rt_xau.CheckedChanged += new System.EventHandler(this.rt_xau_CheckedChanged);
             // 
-            // radioButton3
+            // label7
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(277, 457);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 22;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton1";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(108, 480);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Hành động của trẻ:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(108, 345);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Ngày:";
+            // 
+            // txt_ngay
+            // 
+            this.txt_ngay.Location = new System.Drawing.Point(182, 342);
+            this.txt_ngay.Name = "txt_ngay";
+            this.txt_ngay.Size = new System.Drawing.Size(185, 20);
+            this.txt_ngay.TabIndex = 1;
             // 
             // GhiHanhViLa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 605);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txt_ngay);
+            this.Controls.Add(this.rt_xau);
+            this.Controls.Add(this.rt_tot);
+            this.Controls.Add(this.rt_hanhDong);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.lb_giaoVien);
@@ -392,10 +413,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RichTextBox rt_hanhDong;
+        private System.Windows.Forms.RadioButton rt_tot;
+        private System.Windows.Forms.RadioButton rt_xau;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txt_ngay;
 
     }
 }

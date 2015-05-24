@@ -67,6 +67,7 @@
             this.txt_giaoVien.ReadOnly = true;
             this.txt_giaoVien.Size = new System.Drawing.Size(100, 20);
             this.txt_giaoVien.TabIndex = 1;
+            this.txt_giaoVien.TabStop = false;
             // 
             // label2
             // 
@@ -103,7 +104,7 @@
             this.btn_dong.Location = new System.Drawing.Point(21, 54);
             this.btn_dong.Name = "btn_dong";
             this.btn_dong.Size = new System.Drawing.Size(110, 23);
-            this.btn_dong.TabIndex = 0;
+            this.btn_dong.TabIndex = 5;
             this.btn_dong.Text = "Đóng";
             this.btn_dong.UseVisualStyleBackColor = true;
             this.btn_dong.Click += new System.EventHandler(this.btn_dong_Click);
@@ -113,7 +114,7 @@
             this.btn_capNhat.Location = new System.Drawing.Point(21, 25);
             this.btn_capNhat.Name = "btn_capNhat";
             this.btn_capNhat.Size = new System.Drawing.Size(110, 23);
-            this.btn_capNhat.TabIndex = 0;
+            this.btn_capNhat.TabIndex = 4;
             this.btn_capNhat.Text = "Lưu thông tin";
             this.btn_capNhat.UseVisualStyleBackColor = true;
             this.btn_capNhat.Click += new System.EventHandler(this.btn_capNhat_Click);
@@ -139,7 +140,7 @@
             this.dt_ngayLap.Location = new System.Drawing.Point(392, 27);
             this.dt_ngayLap.Name = "dt_ngayLap";
             this.dt_ngayLap.Size = new System.Drawing.Size(200, 20);
-            this.dt_ngayLap.TabIndex = 3;
+            this.dt_ngayLap.TabIndex = 1;
             // 
             // cb_maLop
             // 
@@ -147,14 +148,14 @@
             this.cb_maLop.Location = new System.Drawing.Point(232, 27);
             this.cb_maLop.Name = "cb_maLop";
             this.cb_maLop.Size = new System.Drawing.Size(116, 21);
-            this.cb_maLop.TabIndex = 2;
+            this.cb_maLop.TabIndex = 0;
             // 
             // btn_taoSoDiemDanh
             // 
             this.btn_taoSoDiemDanh.Location = new System.Drawing.Point(630, 25);
             this.btn_taoSoDiemDanh.Name = "btn_taoSoDiemDanh";
             this.btn_taoSoDiemDanh.Size = new System.Drawing.Size(144, 23);
-            this.btn_taoSoDiemDanh.TabIndex = 0;
+            this.btn_taoSoDiemDanh.TabIndex = 2;
             this.btn_taoSoDiemDanh.Text = "Tạo sổ điểm danh";
             this.btn_taoSoDiemDanh.UseVisualStyleBackColor = true;
             this.btn_taoSoDiemDanh.Click += new System.EventHandler(this.btn_taoSoDiemDanh_Click);
@@ -194,7 +195,7 @@
             this.dtg_danhSach.MultiSelect = false;
             this.dtg_danhSach.Name = "dtg_danhSach";
             this.dtg_danhSach.Size = new System.Drawing.Size(574, 335);
-            this.dtg_danhSach.TabIndex = 5;
+            this.dtg_danhSach.TabIndex = 3;
             // 
             // MaTre
             // 

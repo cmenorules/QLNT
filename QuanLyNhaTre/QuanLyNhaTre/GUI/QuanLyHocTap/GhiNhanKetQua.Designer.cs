@@ -111,7 +111,7 @@
             this.btn_Luu.Location = new System.Drawing.Point(297, 94);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(76, 23);
-            this.btn_Luu.TabIndex = 5;
+            this.btn_Luu.TabIndex = 10;
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
@@ -266,7 +266,8 @@
             this.txt_maLop.Name = "txt_maLop";
             this.txt_maLop.ReadOnly = true;
             this.txt_maLop.Size = new System.Drawing.Size(100, 20);
-            this.txt_maLop.TabIndex = 0;
+            this.txt_maLop.TabIndex = 1;
+            this.txt_maLop.TabStop = false;
             // 
             // cb_maHocSinh
             // 
@@ -274,7 +275,7 @@
             this.cb_maHocSinh.Location = new System.Drawing.Point(99, 94);
             this.cb_maHocSinh.Name = "cb_maHocSinh";
             this.cb_maHocSinh.Size = new System.Drawing.Size(100, 21);
-            this.cb_maHocSinh.TabIndex = 7;
+            this.cb_maHocSinh.TabIndex = 2;
             this.cb_maHocSinh.SelectedIndexChanged += new System.EventHandler(this.cb_maHocSinh_SelectedIndexChanged);
             // 
             // groupBox2
@@ -303,7 +304,7 @@
             this.rt_beNgoan.Location = new System.Drawing.Point(372, 203);
             this.rt_beNgoan.Name = "rt_beNgoan";
             this.rt_beNgoan.Size = new System.Drawing.Size(289, 32);
-            this.rt_beNgoan.TabIndex = 16;
+            this.rt_beNgoan.TabIndex = 8;
             this.rt_beNgoan.Text = "";
             // 
             // label21
@@ -320,7 +321,7 @@
             this.rt_quanHe.Location = new System.Drawing.Point(372, 133);
             this.rt_quanHe.Name = "rt_quanHe";
             this.rt_quanHe.Size = new System.Drawing.Size(289, 32);
-            this.rt_quanHe.TabIndex = 17;
+            this.rt_quanHe.TabIndex = 7;
             this.rt_quanHe.Text = "";
             // 
             // label20
@@ -337,7 +338,7 @@
             this.rt_nangKhieu.Location = new System.Drawing.Point(372, 59);
             this.rt_nangKhieu.Name = "rt_nangKhieu";
             this.rt_nangKhieu.Size = new System.Drawing.Size(289, 32);
-            this.rt_nangKhieu.TabIndex = 18;
+            this.rt_nangKhieu.TabIndex = 6;
             this.rt_nangKhieu.Text = "";
             // 
             // label19
@@ -354,7 +355,7 @@
             this.rt_ngonNgu.Location = new System.Drawing.Point(26, 203);
             this.rt_ngonNgu.Name = "rt_ngonNgu";
             this.rt_ngonNgu.Size = new System.Drawing.Size(289, 32);
-            this.rt_ngonNgu.TabIndex = 19;
+            this.rt_ngonNgu.TabIndex = 5;
             this.rt_ngonNgu.Text = "";
             // 
             // label18
@@ -371,7 +372,7 @@
             this.rt_nhanThuc.Location = new System.Drawing.Point(26, 133);
             this.rt_nhanThuc.Name = "rt_nhanThuc";
             this.rt_nhanThuc.Size = new System.Drawing.Size(289, 32);
-            this.rt_nhanThuc.TabIndex = 20;
+            this.rt_nhanThuc.TabIndex = 4;
             this.rt_nhanThuc.Text = "";
             // 
             // label17
@@ -388,7 +389,7 @@
             this.rt_theChat.Location = new System.Drawing.Point(26, 59);
             this.rt_theChat.Name = "rt_theChat";
             this.rt_theChat.Size = new System.Drawing.Size(289, 32);
-            this.rt_theChat.TabIndex = 21;
+            this.rt_theChat.TabIndex = 3;
             this.rt_theChat.Text = "";
             // 
             // label16
@@ -405,7 +406,7 @@
             this.btn_them.Location = new System.Drawing.Point(215, 94);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(76, 23);
-            this.btn_them.TabIndex = 5;
+            this.btn_them.TabIndex = 9;
             this.btn_them.Text = "Thêm";
             this.btn_them.UseVisualStyleBackColor = true;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
@@ -417,6 +418,7 @@
             this.txt_maGiaoVien.ReadOnly = true;
             this.txt_maGiaoVien.Size = new System.Drawing.Size(100, 20);
             this.txt_maGiaoVien.TabIndex = 0;
+            this.txt_maGiaoVien.TabStop = false;
             // 
             // GhiNhanKetQua
             // 

@@ -15,6 +15,7 @@ namespace QuanLyNhaTre.GUI.QuanLyHocTap
     {
         string maLop = "";
         int tongSoHocSinh = 0;
+        string danh_gia = "";
         bool done = false;
         QuanLyHocTapBLL bll = new QuanLyHocTapBLL();
         public GhiHanhViLa()
@@ -42,6 +43,8 @@ namespace QuanLyNhaTre.GUI.QuanLyHocTap
             done = true;
             cb_maHocSinh.SelectedIndex = 1;
             cb_maHocSinh.SelectedIndex = 0;
+            danh_gia = "Tốt";
+            txt_ngay.Text = DateTime.Now.ToString();
         }
 
         private void cb_maHocSinh_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,6 +58,28 @@ namespace QuanLyNhaTre.GUI.QuanLyHocTap
             lb_danToc.Text = thong_tin.Rows[0]["DanToc"].ToString();
             lb_gioiTinh.Text = thong_tin.Rows[0]["GioiTinh"].ToString();
             lb_doiTuong.Text = thong_tin.Rows[0]["DoiTuongUuTien"].ToString();     
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (rt_hanhDong.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập thông tin");
+                return;
+            }
+            bll.GhiNhanHanhViLa(maLop, rt_hanhDong.Text, txt_ngay.Text, danh_gia);
+            MessageBox.Show("Đã lưu");
+            rt_hanhDong.Text ="";
+        }
+
+        private void rt_tot_CheckedChanged(object sender, EventArgs e)
+        {
+            danh_gia = "Tốt";
+        }
+
+        private void rt_xau_CheckedChanged(object sender, EventArgs e)
+        {
+            danh_gia = "Xấu";
         }
     }
 }

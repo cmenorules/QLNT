@@ -63,7 +63,8 @@ namespace QuanLyNhaTre.QuanLyHocTap
             nhanXet[cb_maHocSinh.SelectedValue.ToString()].phatTrienQuanHe = rt_quanHe.Text;
             nhanXet[cb_maHocSinh.SelectedValue.ToString()].phatTrienTheChat = rt_theChat.Text;
             nhanXet[cb_maHocSinh.SelectedValue.ToString()].beNgoan = rt_beNgoan.Text;
-            cb_maHocSinh.SelectedIndex = (cb_maHocSinh.SelectedIndex + 1) % tongSoHocSinh;   
+            cb_maHocSinh.SelectedIndex = (cb_maHocSinh.SelectedIndex + 1) % tongSoHocSinh;
+            rt_theChat.Focus();
         }
 
         private void cb_maHocSinh_SelectedIndexChanged(object sender, EventArgs e)

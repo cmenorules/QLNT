@@ -131,8 +131,8 @@ namespace QuanLyNhaTre.DataAccessLayer
 
         //ghi nhận các hành vi lạ
         public bool GhiNhanHanhViLa(string maDangKi,string hoatDong, string ngayThang, string danhGia)
-        {
-            string sql = "insert into PHIEUHOATDONG values({0},{1}',{2}',{3}')";
+        {            
+            string sql = "insert into PHIEUHOATDONG(MaDangKy,HoatDong,Ngay,DanhGia) values({0},N'{1}','{2}',N'{3}')";
             connection.Write(string.Format(sql, maDangKi, hoatDong, ngayThang, danhGia));
             return true;
         }
