@@ -60,7 +60,7 @@ namespace QuanLyNhaTre
                 {
                     _qlNhanVienBLL.ThemNhanVien(txtHoten.Text, txtEmail.Text, "user");
                     _qlNhanVienBLL.ThemQuyenHan(int.Parse(txtMaNhanVien.Text), cbChucVu.SelectedIndex+1);
-                    MessageBox.Show("Them thành công!");
+                    MessageBox.Show("Thêm thành công!");
                 }
                 catch(Exception ex)
                 {
