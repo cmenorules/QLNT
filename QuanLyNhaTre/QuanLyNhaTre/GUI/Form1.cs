@@ -50,6 +50,12 @@ namespace QuanLyNhaTre
             fm.ShowDialog();
         }
 
+        private void quảnLýDinhDưỡngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyDinhDuong ql = new QuanLyDinhDuong();
+            ql.Show();
+        }
+
         
     }
 }
