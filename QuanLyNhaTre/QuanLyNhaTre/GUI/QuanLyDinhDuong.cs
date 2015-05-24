@@ -34,19 +34,23 @@ namespace QuanLyNhaTre
         {           
             try
             {
-                int makh = Int32.Parse(cbLop.Text);
-                int buoi = Int32.Parse(cbBuoi.Text);
-                String thu ="";
+                int makh = Int32.Parse(cbLop.Text);                
+                string buoi = cbBuoi.Text;
+                int _b=1;
+                if ("sang".Equals(buoi))
+                    _b = 0;
+                string thu ="";
                 int tuan = Int32.Parse(tbTuan.Text);
-                String ngaythangnam= cbNgay.Text;
-                String monchinh = this.txtMonChinh.Text;
-                String moncanh = this.txtMonCanh.Text;
-                String monphu = this.txtMonPhu.Text;
-                String montrangmieng = this.txtMonTrangMieng.Text;
-                _qldd.ThemDinhDuong(makh, buoi, thu, tuan, ngaythangnam, monchinh, moncanh, monphu, montrangmieng);
+                string ngaythangnam = cbNgay.Value.ToString();
+                string monchinh = this.txtMonChinh.Text;
+                string moncanh = this.txtMonCanh.Text;
+                string monphu = this.txtMonPhu.Text;
+                string montrangmieng = this.txtMonTrangMieng.Text;                
+                _qldd.ThemDinhDuong(makh, _b, thu, tuan, ngaythangnam, monchinh, moncanh, monphu, montrangmieng);
+
             }
             catch (Exception ex) { 
-            
+                
             }
 
         }

@@ -100,7 +100,7 @@
             this.cbLop.Location = new System.Drawing.Point(355, 14);
             this.cbLop.Name = "cbLop";
             this.cbLop.Size = new System.Drawing.Size(121, 21);
-            this.cbLop.TabIndex = 1;
+            this.cbLop.TabIndex = 4;
             this.cbLop.Text = "1";
             // 
             // cbNgay
@@ -108,7 +108,7 @@
             this.cbNgay.Location = new System.Drawing.Point(355, 41);
             this.cbNgay.Name = "cbNgay";
             this.cbNgay.Size = new System.Drawing.Size(200, 20);
-            this.cbNgay.TabIndex = 2;
+            this.cbNgay.TabIndex = 5;
             // 
             // label3
             // 
@@ -129,7 +129,7 @@
             this.cbBuoi.Location = new System.Drawing.Point(97, 41);
             this.cbBuoi.Name = "cbBuoi";
             this.cbBuoi.Size = new System.Drawing.Size(121, 21);
-            this.cbBuoi.TabIndex = 1;
+            this.cbBuoi.TabIndex = 2;
             this.cbBuoi.Text = "Sáng";
             // 
             // label4
@@ -164,7 +164,7 @@
             this.txtMonCanh.Location = new System.Drawing.Point(395, 39);
             this.txtMonCanh.Name = "txtMonCanh";
             this.txtMonCanh.Size = new System.Drawing.Size(188, 20);
-            this.txtMonCanh.TabIndex = 1;
+            this.txtMonCanh.TabIndex = 8;
             // 
             // label8
             // 
@@ -180,7 +180,7 @@
             this.txtMonTrangMieng.Location = new System.Drawing.Point(395, 65);
             this.txtMonTrangMieng.Name = "txtMonTrangMieng";
             this.txtMonTrangMieng.Size = new System.Drawing.Size(188, 20);
-            this.txtMonTrangMieng.TabIndex = 1;
+            this.txtMonTrangMieng.TabIndex = 9;
             // 
             // label7
             // 
@@ -196,7 +196,7 @@
             this.txtMonPhu.Location = new System.Drawing.Point(71, 65);
             this.txtMonPhu.Name = "txtMonPhu";
             this.txtMonPhu.Size = new System.Drawing.Size(175, 20);
-            this.txtMonPhu.TabIndex = 1;
+            this.txtMonPhu.TabIndex = 7;
             // 
             // label6
             // 
@@ -212,7 +212,7 @@
             this.txtMonChinh.Location = new System.Drawing.Point(71, 39);
             this.txtMonChinh.Name = "txtMonChinh";
             this.txtMonChinh.Size = new System.Drawing.Size(175, 20);
-            this.txtMonChinh.TabIndex = 1;
+            this.txtMonChinh.TabIndex = 6;
             this.txtMonChinh.Text = " ";
             // 
             // label5
@@ -229,7 +229,7 @@
             this.btnThem.Location = new System.Drawing.Point(453, 237);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 4;
+            this.btnThem.TabIndex = 10;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -239,7 +239,7 @@
             this.btnDong.Location = new System.Drawing.Point(552, 237);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(75, 23);
-            this.btnDong.TabIndex = 4;
+            this.btnDong.TabIndex = 11;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
@@ -258,7 +258,7 @@
             this.tbTuan.Location = new System.Drawing.Point(97, 68);
             this.tbTuan.Name = "tbTuan";
             this.tbTuan.Size = new System.Drawing.Size(121, 20);
-            this.tbTuan.TabIndex = 2;
+            this.tbTuan.TabIndex = 3;
             this.tbTuan.Text = "1";
             // 
             // QuanLyDinhDuong
