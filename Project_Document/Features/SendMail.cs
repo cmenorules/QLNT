@@ -80,5 +80,29 @@ namespace MailTest
                 //MessageBox.Show(ex.ToString());
             }
         }
+		public void Send( String toMail, String subject, String body, String[] listPathArchive)
+        {            
+            _mail.From = new MailAddress(_fromMail);
+            _mail.To.Add(new MailAddress(toMail));
+            _mail.Subject = subject;
+            _mail.Body = body;
+            
+            foreach(String pathArchive in listPathArchive)
+			{
+				System.Net.Mail.Attachment attachment = new Attachment(pathArchive);
+				_mail.Attachments.Add(attachment);
+				
+			}
+			try
+				{
+					_smtpServer.Send(_mail);
+					MessageBox.Show("Gửi mail thành công!");
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+					//MessageBox.Show(ex.ToString());
+				}
+        }
     }
 }
