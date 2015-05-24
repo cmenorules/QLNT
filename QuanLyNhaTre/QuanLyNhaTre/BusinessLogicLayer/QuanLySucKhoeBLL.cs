@@ -11,35 +11,28 @@ namespace QuanLyNhaTre.BusinessLogicLayer
     {
         DataAccessLayer.QuanLySucKhoeDAL _qlSucKhoeDal = new DataAccessLayer.QuanLySucKhoeDAL();
 
-        public List<string> LayDanhSachMaKhoi()
+        //Lấy danh sách mã khối, tên khối
+        public DataTable LayDanhSachKhoi()
         {
-            DataTable dtDanhSachKhoi = _qlSucKhoeDal.LayDanhSachMaKhoi();
-            List<string> listKhoi = new List<string>();
-            for(int i=0; i<dtDanhSachKhoi.Rows.Count;i++)
-            {
-                listKhoi[i] = dtDanhSachKhoi.Rows[i][0].ToString();
-            }
-            return listKhoi;
+            return _qlSucKhoeDal.LayDanhSachKhoi();
+            
         }
-        public List<int> LayDanhSachMaLop(int maKhoi)
+        public DataTable LayDanhSachPhong(int maKhoi, int namHoc)
         {
-            DataTable dtDanhSachLop = _qlSucKhoeDal.LayDanhSachMaLop(maKhoi);
-            List<int> listLop = new List<int>();
-            for (int i = 0; i < dtDanhSachLop.Rows.Count; i++)
-            {
-                listLop[i] = int.Parse(dtDanhSachLop.Rows[i][0].ToString());
-            }
-            return listLop;
+           return _qlSucKhoeDal.LayDanhSachLop(maKhoi,namHoc);
+            
         }
-        public List<int> LayDanhSachMaDangKy(int maKhoi, int maLop)
+        public DataTable LayDanhSachMaDangKy(int maKeHoach)
         {
-            DataTable dtDanhSachTreEm = _qlSucKhoeDal.LayDanhSachMaDangKy(maKhoi,maLop);
-            List<int> listTreEm = new List<int>();
-            for (int i = 0; i < dtDanhSachTreEm.Rows.Count; i++)
-            {
-                listTreEm[i] = int.Parse(dtDanhSachTreEm.Rows[i][0].ToString());
-            }
-            return listTreEm;
+            return _qlSucKhoeDal.LayDanhSachMaDangKy(maKeHoach);
+        }
+        public int LaySoLuongDangKyMotLop(int maKeHoach)
+        {
+            return int.Parse(_qlSucKhoeDal.LaySoLuongDangKyMotLop(maKeHoach).Rows[0]["MaDangKy"].ToString());
+        }
+        public DataTable LayThongTinHocSinh(int maDangKi)
+        {
+            return LayThongTinHocSinh(maDangKi);
         }
         public void ThemPhieuSucKhoeVang(string ngayKham, int maDangKy)
         {
