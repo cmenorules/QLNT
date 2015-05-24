@@ -36,9 +36,14 @@ namespace QuanLyNhaTre.DataAccessLayer
             return dt_con.Read(sqlQuery);            
         }
 
-        public void DangKyHoc(int lop, int khoi, int namHoc)
+        public void DangKyHoc(int lop)
         {
             dt_con.Write("insert into DANGKYHOC values ('" + lop + "','" + maTreEm + "','"+ TaoSoThuTu() + "')");
+        }
+
+        public void CapNhatDangKyHoc(int lop, int maTre)
+        {
+            dt_con.Write("update DANGKYHOC set MaKeHoach = " + lop + ", MaTre = " + maTre);
         }
 
         private int TaoSoThuTu()

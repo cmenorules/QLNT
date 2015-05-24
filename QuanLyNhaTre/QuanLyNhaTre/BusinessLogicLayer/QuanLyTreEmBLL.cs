@@ -28,9 +28,14 @@ namespace QuanLyNhaTre.BusinessLogicLayer
             quanLyTreEmDAL.ThemTreEm(hoTen, tenThanMat, gioiTinh, ngaySinh, danToc, tonGiao, doiTuongUuTien, tinhCach, thoiQuen);
         }
 
-        public void DangKyHoc(int lop, int khoi, int namHoc)
+        public void DangKyHoc(int lop)
         {
-            quanLyTreEmDAL.DangKyHoc(lop, khoi, namHoc);
+            quanLyTreEmDAL.DangKyHoc(lop);
+        }
+
+        public void CapNhatDangKyHoc(int lop, int maTre)
+        {
+            quanLyTreEmDAL.CapNhatDangKyHoc(lop, maTre);
         }
 
         public DataTable LayThongTinKhoi()

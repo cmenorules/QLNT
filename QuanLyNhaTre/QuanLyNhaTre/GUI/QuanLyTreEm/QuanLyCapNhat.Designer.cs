@@ -181,6 +181,7 @@
             this.cbKhoi.Name = "cbKhoi";
             this.cbKhoi.Size = new System.Drawing.Size(207, 21);
             this.cbKhoi.TabIndex = 20;
+            this.cbKhoi.SelectionChangeCommitted += new System.EventHandler(this.cbKhoi_SelectionChangeCommitted);
             // 
             // label16
             // 
@@ -553,7 +554,6 @@
             this.cbDS.Size = new System.Drawing.Size(289, 21);
             this.cbDS.TabIndex = 4;
             this.cbDS.SelectedIndexChanged += new System.EventHandler(this.cbDS_SelectedIndexChanged);
-
             // 
             // cbLopCu
             // 
@@ -617,6 +617,7 @@
             this.cbKhoiCu.Name = "cbKhoiCu";
             this.cbKhoiCu.Size = new System.Drawing.Size(118, 21);
             this.cbKhoiCu.TabIndex = 1;
+            
             this.cbKhoiCu.SelectionChangeCommitted += new System.EventHandler(this.cbKhoiCu_SelectionChangeCommitted);
             // 
             // label20

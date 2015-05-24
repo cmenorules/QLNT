@@ -42,10 +42,12 @@
             this.txtDiaChiTruong = new System.Windows.Forms.TextBox();
             this.txtTenTruong = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtNhapLaiMatKhau = new System.Windows.Forms.TextBox();
             this.txtMatKhauNQT = new System.Windows.Forms.TextBox();
             this.txtTenNQT = new System.Windows.Forms.TextBox();
             this.txtEmailNQT = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnBatDau = new System.Windows.Forms.Button();
@@ -55,8 +57,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtDuongDan = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtNhapLaiMatKhau = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -200,6 +200,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tài khoản người quản trị";
             // 
+            // txtNhapLaiMatKhau
+            // 
+            this.txtNhapLaiMatKhau.Location = new System.Drawing.Point(126, 121);
+            this.txtNhapLaiMatKhau.Name = "txtNhapLaiMatKhau";
+            this.txtNhapLaiMatKhau.PasswordChar = '*';
+            this.txtNhapLaiMatKhau.Size = new System.Drawing.Size(311, 22);
+            this.txtNhapLaiMatKhau.TabIndex = 7;
+            // 
             // txtMatKhauNQT
             // 
             this.txtMatKhauNQT.Location = new System.Drawing.Point(126, 86);
@@ -231,6 +239,16 @@
             this.label11.Size = new System.Drawing.Size(47, 16);
             this.label11.TabIndex = 1;
             this.label11.Text = "Họ tên";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label14.Location = new System.Drawing.Point(6, 126);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(115, 16);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Nhập lại mật khẩu";
             // 
             // label9
             // 
@@ -322,26 +340,9 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "Đường dẫn";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label14.Location = new System.Drawing.Point(6, 126);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(115, 16);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Nhập lại mật khẩu";
-            // 
-            // txtNhapLaiMatKhau
-            // 
-            this.txtNhapLaiMatKhau.Location = new System.Drawing.Point(126, 121);
-            this.txtNhapLaiMatKhau.Name = "txtNhapLaiMatKhau";
-            this.txtNhapLaiMatKhau.PasswordChar = '*';
-            this.txtNhapLaiMatKhau.Size = new System.Drawing.Size(311, 22);
-            this.txtNhapLaiMatKhau.TabIndex = 7;
-            // 
             // ThietLapHeThong
             // 
+            this.AcceptButton = this.btnBatDau;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 531);

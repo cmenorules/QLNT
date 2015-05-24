@@ -30,7 +30,7 @@ namespace QuanLyNhaTre.QuanLyTreEm
             quanLyTreEmBLL.ThemTreEm(txtHoTen.Text, txtNickName.Text, cbGioiTinh.Text, txtNgaySinh.Text, txtDanToc.Text, cbTonGiao.Text, Int32.Parse(cbUuTien.Text), txtTinhCach.Text, txtThoiQuen.Text);
             soTreDaThem++;
             lbTinhTrang.Text = "Đã thêm " + soTreDaThem + " trẻ";
-            quanLyTreEmBLL.DangKyHoc(Int32.Parse(cbLop.SelectedValue.ToString()), Int32.Parse(cbKhoi.SelectedValue.ToString()), Int32.Parse(txtNamHoc.Text));
+            quanLyTreEmBLL.DangKyHoc(Int32.Parse(cbLop.SelectedValue.ToString()));
             Reset();
             txtDanToc.Text = "Kinh";
             txtNamHoc.Text = DateTime.Now.Year.ToString();
