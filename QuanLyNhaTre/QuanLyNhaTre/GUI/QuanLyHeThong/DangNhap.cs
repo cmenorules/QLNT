@@ -54,5 +54,10 @@ namespace QuanLyNhaTre.QuanLyHeThong
             DataTable db = dangNhapDAL.LayThongTinDangNhap(txtEmail.Text, txtMatKhau.Text);
             QuanLyDangNhap.getInstance().LuuThongTin(db.Rows[0].Field<string>("HoTen"), db.Rows[0].Field<int>("MaNhanVien").ToString());            
         }
+
+        private void DangNhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

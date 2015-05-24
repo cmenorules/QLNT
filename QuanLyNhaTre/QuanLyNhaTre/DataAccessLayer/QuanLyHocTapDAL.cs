@@ -17,6 +17,12 @@ namespace QuanLyNhaTre.DataAccessLayer
             return connection.Read("select MaPhieuDiemDanh,TREEM.MaTre, HoTen,DaDiHoc,DaDonVe from CHITIETPHIEUDIEMDANH, TREEM where TREEM.MaTre = CHITIETPHIEUDIEMDANH.MaTre and CHITIETPHIEUDIEMDANH.MaPhieuDiemDanh in (select MAX(MaPhieuDiemDanh) from PHIEUDIEMDANH where MaKeHoach = " + maKeHoach + ")");
         }
 
+        //lấy phiểu điểm danh
+        public DataTable LayPhieuDiemDanh(string maKeHoach, string ngayThang)
+        {
+            return connection.Read("select * from PHIEUDIEMDANH where PHIEUDIEMDANH.NgayThangNam = '"+ngayThang+"' and MaKeHoach =" + maKeHoach);
+        }
+
         //Lấy danh sách học sinh theo lớp
         public DataTable LayDanhSachHocSinhLop(int maKeHoach)
         {
@@ -84,8 +90,8 @@ namespace QuanLyNhaTre.DataAccessLayer
         public int TaoBangDiemDanh(string MaKeHoach, string thu, int tuan, string ngayThang)
         {
 
-            connection.Write("insert into PHIEUDIEMDANH values("+MaKeHoach+","+thu+"',"+tuan+","+ngayThang+"')");
-            return int.Parse(connection.Read("SELECT IDENT_CURRENT('PHONGHOC') as ID").Rows[0]["ID"].ToString());
+            connection.Write("insert into PHIEUDIEMDANH values("+MaKeHoach+",'"+thu+"',"+tuan+",'"+ngayThang+"')");
+            return int.Parse(connection.Read("SELECT IDENT_CURRENT('PHIEUDIEMDANH') as ID").Rows[0]["ID"].ToString());
         }
 
         //Thêm các chi tiết điểm danh
@@ -96,9 +102,9 @@ namespace QuanLyNhaTre.DataAccessLayer
         }
 
         //cập nhật các chi tiết điểm danh
-        public void CapNhatChiTietDiemDanh(string maPhieu, string maTre, int diHoc, int DaDon)
+        public void CapNhatChiTietDiemDanh(string maPhieu, string maTre, string diHoc, string DaDon)
         {
-            connection.Write("update CHITIETPHIEUDIEMDANH set  DaDiHoc = "+diHoc+", DaDonVe = "+DaDon+" where MaPhieuDiemDanh = "+maPhieu+" and MaTre = "+maTre);
+            connection.Write("update CHITIETPHIEUDIEMDANH set  DaDiHoc = '"+diHoc+"', DaDonVe = '"+DaDon+"' where MaPhieuDiemDanh = "+maPhieu+" and MaTre = "+maTre);
         }
 
         //tạo mới một kế hoạch giảng dạy
@@ -138,6 +144,18 @@ namespace QuanLyNhaTre.DataAccessLayer
         {
             connection.Write("delete from KEHOACHGIANGDAY where MaKeHoach = " + maKeHoach);
             return true;
+        }
+
+        //lay danh sach lop
+        public DataTable LayKeHoachGiangDay(string maGv, string namHoc)
+        {
+            return connection.Read("select MaKeHoach,MaNhanVien, (TenKhoi +'-'+ TenPhong) as Lop from KEHOACHGIANGDAY, PHONGHOC, KHOI where KEHOACHGIANGDAY.MaPhong = PHONGHOC.MaPhong and KHOI.MaKhoi = KEHOACHGIANGDAY.MaPhong and NamHoc =" + namHoc + " and MaNhanVien = " + maGv);
+        }
+
+        //lay danh sach điểm danh
+        public DataTable LayDanhSachDiemDanh(string maPhieuDiemDanh)
+        {
+            return connection.Read("select TREEM.MaTre, TREEM.HoTen, CHITIETPHIEUDIEMDANH.DaDiHoc, CHITIETPHIEUDIEMDANH.DaDonVe from TREEM, PHIEUDIEMDANH, CHITIETPHIEUDIEMDANH where CHITIETPHIEUDIEMDANH.MaPhieuDiemDanh = PHIEUDIEMDANH.MaPhieuDiemDanh and TREEM.MaTre = CHITIETPHIEUDIEMDANH.MaTre and PHIEUDIEMDANH.MaPhieuDiemDanh = " + maPhieuDiemDanh);
         }
         
     }

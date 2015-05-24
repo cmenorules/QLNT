@@ -40,12 +40,18 @@ namespace QuanLyNhaTre.BusinessLogicLayer
         //điểm danh sách học sinh đã đi học
         public void DiemDanhDiHoc(string maPhieu, string maTre)
         {
-            dal.CapNhatChiTietDiemDanh(maPhieu, maTre, 1, 0);
+            dal.CapNhatChiTietDiemDanh(maPhieu, maTre, "true", "false");
         }
         //diểm danh các học sinh chưa đi học
         public void DiemDanhDiVe(string maPhieu, string maTre)
         {
-            dal.CapNhatChiTietDiemDanh(maPhieu, maTre, 1, 1);
+            dal.CapNhatChiTietDiemDanh(maPhieu, maTre, "true", "true");
+        }
+        //public luu thong tin điểm danh
+        public bool LuuThongTinDiemDanh(string maPhieu, string maTre, string daDiHoc, string daDonVe)
+        {
+            dal.CapNhatChiTietDiemDanh(maPhieu, maTre, daDiHoc, daDonVe);
+            return true;
         }
         //nhắc nhở đi học
         public void NhacNhoDiHoc(int maKeHoach)
@@ -105,6 +111,26 @@ namespace QuanLyNhaTre.BusinessLogicLayer
         public void XoaKeHoachGiangDay(string maKeHoach)
         {
             dal.XoaKeHoachGiangDay(maKeHoach);
+        }
+        //Lay ke hoach giang day
+        public DataTable LayKeHoachGiangDay(string maGv, string namHoc)
+        {
+            return dal.LayKeHoachGiangDay(maGv, namHoc);
+        }
+        //lay danh sach lop
+        public DataTable LayDanhSachLop(string maKh)
+        {
+            return dal.LayDanhSachHocSinhLop(int.Parse(maKh));
+        }
+        //lay phiểu điểm danh
+        public DataTable LayPhieuDiemDanh(string maKeHoach, string ngayThang)
+        {
+            return dal.LayPhieuDiemDanh(maKeHoach, ngayThang);
+        }
+        //lay danh sach diem danh
+        public DataTable LayDanhSachDiemDanh(string maPhieu)
+        {
+            return dal.LayDanhSachDiemDanh(maPhieu);
         }
         
     }
