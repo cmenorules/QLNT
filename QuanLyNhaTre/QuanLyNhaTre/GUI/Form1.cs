@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyNhaTre.GUI.QuanLyHocTap;
 
 namespace QuanLyNhaTre
 {
@@ -70,6 +71,12 @@ namespace QuanLyNhaTre
             GhiNhanKetQua fm = new GhiNhanKetQua();
             fm.Show();
             
+        }
+
+        private void ghiNhậnHànhViToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GhiHanhViLa fm = new GhiHanhViLa();
+            fm.ShowDialog();
         }
 
         

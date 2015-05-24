@@ -78,9 +78,9 @@ namespace QuanLyNhaTre.BusinessLogicLayer
             }
         }
         //Ghi nhận kết quả học tập
-        public void GhiNhanKetQuaHocTap(int maKeHoach, string thechat, string nhanthuc, string nangkhieu, string ngonngu, string quanhe, string bengoan)
+        public void GhiNhanKetQuaHocTap(int maKeHoach,string ngay, string thechat, string nhanthuc, string nangkhieu, string ngonngu, string quanhe, string bengoan)
         {
-
+            dal.LuuKetQuaHocTap(maKeHoach,ngay, thechat, nhanthuc, nangkhieu, ngonngu, quanhe, bengoan);
         }
         //Ghi nhận hành vi lạ
         public void GhiNhanHanhViLa(string maDangKi, string hoatDong, string ngayThang, string danhGia)
@@ -131,6 +131,11 @@ namespace QuanLyNhaTre.BusinessLogicLayer
         public DataTable LayDanhSachDiemDanh(string maPhieu)
         {
             return dal.LayDanhSachDiemDanh(maPhieu);
+        }
+        //xem thông tin học sinh
+        public DataTable XemThongTin(string tre_em)
+        {
+            return dal.XemThongTinHocSinh(tre_em);
         }
         
     }

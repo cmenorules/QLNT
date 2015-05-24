@@ -17,6 +17,12 @@ namespace QuanLyNhaTre.DataAccessLayer
             return connection.Read("select MaPhieuDiemDanh,TREEM.MaTre, HoTen,DaDiHoc,DaDonVe from CHITIETPHIEUDIEMDANH, TREEM where TREEM.MaTre = CHITIETPHIEUDIEMDANH.MaTre and CHITIETPHIEUDIEMDANH.MaPhieuDiemDanh in (select MAX(MaPhieuDiemDanh) from PHIEUDIEMDANH where MaKeHoach = " + maKeHoach + ")");
         }
 
+        //lay ho so hoc sinh
+        public DataTable XemThongTinHocSinh(string maTre)
+        {
+           return connection.Read("select * from TREEM where MaTre = " + maTre);
+        }
+
         //lấy phiểu điểm danh
         public DataTable LayPhieuDiemDanh(string maKeHoach, string ngayThang)
         {
@@ -116,10 +122,10 @@ namespace QuanLyNhaTre.DataAccessLayer
         }
 
         //lưu kết quả học tập
-        public bool LuuKetQuaHocTap(int maKeHoach, string thechat,string nhanthuc, string nangkhieu, string ngonngu,string quanhe, string bengoan)
+        public bool LuuKetQuaHocTap(int maKeHoach, string ngay, string thechat, string nhanthuc, string nangkhieu, string ngonngu, string quanhe, string bengoan)
         {
-            string sql = "insert into PHIEUTONGKET values({0},{1}',{2}',{3}',{4}',{5}',{6}')";
-            connection.Write(string.Format(sql, maKeHoach, thechat, nhanthuc, nangkhieu, ngonngu, quanhe, bengoan));
+            string sql = "insert into PHIEUTONGKET(MaDangKy,Ngay,PhatTrienTheChat,PhatTrienNhanThuc,PhatTrienNangKhieu,PhatTrienNgonNgu,PhatTrienQuanHe, BeNgoan) values({0},'{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',N'{7}')";
+            connection.Write(string.Format(sql, maKeHoach, ngay,thechat, nhanthuc, nangkhieu, ngonngu, quanhe, bengoan));
             return true;
         }
 
@@ -130,8 +136,6 @@ namespace QuanLyNhaTre.DataAccessLayer
             connection.Write(string.Format(sql, maDangKi, hoatDong, ngayThang, danhGia));
             return true;
         }
-
-
         //láy các kế hoạch haingr dạy
         public DataTable LayKeHoachGiangDay(string namHoc)
         {

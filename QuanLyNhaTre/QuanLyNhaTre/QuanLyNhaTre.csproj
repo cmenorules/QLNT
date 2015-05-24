@@ -110,6 +110,13 @@
     <Compile Include="DataAccessLayer\QuanLySucKhoeDAL.cs" />
     <Compile Include="DataAccessLayer\ThietLapHeThongDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyTreEmDAL.cs" />
+    <Compile Include="GUI\QuanLyHocTap\GhiHanhViLa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyHocTap\GhiHanhViLa.Designer.cs">
+      <DependentUpon>GhiHanhViLa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyHocTap\NhanXet.cs" />
     <Compile Include="LoginCtrl.cs" />
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
@@ -204,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyHocTap\GhiHanhViLa.resx">
+      <DependentUpon>GhiHanhViLa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
