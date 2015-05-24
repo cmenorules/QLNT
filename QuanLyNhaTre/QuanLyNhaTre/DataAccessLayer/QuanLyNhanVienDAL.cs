@@ -15,7 +15,7 @@ namespace QuanLyNhaTre.DataAccessLayer
         {
             
             //cai nay lam de test, khoi cho setup tren form
-            _connection.SetupConnection("THAOHO\\INSTANCE1","QuanLyNhaTre");
+            //_connection.SetupConnection("THAOHO\\INSTANCE1","QuanLyNhaTre");
         }
 
         public QuanLyNhanVienDAL(DataConnection _connection)
