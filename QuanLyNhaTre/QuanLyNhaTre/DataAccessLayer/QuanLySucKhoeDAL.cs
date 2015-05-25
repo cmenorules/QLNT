@@ -24,13 +24,13 @@ namespace QuanLyNhaTre.DataAccessLayer
         {
             return _connection.Read("select MaDangKy from DANGKYHOC where MaKeHoach =" + maKeHoach);
         }
-        public DataTable LaySoLuongDangKyMotLop(int maKeHoach)
+        public DataTable LayThongTinTre(int maDangKy)
         {
-            return _connection.Read("select Count(MaDangKy) from DANGKYHOC where MaKeHoach =" + maKeHoach);
+            return _connection.Read("select HoTen, NgaySinh from TREEM join DANGKYHOC on TREEM.MaTre= DANGKYHOC.MaTre where DANGKYHOC.MaDangKy="+maDangKy);
         }
-        public DataTable LayThongTinTre(int maDangKi)
+        public DataTable LayDanhSachNamHoc()
         {
-            return _connection.Read("select HoTen, NgaySinh from TREEM join DANGKYHOC on TREEM.MaTre= DANGKYHOC.Matre where DANGKYHOC.MaDangKy="+maDangKi);
+            return _connection.Read("select distinct NamHoc from KEHOACHGIANGDAY");
         }
         public DataTable LayDanhSachPhieuSucKhoe(int nam, int thang, int maKhoi)
         {
@@ -40,24 +40,24 @@ namespace QuanLyNhaTre.DataAccessLayer
         }
         public DataTable LayDanhSachPhieuSucKhoe(int nam, int thang, int maKhoi, int maLop)
         {
-            string cmd = "select MaPhieuSucKhoe, NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong " +
-           "from PHIEUSUCKHOE join DANGKYHOC on PHIEUSUCKHOE.MaDangKy=DANGKYHOC.MaDangKy join KEHOACHGIANGDAY " +
-           "on DANGKYHOC.MaKeHoach= KEHOACHGIANGDAY.MaKeHoach join CHUONGTRINHHOC on KEHOACHGIANGDAY.MaChuongTrinh=CHUONGTRINHHOC.MaChuongTrinh " +
-           "where CHUONGTRINHHOC.MaKhoi=" + maKhoi + " and KEHOACHGIANGDAY.MaKeHoachGiangDay=" + 
-           maLop + "and year(PHIEUSUCKHOE.NgayKham)=" + nam + " and month(PHIEUSSUCKHOE.NgayKham)=" + thang;
+            string cmd = "select MaPhieuSucKhoe, HoTen, NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, HoHap from PHIEUSUCKHOE join DANGKYHOC on PHIEUSUCKHOE.MaDangKy=DANGKYHOC.MaDangKy join KEHOACHGIANGDAY " +
+           "on DANGKYHOC.MaKeHoach= KEHOACHGIANGDAY.MaKeHoach join CHUONGTRINHHOC on KEHOACHGIANGDAY.MaChuongTrinh=CHUONGTRINHHOC.MaChuongTrinh join TREEM on TREEM.MaTre = DANGKYHOC.MaTre " +
+           "where CHUONGTRINHHOC.MaKhoi=" + maKhoi + " and KEHOACHGIANGDAY.MaKeHoach=" + 
+           maLop + " and year(PHIEUSUCKHOE.NgayKham)=" + nam + " and month(PHIEUSUCKHOE.NgayKham)=" + thang;
             return _connection.Read(cmd);
         }
         public DataTable LayDanhSachPhieuSucKhoe(int maTre)
         {
-            return _connection.Read("select MaPhieuSucKhoe, NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong"+
-                " from PHIEUSUCKHOE join DANGKYHOC on PHIEUSUCKHOE.MaDangKy= DANGKYHOC.MaDangKy"+ 
+            return _connection.Read("select MaPhieuSucKhoe, Hoten, NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, ChieuCao"+
+                " from PHIEUSUCKHOE join DANGKYHOC on PHIEUSUCKHOE.MaDangKy= DANGKYHOC.MaDangKy "+ 
                 " join TREEM on DANGKYHOC.MaTre= TREEM.MaTre where TREEM.MaTre=" + maTre);
         }
 
         public void ThemPhieuSucKhoe(string ngayKham, int chieuCao, int canNang,
             string daLieu, string taiMuiHong, string rangHamMat, string hoHap, int maDangKy)
         {
-            string cmd = " Insert into PHIEUSUCKHOE  {0},{1}, {2}, N'{3}', N'{4}', N'{5}',N'{6}'";
+            _connection.Write("set dateformat dmy");
+            string cmd = " Insert into PHIEUSUCKHOE(NgayKham, ChieuCao, CanNang, DaLieu,TaiMuiHong, RangHamMat, HoHap, MaDangKy) values('{0}',{1}, {2}, N'{3}', N'{4}', N'{5}',N'{6}',{7})";
             _connection.Write(string.Format(cmd, ngayKham, chieuCao, canNang, daLieu, taiMuiHong, rangHamMat, hoHap, maDangKy));
 
         }

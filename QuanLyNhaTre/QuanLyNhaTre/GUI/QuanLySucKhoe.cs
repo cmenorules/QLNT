@@ -21,10 +21,14 @@ namespace QuanLyNhaTre
             dtpNgayThucHien.Text = DateTime.Now.ToShortDateString();
             // Load ckDat_
             CheckckDat();
-            LoadComboBoxKhoi();
-            //LoadComboBoxLop();  
+            LoadComboBoxKhoi(cbKhoi);
+            int maKhoi = Int32.Parse(cbKhoi.SelectedValue.ToString());
+            LoadComboBoxLop(maKhoi,cbLop);  
             //LoadTxtMaTre();            
         }
+        // ----------------------------------------------------------
+        // GHI NHẬN KẾT QUẢ KHÁM
+        // ----------------------------------------------------------
         //Tích vào mấy Ô CheckBox Đạt hết
         public void CheckckDat()
         {
@@ -34,103 +38,142 @@ namespace QuanLyNhaTre
             ckDatHoHap.Checked = true;
         }
         //Lấy danh sách mã khối, tên khối
-        public void LoadComboBoxKhoi()
+        public void LoadComboBoxKhoi(ComboBox cb)
         {
-            cbKhoi.DataSource = _qlSucKhoeBLL.LayDanhSachKhoi();
-            cbKhoi.ValueMember = "MaKhoi";
-            cbKhoi.DisplayMember = "TenKhoi";
+            cb.DataSource = _qlSucKhoeBLL.LayDanhSachKhoi();
+            cb.ValueMember = "MaKhoi";
+            cb.DisplayMember = "TenKhoi";
             //cbKhoi.SelectedIndex = 1;
         }
         // Lấy danh sách mã lớp theo chuẩn TênKhối-MãPhòng
-        public void LoadComboBoxLop()
+        public void LoadComboBoxLop(int maKhoi, ComboBox cb)
         {
-           int maKhoi= Int32.Parse(cbKhoi.SelectedValue.ToString());
-           cbLop.DataSource = _qlSucKhoeBLL.LayDanhSachPhong(maKhoi,dtpNgayThucHien.Value.Date.Year);
-           cbLop.ValueMember = "MaKeHoach";
-           cbLop.DisplayMember = "MaKeHoach";
+            cb.DataSource = _qlSucKhoeBLL.LayDanhSachPhong(maKhoi, dtpNgayThucHien.Value.Date.Year);
+            cb.ValueMember = "MaKeHoach";
+            cb.DisplayMember = "MaKeHoach";
             //cbLop.SelectedIndex = 1;
-            
+
         }
-        // Lấy danh sách tất cả mã trẻ của 1 lớp
-        public void LoadTxtMaTre()
+        // Lấy mã trẻ hiện lên 
+        public void LoadTxtMaTre(int maKeHoach)
         {
-            int maKeHoach = int.Parse(cbLop.SelectedValue.ToString());
             DataTable dt = _qlSucKhoeBLL.LayDanhSachMaDangKy(maKeHoach);
-            txtMaTre.Text = dt.Rows[1]["MaDangKi"].ToString();
-            
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Chưa có học sinh trong lớp này!");
+                txtMaTre.Text = "";
+                txtHoTen.Text = "";
+                txtNgaySinh.Text = "";
+                return ;
+            }
+            txtMaTre.Text = dt.Rows[0]["MaDangKy"].ToString();
+            LoadGroupBoxThongTinHocSinh(int.Parse(txtMaTre.Text));
+           
         }
         // chon lai khoi thi load lai danh sach lop
         private void cbKhoi_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            LoadComboBoxLop();
+            int maKhoi = Int32.Parse(cbKhoi.SelectedValue.ToString());
+            LoadComboBoxLop(maKhoi, cbLop);
+            int maKeHoach = int.Parse(cbLop.SelectedValue.ToString());
+            LoadTxtMaTre(maKeHoach);
         }
         // chon lai lop thi load lai danh sach dang ky
         private void cbLop_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            LoadTxtMaTre();
+            int maKeHoach = int.Parse(cbLop.SelectedValue.ToString());
+            LoadTxtMaTre(maKeHoach);
         }
         //lấy thông tin học sinh hiện lên textbox họ tên và ngày sinh
         public void LoadGroupBoxThongTinHocSinh(int maDangKy)
         {
-            DataTable db =_qlSucKhoeBLL.LayThongTinHocSinh(maDangKy);
-            txtHoTen.Text= db.Rows[1]["HoTen"].ToString();
-            txtNgaySinh.Text = db.Rows[1]["NgaySinh"].ToString();
+            DataTable db = _qlSucKhoeBLL.LayThongTinHocSinh(maDangKy);
+            txtHoTen.Text = db.Rows[0]["HoTen"].ToString();
+            txtNgaySinh.Text = db.Rows[0]["NgaySinh"].ToString();
+        }
+        // set mọi thông tin hiển thị khám về trạng thái ban đầu
+        public void SetNull()
+        {
+            nudCanNang.Value = 0;
+            nudChieuCao.Value = 0;
+            txtGhiChuDaLieu.Text = "";
+            txtGhiChuHoHap.Text = "";
+            txtGhiChuRangHamMat.Text = "";
+            txtGhichuTaiMuiHong.Text = "";
+            CheckckDat();
+            ckKhongDatDaLieu.Checked = false;
+            ckKhongDatHoHap.Checked = false;
+            ckKhongDatRangHamMat.Checked = false;
+            ckKhongDatTaiMuiHong.Checked = false;
         }
         // load mã trẻ trước đó
         private void btnTruoc_Click(object sender, EventArgs e)
         {
-            if(txtMaTre.Text=="") return; 
-            int maDangKi = int.Parse(txtMaTre.Text.ToString());
-            if (maDangKi >= 1)
+            if (txtMaTre.Text == "") return;
+            int maKeHoach = int.Parse(cbLop.SelectedValue.ToString());
+            DataTable dt = _qlSucKhoeBLL.LayDanhSachMaDangKy(maKeHoach);
+            int maDangKy = int.Parse(txtMaTre.Text.ToString());
+            int maDangKyDauTien = int.Parse(dt.Rows[0]["MaDangKy"].ToString());
+            if (maDangKy > maDangKyDauTien)
             {
-                txtMaTre.Text = (maDangKi++).ToString();
+                txtMaTre.Text = (--maDangKy).ToString();
             }
-                
+            LoadGroupBoxThongTinHocSinh(maDangKy);
+
         }
         //load mã trẻ tiếp theo
         private void btnKeTiep_Click(object sender, EventArgs e)
         {
-            if (txtMaTre.Text == "") return; 
+            if (txtMaTre.Text == "") return;
             int maKeHoach = int.Parse(cbLop.SelectedValue.ToString());
-            int maDangKi = int.Parse(txtMaTre.Text.ToString());
-            int soLuongLop = _qlSucKhoeBLL.LaySoLuongDangKyMotLop(maKeHoach);
-            if(maDangKi < soLuongLop)
+            int maDangKy = int.Parse(txtMaTre.Text.ToString());
+            DataTable dt = _qlSucKhoeBLL.LayDanhSachMaDangKy(maKeHoach);
+            int soLuongdt= dt.Rows.Count;
+            int maDangKyCuoiCung= int.Parse(dt.Rows[soLuongdt-1]["MaDangKy"].ToString());
+            if (maDangKy < maDangKyCuoiCung)
             {
-                txtMaTre.Text = (maDangKi--).ToString();
+                txtMaTre.Text = (++maDangKy).ToString();
             }
+            LoadGroupBoxThongTinHocSinh(maDangKy);
         }
-        // lưu xuống theo format vắng và load mã đăng ký kế tiếp
+        // xử lý trường hợp trẻ vắng và load mã đăng ký kế tiếp
         private void btnVang_Click(object sender, EventArgs e)
         {
             if (txtMaTre.Text == "") return;
-            int maDangKi = int.Parse(txtMaTre.Text.ToString());
+            int maDangKy = int.Parse(txtMaTre.Text.ToString());
             try
             {
-                _qlSucKhoeBLL.ThemPhieuSucKhoeVang(dtpNgayThucHien.Text, maDangKi);
+                _qlSucKhoeBLL.ThemPhieuSucKhoeVang(dtpNgayThucHien.Text, maDangKy);
+                MessageBox.Show("Đã lưu thông tin vắng");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi hệ thống, vui lòng thử lại");
             }
             // load mã đăng ký kế tiếp
+           
             int maKeHoach = int.Parse(cbLop.SelectedValue.ToString());
-            int soLuongLop = _qlSucKhoeBLL.LaySoLuongDangKyMotLop(maKeHoach);
-            if (maDangKi < soLuongLop)
+            
+            DataTable dt = _qlSucKhoeBLL.LayDanhSachMaDangKy(maKeHoach);
+            int soLuongdt= dt.Rows.Count;
+            int maDangKyCuoiCung= int.Parse(dt.Rows[soLuongdt-1]["MaDangKy"].ToString());
+            if (maDangKy < maDangKyCuoiCung)
             {
-                txtMaTre.Text = (maDangKi--).ToString();
+                txtMaTre.Text = (++maDangKy).ToString();
             }
+            LoadGroupBoxThongTinHocSinh(maDangKy);
         }
         // xử lý sự kiện không đạt với chả đạt
         // hàm xử lý chung
         public static void XuLyClickCheckBox(CheckBox ck1, CheckBox ck2)
         {
-            if(ck1.Checked)
+            if (ck1.Checked)
             {
                 ck2.Checked = false;
             }
             else
             {
-                ck2.Checked = true;               
+                ck2.Checked = true;
             }
         }
         //Hàm xử lý sự kiện từng cái
@@ -185,23 +228,30 @@ namespace QuanLyNhaTre
             if (ck.Checked)
                 return "Đạt";
             else
-                return "Không đạt" + txtghiChu;
+                return "Không đạt, " + txtghiChu.Text;
         }
         // Xử lý button Ghi Nhận, lưu phiếu sức khỏe xuống CSDL
         private void btnGhiNhan_Click(object sender, EventArgs e)
         {
             if (txtMaTre.Text == "") return;
-            int maDangKi = int.Parse(txtMaTre.Text.ToString());
+            if(nudCanNang.Value==0 || nudChieuCao.Value==0)
+            {
+                MessageBox.Show("Chưa nhập đủ dữ liệu!");
+                return;
+            }
+            int maDangKy = int.Parse(txtMaTre.Text.ToString());
             string daLieu, taiMuiHong, rangHamMat, hoHap;
-            daLieu= GetDataKham(ckDatDaLieu,txtGhiChuDaLieu);
-            taiMuiHong = GetDataKham(ckDatTaiMuiHong,txtGhichuTaiMuiHong);
-            rangHamMat = GetDataKham(ckDatRangHamMat,txtGhiChuRangHamMat);
-            hoHap = GetDataKham(ckDatDaLieu,txtGhiChuHoHap);
+            daLieu = GetDataKham(ckDatDaLieu, txtGhiChuDaLieu);
+            taiMuiHong = GetDataKham(ckDatTaiMuiHong, txtGhichuTaiMuiHong);
+            rangHamMat = GetDataKham(ckDatRangHamMat, txtGhiChuRangHamMat);
+            hoHap = GetDataKham(ckDatDaLieu, txtGhiChuHoHap);
             try
             {
                 _qlSucKhoeBLL.ThemPieuSucKhoe(dtpNgayThucHien.Text, (int)nudChieuCao.Value,
-                    (int)nudCanNang.Value, daLieu, taiMuiHong, rangHamMat, hoHap, maDangKi);
-            }catch (Exception ex)
+                    (int)nudCanNang.Value, daLieu, taiMuiHong, rangHamMat, hoHap, maDangKy);
+                MessageBox.Show("Đã ghi nhận!");
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi hệ thống, kiểm tra lại!");
             }
@@ -210,7 +260,93 @@ namespace QuanLyNhaTre
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
-        }   
-       
+        }
+        // ----------------------------------------------
+        // XEM KẾT QUẢ KHÁM
+        //----------------------------------------------
+        private void tcXemKetQuaKham_Selected(object sender, TabControlEventArgs e)
+        {
+            //MessageBox.Show("change!");
+            LoadComboBoxNam();
+            LoadComboBoxKhoi(cbKhoiXemKetQuaKham);
+            cbXemTheo.SelectedIndex = 0;
+            lbMaTreXemKetQuaKham.Enabled = false;
+            txtMaTreXemKetQuaKham.Enabled = false;
+            int maKhoi = Int32.Parse(cbKhoiXemKetQuaKham.SelectedValue.ToString());
+            LoadComboBoxLop(maKhoi, cbLopXemKetQuaKham);
+            
+        }
+        private void cbXemTheo_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if(cbXemTheo.Text =="Lớp")
+            {
+                lbMaTreXemKetQuaKham.Enabled = false;
+                txtMaTreXemKetQuaKham.Enabled = false;
+                gbChiTiet.Enabled = true;
+            }
+            else
+            {
+                lbMaTreXemKetQuaKham.Enabled = true;
+                txtMaTreXemKetQuaKham.Enabled = true;
+                gbChiTiet.Enabled = false;
+            }
+        } 
+
+        public void LoadComboBoxNam()
+        {
+            cbNam.DataSource = _qlSucKhoeBLL.LayDanhSachNamHoc();
+            cbNam.ValueMember = "NamHoc";
+            cbNam.DisplayMember = "NamHoc";
+            
+        }
+            
+        private void cbKhoiXemKetQuaKham_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int maKhoi = Int32.Parse(cbKhoiXemKetQuaKham.SelectedValue.ToString());
+            LoadComboBoxLop(maKhoi, cbLopXemKetQuaKham);
+        }
+        public bool KemTraDuLieuRongTimTheoLop()
+        {
+            if (cbNam.Text == "" || cbThang.Text == "" || cbKhoi.Text == "" || cbLopXemKetQuaKham.Text == "")
+                return false;
+            return true;
+        }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+
+            if (cbXemTheo.Text == "Lớp")
+            {
+                if (KemTraDuLieuRongTimTheoLop() == false) return;
+                int nam = int.Parse(cbNam.Text.ToString());
+                int thang = int.Parse(cbThang.Text.ToString());
+                int maKhoi = int.Parse(cbKhoiXemKetQuaKham.SelectedValue.ToString());
+                int maLop = int.Parse(cbLopXemKetQuaKham.SelectedValue.ToString());
+                DataTable dt =_qlSucKhoeBLL.LayDanhSachPhieuSucKhoe(nam, thang, maKhoi, maLop);
+                if(dt.Rows.Count==0)
+                {
+                    MessageBox.Show("Không có thông tin khám lớp này!");
+                    return;
+                }
+                dgvKQKham.DataSource = dt;
+            }
+            else
+            {
+                if (txtMaTreXemKetQuaKham.Text == "") return;
+                int maTre = int.Parse(txtMaTreXemKetQuaKham.Text);
+                DataTable dt= _qlSucKhoeBLL.LayDanhSachPhieuSucKhoe(maTre);
+                 if(dt.Rows.Count==0)
+                {
+                    MessageBox.Show("Không có thông tin khám của trẻ này!");
+                    return;
+                }
+                dgvKQKham.DataSource = dt;
+
+
+            }
+        }
+
+
+
     }
 }

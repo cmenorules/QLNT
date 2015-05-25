@@ -26,22 +26,22 @@ namespace QuanLyNhaTre.BusinessLogicLayer
         {
             return _qlSucKhoeDal.LayDanhSachMaDangKy(maKeHoach);
         }
-        public int LaySoLuongDangKyMotLop(int maKeHoach)
+        public DataTable LayDanhSachNamHoc()
         {
-            return int.Parse(_qlSucKhoeDal.LaySoLuongDangKyMotLop(maKeHoach).Rows[0]["MaDangKy"].ToString());
+            return _qlSucKhoeDal.LayDanhSachNamHoc();
         }
-        public DataTable LayThongTinHocSinh(int maDangKi)
+        public DataTable LayThongTinHocSinh(int maDangKy)
         {
-            return LayThongTinHocSinh(maDangKi);
+            return _qlSucKhoeDal.LayThongTinTre(maDangKy);
         }
         public void ThemPhieuSucKhoeVang(string ngayKham, int maDangKy)
         {
             _qlSucKhoeDal.ThemPhieuSucKhoe(ngayKham, 0, 0, "v", "v", "v", "v", maDangKy);
         }
         public void ThemPieuSucKhoe(string ngayKham, int chieuCao, int canNang,
-            string daLieu, string taiMuiHong, string rangHamMat, string hoHap, int maDangKi)
+            string daLieu, string taiMuiHong, string rangHamMat, string hoHap, int maDangKy)
         {
-            _qlSucKhoeDal.ThemPhieuSucKhoe(ngayKham, chieuCao, canNang, daLieu, taiMuiHong, rangHamMat, hoHap, maDangKi);
+            _qlSucKhoeDal.ThemPhieuSucKhoe(ngayKham, chieuCao, canNang, daLieu, taiMuiHong, rangHamMat, hoHap, maDangKy);
         }
         public DataTable LayDanhSachPhieuSucKhoe(int nam, int thang, int maKhoi)
         {
