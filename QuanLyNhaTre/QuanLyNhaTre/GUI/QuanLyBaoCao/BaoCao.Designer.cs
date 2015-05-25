@@ -55,7 +55,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 20);
+            this.label1.Location = new System.Drawing.Point(31, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 17);
             this.label1.TabIndex = 0;
@@ -65,7 +65,7 @@
             // 
             this.label_TenGiaoVien.AutoSize = true;
             this.label_TenGiaoVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_TenGiaoVien.Location = new System.Drawing.Point(102, 20);
+            this.label_TenGiaoVien.Location = new System.Drawing.Point(124, 30);
             this.label_TenGiaoVien.Name = "label_TenGiaoVien";
             this.label_TenGiaoVien.Size = new System.Drawing.Size(94, 17);
             this.label_TenGiaoVien.TabIndex = 0;
@@ -75,7 +75,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 54);
+            this.label3.Location = new System.Drawing.Point(31, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 17);
             this.label3.TabIndex = 0;
@@ -85,7 +85,7 @@
             // 
             this.label_ChuNhiemLop.AutoSize = true;
             this.label_ChuNhiemLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ChuNhiemLop.Location = new System.Drawing.Point(108, 54);
+            this.label_ChuNhiemLop.Location = new System.Drawing.Point(130, 64);
             this.label_ChuNhiemLop.Name = "label_ChuNhiemLop";
             this.label_ChuNhiemLop.Size = new System.Drawing.Size(98, 17);
             this.label_ChuNhiemLop.TabIndex = 0;
