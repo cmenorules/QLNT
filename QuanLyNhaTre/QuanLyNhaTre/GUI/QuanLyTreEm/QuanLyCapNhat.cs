@@ -69,11 +69,7 @@ namespace QuanLyNhaTre.QuanLyTreEm
                 cbKhoi.DataSource = quanLyTreEmBLL.LayThongTinKhoi();
                 cbKhoi.DisplayMember = "TenKhoi";
                 cbKhoi.ValueMember = "MaKhoi";
-                cbKhoi.SelectedValue = cbKhoiCu.SelectedValue;
-                cbLop.DataSource = quanLyTreEmBLL.LayKeHoachGD(Int32.Parse(cbKhoiCu.SelectedValue.ToString()), Int32.Parse(txtNamHoc.Text));
-                cbLop.DisplayMember = "TenLop";
-                cbLop.ValueMember = "MaKeHoach";
-                cbLop.SelectedValue = cbLopCu.SelectedValue;
+                cbKhoi.SelectedValue = cbKhoiCu.SelectedValue;             
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhanQuyenMenu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace QuanLyNhaTre
 
         private string maNhanVien;
         private string hoTen;
-
+        private RoleMap role;
         public string LayHoTen()
         {
             return hoTen;
@@ -23,6 +24,11 @@ namespace QuanLyNhaTre
         public string LayMaNhanVien()
         {
             return maNhanVien;
+        }
+
+        public RoleMap GetRoles()
+        {
+            return role;
         }
 
         public void LuuThongTin(string hoTen, string maNhanVien)

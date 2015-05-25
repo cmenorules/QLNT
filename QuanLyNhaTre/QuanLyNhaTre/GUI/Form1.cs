@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyNhaTre.GUI.QuanLyHocTap;
 
 namespace QuanLyNhaTre
 {
@@ -73,12 +72,33 @@ namespace QuanLyNhaTre
             
         }
 
-        private void ghiNhậnHànhViToolStripMenuItem_Click(object sender, EventArgs e)
+        private void quanLySucKhoeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GhiHanhViLa fm = new GhiHanhViLa();
-            fm.ShowDialog();
+            QuanLySucKhoe fm = new QuanLySucKhoe();
+            fm.Show();
         }
 
+        private void quanLyNhanVienToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyNhanVien fm = new QuanLyNhanVien();
+            fm.Show();
+        }
+
+        private void phanCongGiangDayDạyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PhanCongGiangDay fm = new PhanCongGiangDay();
+            fm.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            foreach (ToolStripMenuItem x in menu_test.Items)
+            {
+                x.Enabled = QuanLyDangNhap.getInstance().GetRoles().GetUserRight(x.Name);
+            }
+        }
+
+  
         
     }
 }

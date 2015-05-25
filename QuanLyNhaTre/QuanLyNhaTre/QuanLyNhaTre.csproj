@@ -99,6 +99,7 @@
     <Compile Include="BusinessLogicLayer\QuanLyHocTapBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLyNhanVienBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLySucKhoeBLL.cs" />
+    <Compile Include="BusinessLogicLayer\RoleMap.cs" />
     <Compile Include="BusinessLogicLayer\TimetableItem.cs" />
     <Compile Include="DataAccessLayer\DangNhapDAL.cs" />
     <Compile Include="DataAccessLayer\DAO.cs" />
@@ -132,7 +133,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-   
     <Compile Include="GUI\QuanLyDinhDuong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,7 +222,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
- 
     <EmbeddedResource Include="GUI\QuanLyDinhDuong.resx">
       <DependentUpon>QuanLyDinhDuong.cs</DependentUpon>
     </EmbeddedResource>
