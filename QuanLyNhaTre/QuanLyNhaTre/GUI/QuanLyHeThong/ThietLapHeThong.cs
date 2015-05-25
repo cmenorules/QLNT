@@ -30,17 +30,18 @@ namespace QuanLyNhaTre.QuanLyHeThong
                 string content = txtDuongDan.Text + "\r\n" + txtDatabaseName.Text.Replace(" ", "");
                 File.WriteAllText(@"..\..\Resources/setting.xml", content);
 
+                MessageBox.Show("Thiết lập hệ thống thành công. \n Vui lòng đăng nhập để sử dụng hệ thống", "Thông báo");
+
                 this.Hide();
-                var form1 = new Form1();
-                form1.Closed += (s, args) => this.Close();
-                form1.Show();
+                var fm = new DangNhap();
+                fm.Closed += (s, args) => this.Close();
+                fm.Show();
             }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
+        } 
     }
 }

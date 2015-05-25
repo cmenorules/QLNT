@@ -104,6 +104,7 @@
     <Compile Include="DataAccessLayer\DangNhapDAL.cs" />
     <Compile Include="DataAccessLayer\DAO.cs" />
     <Compile Include="DataAccessLayer\DataConnection.cs" />
+    <Compile Include="DataAccessLayer\PhanQuyenDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyDinhDuongDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyBaoCaoDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyHocTapDAL.cs" />

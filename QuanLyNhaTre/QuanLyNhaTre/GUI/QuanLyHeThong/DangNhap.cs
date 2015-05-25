@@ -33,11 +33,11 @@ namespace QuanLyNhaTre.QuanLyHeThong
             {
                 if (dangNhapDAL.KiemTraDangNhap(txtEmail.Text, txtMatKhau.Text))
                 {
+                    LayThongTinDangNhap();
                     this.Hide();
                     var form1 = new Form1();
                     form1.Closed += (s, args) => this.Close();
-                    form1.Show();
-                    LayThongTinDangNhap();
+                    form1.Show();                    
                 }
                 else
                     MessageBox.Show("Email hoặc mật khẩu không đúng. Vui lòng nhập lại!", "Cảnh báo");
@@ -52,9 +52,8 @@ namespace QuanLyNhaTre.QuanLyHeThong
         public void LayThongTinDangNhap()
         {
             DataTable db = dangNhapDAL.LayThongTinDangNhap(txtEmail.Text, txtMatKhau.Text);
-            QuanLyDangNhap.getInstance().LuuThongTin(db.Rows[0].Field<string>("HoTen"), db.Rows[0].Field<int>("MaNhanVien").ToString());            
-        }
-
-       
+            QuanLyDangNhap.getInstance().LuuThongTin(db.Rows[0].Field<string>("HoTen"), db.Rows[0].Field<int>("MaNhanVien").ToString());
+            QuanLyDangNhap.getInstance().LoadRole();
+        }       
     }
 }

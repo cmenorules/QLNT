@@ -19,14 +19,22 @@ namespace PhanQuyenMenu
                 functionList.Add(i[0].ToString(), false);
             }
         }
-        public RoleMap(DataTable dataSource)
-        {
-            Init(dataSource);
-        }
+
+        QuanLyNhaTre.DataAccessLayer.PhanQuyenDAL phanQuyen;
         public RoleMap()
         {
-
+            phanQuyen = new QuanLyNhaTre.DataAccessLayer.PhanQuyenDAL();
+            Init(phanQuyen.LayDSQuyen());
         }
+        
+        public void XetQuyen(int maNhanVien)
+        {
+            foreach(DataRow r in phanQuyen.LayDSQuyen(maNhanVien).Rows)
+            {
+                SetValue(r[0].ToString(), true);
+            }
+        }
+
         public void Add(string fname, bool fvalue)
         {
             this.functionList.Add(fname, fvalue);

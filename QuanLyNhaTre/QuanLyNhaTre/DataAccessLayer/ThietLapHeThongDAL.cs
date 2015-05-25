@@ -66,13 +66,46 @@ namespace QuanLyNhaTre.DataAccessLayer
             dtCon.Write("insert into NHOMNGUOIDUNG values (6,N'Nhân viên cấp dưỡng')");
             dtCon.Write("insert into NHOMNGUOIDUNG values (7,N'Nhân viên y tế')");
             dtCon.Write("insert into NHOMNGUOIDUNG values (8,N'Giáo viên')");
+            dtCon.Write("insert into NHOMNGUOIDUNG values (9,N'Admin')");
+            #endregion
+
+            #region thong tin chuc nang
+            dtCon.Write("insert into CHUCNANG values ('heThongToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('phanQuyenToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('dangXuatToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('nghiepVuToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('quanLyTreEmToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('NhapHocToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('SuaThongTinToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('quanLyNhanVienToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('quanLyHocTapStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('quanLyDiemDanhToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('phanCongGiangDayToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('ghiNhanKetQuaHocTapToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('quanLySucKhoeToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('quanLyDinhDuongToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('danhMucToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('danhSachPhongHocToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('danhSachLopToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('danhSachKhoiToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('danhSachNhanVienToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('danhSachHocSinhToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('danhSachThoiKhoaBieuToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('baoCaoToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('troGiupToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('huongDanSuDungToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('aboutToolStripMenuItem')");
             #endregion
         }
 
         public void ThietLapTaiKhoanQuanTri(string ten, string email, string matKhau)
         {
-            string sql_query = "insert into NHANVIEN values (N'" + ten + "', '" + email + "', '" + matKhau + "')";
-            dtCon.Write(sql_query);
+            dtCon.Write("insert into NHANVIEN values (N'" + ten + "', '" + email + "', '" + matKhau + "')");
+            for (int i = 1; i < 26; i++)
+            {
+                dtCon.Write("insert into NHOMCHUCNANG values(9, " + i + ")");
+            }
+            dtCon.Write("insert into QUYENHAN values (9, 1)");
         }
     }
 }

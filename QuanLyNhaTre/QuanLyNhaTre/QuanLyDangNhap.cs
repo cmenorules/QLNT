@@ -1,4 +1,5 @@
 ﻿using PhanQuyenMenu;
+using QuanLyNhaTre.DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,15 @@ namespace QuanLyNhaTre
     class QuanLyDangNhap
     {
         public QuanLyDangNhap() { }
+
+        public void LoadRole()
+        {
+            
+            
+            role = new RoleMap();
+
+            role.XetQuyen(Int32.Parse(maNhanVien));
+        }
 
         private static QuanLyDangNhap instance;
 

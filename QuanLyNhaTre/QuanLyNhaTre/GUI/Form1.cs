@@ -17,12 +17,24 @@ namespace QuanLyNhaTre
         public Form1()
         {
             InitializeComponent();
+            PhanQuyen();
             
         }
 
-        private void hướngDẫnToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PhanQuyen()
         {
-
+            foreach (ToolStripMenuItem x in menu_test.Items)
+            {
+                x.Enabled = QuanLyDangNhap.getInstance().GetRoles().GetUserRight(x.Name);
+                foreach (ToolStripDropDownItem y in x.DropDownItems)
+                {                    
+                    y.Enabled = QuanLyDangNhap.getInstance().GetRoles().GetUserRight(y.Name);
+                    foreach (ToolStripDropDownItem z in y.DropDownItems)
+                    {
+                        z.Enabled = QuanLyDangNhap.getInstance().GetRoles().GetUserRight(z.Name);
+                    }
+                }
+            }
         }
 
         private void DangXuatToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,24 +57,10 @@ namespace QuanLyNhaTre
             qlte.Show();
         }
 
-        private void điểmDanhToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            QuanLyHocTap.QuanLyDiemDanh fm = new QuanLyHocTap.QuanLyDiemDanh();
-            fm.ShowDialog();
-        }
-
         private void quảnLýDinhDưỡngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             QuanLyDinhDuong ql = new QuanLyDinhDuong();
             ql.Show();
-        }
-
-        private void thêmNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-            
-           
-
         }
 
         private void ghiNhậnKếtQuảHọcTậpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,21 +88,10 @@ namespace QuanLyNhaTre
             fm.Show();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void quanLyDiemDanhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-//             foreach (ToolStripMenuItem x in menu_test.Items)
-//             {
-//                 x.Enabled = QuanLyDangNhap.getInstance().GetRoles().GetUserRight(x.Name);
-//             }
-        }
-
-        private void baoCaoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            QuanLyNhaTre.GUI.QuanLyBaoCao.BaoCao frm = new GUI.QuanLyBaoCao.BaoCao();
-            frm.Show();
-        }
-
-  
-        
+            QuanLyDiemDanh fm = new QuanLyDiemDanh();
+            fm.Show();
+        }        
     }
 }
