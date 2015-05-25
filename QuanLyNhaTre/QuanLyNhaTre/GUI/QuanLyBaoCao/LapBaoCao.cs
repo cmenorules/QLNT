@@ -16,5 +16,10 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
         {
             InitializeComponent();
         }
+
+        private void LapBaoCao_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
