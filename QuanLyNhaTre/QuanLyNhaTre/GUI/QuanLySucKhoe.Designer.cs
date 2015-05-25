@@ -491,6 +491,7 @@
             // 
             // txtMaTre
             // 
+            this.txtMaTre.Enabled = false;
             this.txtMaTre.Location = new System.Drawing.Point(146, 127);
             this.txtMaTre.Name = "txtMaTre";
             this.txtMaTre.Size = new System.Drawing.Size(100, 20);
