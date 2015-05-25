@@ -1163,7 +1163,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao {
             
             private global::System.Data.DataColumn columnPhatTrienQuanHe;
             
-            private global::System.Data.DataColumn columnBeNgooan;
+            private global::System.Data.DataColumn columnBeNgoan;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1248,9 +1248,9 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn BeNgooanColumn {
+            public global::System.Data.DataColumn BeNgoanColumn {
                 get {
-                    return this.columnBeNgooan;
+                    return this.columnBeNgoan;
                 }
             }
             
@@ -1291,7 +1291,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ShowTongKetRow AddShowTongKetRow(string Ngay, string PhatTrienTheChat, string PhatTrienNhanThuc, string PhatTrienNangKhieu, string PhatTrienNgonNgu, string PhatTrienQuanHe, string BeNgooan) {
+            public ShowTongKetRow AddShowTongKetRow(string Ngay, string PhatTrienTheChat, string PhatTrienNhanThuc, string PhatTrienNangKhieu, string PhatTrienNgonNgu, string PhatTrienQuanHe, string BeNgoan) {
                 ShowTongKetRow rowShowTongKetRow = ((ShowTongKetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Ngay,
@@ -1300,7 +1300,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao {
                         PhatTrienNangKhieu,
                         PhatTrienNgonNgu,
                         PhatTrienQuanHe,
-                        BeNgooan};
+                        BeNgoan};
                 rowShowTongKetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowShowTongKetRow);
                 return rowShowTongKetRow;
@@ -1329,7 +1329,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao {
                 this.columnPhatTrienNangKhieu = base.Columns["PhatTrienNangKhieu"];
                 this.columnPhatTrienNgonNgu = base.Columns["PhatTrienNgonNgu"];
                 this.columnPhatTrienQuanHe = base.Columns["PhatTrienQuanHe"];
-                this.columnBeNgooan = base.Columns["BeNgooan"];
+                this.columnBeNgoan = base.Columns["BeNgoan"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1347,8 +1347,8 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao {
                 base.Columns.Add(this.columnPhatTrienNgonNgu);
                 this.columnPhatTrienQuanHe = new global::System.Data.DataColumn("PhatTrienQuanHe", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhatTrienQuanHe);
-                this.columnBeNgooan = new global::System.Data.DataColumn("BeNgooan", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBeNgooan);
+                this.columnBeNgoan = new global::System.Data.DataColumn("BeNgoan", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBeNgoan);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2699,17 +2699,17 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string BeNgooan {
+            public string BeNgoan {
                 get {
                     try {
-                        return ((string)(this[this.tableShowTongKet.BeNgooanColumn]));
+                        return ((string)(this[this.tableShowTongKet.BeNgoanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BeNgooan\' in table \'ShowTongKet\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BeNgoan\' in table \'ShowTongKet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableShowTongKet.BeNgooanColumn] = value;
+                    this[this.tableShowTongKet.BeNgoanColumn] = value;
                 }
             }
             
@@ -2787,14 +2787,14 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsBeNgooanNull() {
-                return this.IsNull(this.tableShowTongKet.BeNgooanColumn);
+            public bool IsBeNgoanNull() {
+                return this.IsNull(this.tableShowTongKet.BeNgoanColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetBeNgooanNull() {
-                this[this.tableShowTongKet.BeNgooanColumn] = global::System.Convert.DBNull;
+            public void SetBeNgoanNull() {
+                this[this.tableShowTongKet.BeNgoanColumn] = global::System.Convert.DBNull;
             }
         }
         

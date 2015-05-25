@@ -12,6 +12,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
 {
     public partial class BaoCao : Form
     {
+        BusinessLogicLayer.QuanLyHocTapBLL bll = new BusinessLogicLayer.QuanLyHocTapBLL();
         public BaoCao()
         {
             InitializeComponent();
@@ -38,18 +39,41 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
         {
             
         }
-
+        static int matre;
         private void BaoCao_Load(object sender, EventArgs e)
         {
-            cBox_Thang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cBox_Nam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cBox_Thang.SelectedIndex = 0;
-            cBox_Nam.SelectedIndex = 0;
-
+            
+            
+            label_NgayLapBaoCao.Text = DateTime.Now.Date.ToString();
             label_TenGiaoVien.Text = QuanLyDangNhap.getInstance().LayHoTen();
+            label_ChuNhiemLop.Text = bll.LayKeHoachGiangDay(QuanLyDangNhap.getInstance().LayMaNhanVien(), DateTime.Now.Year.ToString()).Rows[0]["Lop"].ToString();
+
+            DataTable dt_dshs_theolop = new DataTable();
+            string maKh = bll.LayKeHoachGiangDay(QuanLyDangNhap.getInstance().LayMaNhanVien(), dateTimePicker1.Value.Year.ToString()).Rows[0]["MaKeHoach"].ToString();
+            dt_dshs_theolop = bll.LayDanhSachLop(maKh);
+            cBox_TenBe.DataSource = dt_dshs_theolop;
+            cBox_TenBe.SelectedIndex = 1;
+            cBox_TenBe.SelectedIndex--;
+            cBox_TenBe.DisplayMember = "HoTen";
+            cBox_TenBe.ValueMember = "MaTre";
+            matre = Int32.Parse(cBox_TenBe.SelectedValue.ToString());
         }
 
-     
+        private void cBox_TenBe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        public static int MaTre
+        {
+            get { return matre; }
+
+        }
+
+        private void cBox_TenBe_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            matre = Int32.Parse(cBox_TenBe.SelectedValue.ToString());
+        }
 
  
     }
