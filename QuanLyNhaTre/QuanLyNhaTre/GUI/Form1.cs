@@ -92,10 +92,16 @@ namespace QuanLyNhaTre
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            foreach (ToolStripMenuItem x in menu_test.Items)
-            {
-                x.Enabled = QuanLyDangNhap.getInstance().GetRoles().GetUserRight(x.Name);
-            }
+//             foreach (ToolStripMenuItem x in menu_test.Items)
+//             {
+//                 x.Enabled = QuanLyDangNhap.getInstance().GetRoles().GetUserRight(x.Name);
+//             }
+        }
+
+        private void baoCaoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyNhaTre.GUI.QuanLyBaoCao.BaoCao frm = new GUI.QuanLyBaoCao.BaoCao();
+            frm.Show();
         }
 
   
