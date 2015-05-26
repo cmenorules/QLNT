@@ -65,9 +65,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
         private void LapBaoCao_Shown(object sender, EventArgs e)
         {
             for (int i = 0; i < tmp.Rows.Count; i++)
-            {
-               
-
+            {               
                 string sql_overall = "select TREEM.HoTen as TenHocSinh,NHANVIEN.HoTen as TenNhanVien, KHOI.TenKhoi + ' ' + PHONGHOC.TenPhong as Lop,HocKy, NamHoc, Thu, Tuan, NgayThangNam, MonChinh, MonCanh, MonPhu, MonTrangMieng from TREEM, NHANVIEN, DINHDUONG, KEHOACHGIANGDAY, KHOI, PHONGHOC, DANGKYHOC, CHUONGTRINHHOC where KEHOACHGIANGDAY.MaKeHoach = DINHDUONG.MaKeHoach and KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and KEHOACHGIANGDAY.MaPhong = PHONGHOC.MaPhong and KEHOACHGIANGDAY.MaKeHoach = DANGKYHOC.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien = NHANVIEN.MaNhanVien and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and	DANGKYHOC.MaTre = TREEM.MaTre and NHANVIEN.MaNhanVien ='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "' and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "'";
                 string table_showdd = "ShowDinhDuong";
                 string sql_health = "select NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, HoHap from PHIEUSUCKHOE, DANGKYHOC, TREEM where PHIEUSUCKHOE.MaDangKy = DANGKYHOC.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "'";
@@ -83,7 +81,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
                 data_showsk = DataConnection.getInstance().Read(sql_health, table_showsk);
                 data_showtk = DataConnection.getInstance().Read(sql_goodbaby, table_showtk);
 
-                cReportOverall.Load(@"C:\Users\norules\Desktop\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
+                cReportOverall.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\PTTK HTTT\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
                 //cReportOverall.DataSourceConnections.Clear();
                 cReportOverall.SetDataSource(data_showdd.Tables[0]);
                 //cReportOverall.Subreports[0].DataSourceConnections.Clear();
@@ -100,17 +98,16 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
 
                 string sql_emailNGH = "select HoTen,EmailNguoiGiamHo from TREEM,HOSOTREEM where HOSOTREEM.MaHoSoTreEm = TREEM.MaHoSoTreEm and TREEM.MaTre= '" + tmp.Rows[i]["MaTre"].ToString() + "'";
                 DataTable dt_emailNGH = DataConnection.getInstance().Read(sql_emailNGH);
-                
-                string sql_tenTruong = "select TenNhaTre form ThongTinNhaTre";
+
+                string sql_tenTruong = "select TenNhaTre from THONGTINNHATRE";
                 DataTable dt_tenTruong = DataConnection.getInstance().Read(sql_tenTruong);
 
                 string bodyMail = "Báo cáo tổng quát tháng " + DateTime.Now.Month.ToString() + " của bé " + dt_emailNGH.Rows[0][0].ToString();
                 string subjectMail = "Trường mẫu giáo " + dt_tenTruong.Rows[0][0].ToString();
 
-                sendMail.Send(dt_emailNGH.Rows[0][1].ToString(),subjectMail,bodyMail,path);
+                sendMail.Send(dt_emailNGH.Rows[0][1].ToString(), subjectMail, bodyMail, path);
                 // backroundwoker
-                bw.ReportProgress((int)((i+1) * 100)  / tmp.Rows.Count);
-                
+                bw.ReportProgress((int)((i+1) * 100)  / tmp.Rows.Count);                
             }
             MessageBox.Show("Lập báo cáo thành công");
             Thread.Sleep(200);

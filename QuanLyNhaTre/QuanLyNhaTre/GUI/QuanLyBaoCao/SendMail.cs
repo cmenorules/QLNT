@@ -42,7 +42,7 @@ namespace MailTest
             try
             {
                 _smtpServer.Send(_mail);
-                MessageBox.Show("Gửi mail thành công!");
+                //MessageBox.Show("Gửi mail thành công!");
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ namespace MailTest
             try
             {
                 _smtpServer.Send(_mail);
-                MessageBox.Show("Gửi mail thành công!");
+               // MessageBox.Show("Gửi mail thành công!");
             }
             catch (Exception ex)
             {
@@ -92,7 +92,7 @@ namespace MailTest
             try
             {
                 _smtpServer.Send(_mail);
-                MessageBox.Show("Gửi mail thành công!");
+              //  MessageBox.Show("Gửi mail thành công!");
             }
             catch (Exception ex)
             {
@@ -121,7 +121,7 @@ namespace MailTest
             try
             {
                 _smtpServer.Send(_mail);
-                MessageBox.Show("Gửi mail thành công!");
+             //   MessageBox.Show("Gửi mail thành công!");
             }
             catch (Exception ex)
             {
@@ -153,7 +153,7 @@ namespace MailTest
             try
             {
                 _smtpServer.Send(_mail);
-                MessageBox.Show("Gửi mail thành công!");
+              //  MessageBox.Show("Gửi mail thành công!");
             }
             catch (Exception ex)
             {

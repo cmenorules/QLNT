@@ -41,8 +41,8 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
             data_showdd = DataConnection.getInstance().Read(sql_overall, table_showdd);
             data_showsk = DataConnection.getInstance().Read(sql_health, table_showsk);
             data_showtk = DataConnection.getInstance().Read(sql_goodbaby, table_showtk);
-            
-            cReportOverall.Load(@"C:\Users\norules\Desktop\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
+
+            cReportOverall.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\PTTK HTTT\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
             //cReportOverall.DataSourceConnections.Clear();
             cReportOverall.SetDataSource(data_showdd.Tables[0]);
             //cReportOverall.Subreports[0].DataSourceConnections.Clear();

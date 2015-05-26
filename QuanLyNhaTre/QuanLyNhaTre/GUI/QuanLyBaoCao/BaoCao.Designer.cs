@@ -149,12 +149,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 21);
+            this.label2.Location = new System.Drawing.Point(10, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 39);
+            this.label2.Size = new System.Drawing.Size(191, 52);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Việc lập báo cáo và gửi qua mail sẽ \r\nhoàn  toàn  tự  động, để  thực  hiện \r\nđiều" +
-    " này vui lòng chọn  \"Xác nhận\" ";
+            this.label2.Text = "Việc lập báo cáo và gửi qua email cho \r\nphụ huynh sẽ hoàn toàn tự động,  để\r\nthực" +
+    "  hiện  điều  này  vui  lòng   chọn  \r\n\"Xác nhận\" ";
             // 
             // groupBox3
             // 
