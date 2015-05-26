@@ -53,6 +53,15 @@ namespace QuanLyNhaTre.DataAccessLayer
             adapter.Dispose();
             return data_table;
         }
+        public DataSet Read(string sql_query, string table_name)
+        {
+            SqlConnection sql_con = OpenConnnection();
+            DataSet data_set = new DataSet();
+            SqlDataAdapter adapter = new SqlDataAdapter(sql_query, sql_con);
+            adapter.Fill(data_set, table_name);
+            adapter.Dispose();
+            return data_set;
+        }
         public void Write(string sql_query)
         {            
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"..\..\Resources/data.txt", true))
