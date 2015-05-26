@@ -96,6 +96,11 @@ namespace QuanLyNhaTre
 
         private void baoCaoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void baoCaoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
             QuanLyNhaTre.GUI.QuanLyBaoCao.BaoCao frm = new GUI.QuanLyBaoCao.BaoCao();
             frm.Show();
         }        

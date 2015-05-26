@@ -112,6 +112,48 @@
     <Compile Include="DataAccessLayer\QuanLySucKhoeDAL.cs" />
     <Compile Include="DataAccessLayer\ThietLapHeThongDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyTreEmDAL.cs" />
+    <Compile Include="GUI\QuanLyBaoCao\BaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyBaoCao\BaoCao.Designer.cs">
+      <DependentUpon>BaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyBaoCao\CrystalReportGoodBaby.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportGoodBaby.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyBaoCao\CrystalReportHealth.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportHealth.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyBaoCao\CrystalReportOverall.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportOverall.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyBaoCao\DataSetCR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCR.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyBaoCao\LapBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyBaoCao\LapBaoCao.Designer.cs">
+      <DependentUpon>LapBaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyBaoCao\SendMail.cs" />
+    <Compile Include="GUI\QuanLyBaoCao\XemBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyBaoCao\XemBaoCao.Designer.cs">
+      <DependentUpon>XemBaoCao.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\QuanLyHocTap\GhiHanhViLa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +250,27 @@
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyBaoCao\BaoCao.resx">
+      <DependentUpon>BaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyBaoCao\CrystalReportGoodBaby.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportGoodBaby.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyBaoCao\CrystalReportHealth.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportHealth.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyBaoCao\CrystalReportOverall.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportOverall.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyBaoCao\LapBaoCao.resx">
+      <DependentUpon>LapBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyBaoCao\XemBaoCao.resx">
+      <DependentUpon>XemBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyHocTap\GhiHanhViLa.resx">
       <DependentUpon>GhiHanhViLa.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +319,17 @@
     <EmbeddedResource Include="GUI\QuanLySucKhoe.resx">
       <DependentUpon>QuanLySucKhoe.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="GUI\QuanLyBaoCao\DataSetCR.xsc">
+      <DependentUpon>DataSetCR.xsd</DependentUpon>
+    </None>
+    <None Include="GUI\QuanLyBaoCao\DataSetCR.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCR.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="GUI\QuanLyBaoCao\DataSetCR.xss">
+      <DependentUpon>DataSetCR.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -269,7 +343,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
