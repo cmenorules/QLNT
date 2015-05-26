@@ -66,18 +66,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
         {
             for (int i = 0; i < tmp.Rows.Count; i++)
             {
-                string sql_emailGV = "select MaNhanVien, Email, MatKhau from NHANVIEN where MaNhanVien='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "'";
-                DataTable dt_emailGV = DataConnection.getInstance().Read(sql_emailGV);
-                sendMail = new SendMail(dt_emailGV.Rows[0][1].ToString(), dt_emailGV.Rows[0][2].ToString());
-
-                string sql_emailNGH = "select HoTen,EmailNguoiGiamHo from TREEM,HOSOTREEM where HOSOTREEM.MaHoSoTreEm = TREEM.MaHoSoTreEm and TREEM.MaTre= '" + tmp.Rows[i]["MaTre"].ToString() + "'";
-                DataTable dt_emailNGH = DataConnection.getInstance().Read(sql_emailNGH);
-                
-                string sql_tenTruong = "select TenNhaTre form ThongTinNhaTre";
-                DataTable dt_tenTruong = DataConnection.getInstance().Read(sql_tenTruong);
-
-                string bodyMail = "Báo cáo tổng quát tháng " + DateTime.Now.Month.ToString() + " của bé " + dt_emailNGH.Rows[0][0].ToString();
-                string subjectMail = "Trường mẫu giáo " + dt_tenTruong.Rows[0][0].ToString();
+               
 
                 string sql_overall = "select TREEM.HoTen as TenHocSinh,NHANVIEN.HoTen as TenNhanVien, KHOI.TenKhoi + ' ' + PHONGHOC.TenPhong as Lop,HocKy, NamHoc, Thu, Tuan, NgayThangNam, MonChinh, MonCanh, MonPhu, MonTrangMieng from TREEM, NHANVIEN, DINHDUONG, KEHOACHGIANGDAY, KHOI, PHONGHOC, DANGKYHOC, CHUONGTRINHHOC where KEHOACHGIANGDAY.MaKeHoach = DINHDUONG.MaKeHoach and KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and KEHOACHGIANGDAY.MaPhong = PHONGHOC.MaPhong and KEHOACHGIANGDAY.MaKeHoach = DANGKYHOC.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien = NHANVIEN.MaNhanVien and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and	DANGKYHOC.MaTre = TREEM.MaTre and NHANVIEN.MaNhanVien ='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "' and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "'";
                 string table_showdd = "ShowDinhDuong";
@@ -104,10 +93,22 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
                 string path = tmp.Rows[i]["MaTre"].ToString() + ".pdf";
                 cReportOverall.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, path);
 
-                //int status = (int)((i + 1) * 100 / tmp.Rows.Count);
-                //progressBar_LapBaoCao.Value = status;
-                //label_PhanTram.Text = status + "%";
+                //Gửi mail
+                string sql_emailGV = "select MaNhanVien, Email, MatKhau from NHANVIEN where MaNhanVien='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "'";
+                DataTable dt_emailGV = DataConnection.getInstance().Read(sql_emailGV);
+                sendMail = new SendMail(dt_emailGV.Rows[0][1].ToString(), dt_emailGV.Rows[0][2].ToString());
+
+                string sql_emailNGH = "select HoTen,EmailNguoiGiamHo from TREEM,HOSOTREEM where HOSOTREEM.MaHoSoTreEm = TREEM.MaHoSoTreEm and TREEM.MaTre= '" + tmp.Rows[i]["MaTre"].ToString() + "'";
+                DataTable dt_emailNGH = DataConnection.getInstance().Read(sql_emailNGH);
                 
+                string sql_tenTruong = "select TenNhaTre form ThongTinNhaTre";
+                DataTable dt_tenTruong = DataConnection.getInstance().Read(sql_tenTruong);
+
+                string bodyMail = "Báo cáo tổng quát tháng " + DateTime.Now.Month.ToString() + " của bé " + dt_emailNGH.Rows[0][0].ToString();
+                string subjectMail = "Trường mẫu giáo " + dt_tenTruong.Rows[0][0].ToString();
+
+                sendMail.Send(dt_emailNGH.Rows[0][1].ToString(),subjectMail,bodyMail,path);
+                // backroundwoker
                 bw.ReportProgress((int)((i+1) * 100)  / tmp.Rows.Count);
                 
             }
