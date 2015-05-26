@@ -38,13 +38,10 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
             DataSet data_showsk = new DataSet();
             DataSet data_showtk = new DataSet();
 
-            //data_showtk = 
             data_showdd = DataConnection.getInstance().Read(sql_overall, table_showdd);
             data_showsk = DataConnection.getInstance().Read(sql_health, table_showsk);
             data_showtk = DataConnection.getInstance().Read(sql_goodbaby, table_showtk);
-            //DataSet data_showsk = new DataSet();
-            //data_showsk = DataConnection.getInstance().Read(sql_health, table_showsk);
-            //DataSetCR a = new DataSetCR();
+            
             cReportOverall.Load(@"C:\Users\norules\Desktop\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
             //cReportOverall.DataSourceConnections.Clear();
             cReportOverall.SetDataSource(data_showdd.Tables[0]);
