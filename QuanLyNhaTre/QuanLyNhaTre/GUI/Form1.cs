@@ -92,6 +92,12 @@ namespace QuanLyNhaTre
         {
             QuanLyDiemDanh fm = new QuanLyDiemDanh();
             fm.Show();
+        }
+
+        private void baoCaoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyNhaTre.GUI.QuanLyBaoCao.BaoCao frm = new GUI.QuanLyBaoCao.BaoCao();
+            frm.Show();
         }        
     }
 }
