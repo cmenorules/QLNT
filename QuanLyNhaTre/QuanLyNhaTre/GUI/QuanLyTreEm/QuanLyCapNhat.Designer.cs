@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label19 = new System.Windows.Forms.Label();
-            this.lbTinhTrang = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
@@ -92,24 +90,6 @@
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(656, 285);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(58, 13);
-            this.label19.TabIndex = 25;
-            this.label19.Text = "Tình trạng:";
-            // 
-            // lbTinhTrang
-            // 
-            this.lbTinhTrang.AutoSize = true;
-            this.lbTinhTrang.Location = new System.Drawing.Point(720, 285);
-            this.lbTinhTrang.Name = "lbTinhTrang";
-            this.lbTinhTrang.Size = new System.Drawing.Size(65, 13);
-            this.lbTinhTrang.TabIndex = 26;
-            this.lbTinhTrang.Text = "Đã sửa 0 trẻ";
             // 
             // groupBox4
             // 
@@ -617,7 +597,6 @@
             this.cbKhoiCu.Name = "cbKhoiCu";
             this.cbKhoiCu.Size = new System.Drawing.Size(118, 21);
             this.cbKhoiCu.TabIndex = 1;
-            
             this.cbKhoiCu.SelectionChangeCommitted += new System.EventHandler(this.cbKhoiCu_SelectionChangeCommitted);
             // 
             // label20
@@ -644,8 +623,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 520);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.lbTinhTrang);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -663,14 +640,11 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label lbTinhTrang;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnHuy;

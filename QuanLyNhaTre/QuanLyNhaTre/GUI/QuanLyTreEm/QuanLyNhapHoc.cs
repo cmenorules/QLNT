@@ -48,6 +48,7 @@ namespace QuanLyNhaTre.QuanLyTreEm
                         func(control.Controls);
             };
             func(Controls);
+            this.ActiveControl = txtHoTen;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

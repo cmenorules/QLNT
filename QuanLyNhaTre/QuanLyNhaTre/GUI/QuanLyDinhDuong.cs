@@ -1,8 +1,10 @@
-﻿using System;
+﻿using QuanLyNhaTre.BusinessLogicLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,53 +13,83 @@ using System.Windows.Forms;
 namespace QuanLyNhaTre
 {
     public partial class QuanLyDinhDuong : Form
-    {        
-        BusinessLogicLayer.QuanLyDinhDuongBLL _qldd;
+    {
+        BusinessLogicLayer.QuanLyDinhDuongBLL qlddBLL;
         public QuanLyDinhDuong()
         {
             InitializeComponent();
-            _qldd = new BusinessLogicLayer.QuanLyDinhDuongBLL();
-           
+            qlddBLL = new BusinessLogicLayer.QuanLyDinhDuongBLL();
+            LoadCBKhoi();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void LoadCBKhoi()
         {
-
+            cbKhoi.DataSource = qlddBLL.LayDSKhoi();
+            cbKhoi.DisplayMember = "TenKhoi";
+            cbKhoi.ValueMember = "MaKhoi";
         }
 
-        private void QuanLyDinhDuong_Load(object sender, EventArgs e)
+        private void LoadCBLop()
         {
-
+            cbLop.DataSource = qlddBLL.LayDSLop(cbNgay.Value.Year, Int32.Parse(cbKhoi.SelectedValue.ToString()));
+            cbLop.DisplayMember = "TenLop";
+            cbLop.ValueMember = "MaKeHoach";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
-        {           
+        {
             try
             {
-                int makh = Int32.Parse(cbLop.Text);                
+                int makh = Int32.Parse(cbLop.SelectedValue.ToString());
                 string buoi = cbBuoi.Text;
-                int _b=1;
-                if ("sang".Equals(buoi))
+                int _b = 1;
+                if (cbBuoi.Text == "Sáng")
                     _b = 0;
-                string thu ="";
+                string thu = cbNgay.Value.DayOfWeek.ToString();
                 int tuan = Int32.Parse(tbTuan.Text);
-                string ngaythangnam = cbNgay.Value.ToString();
+
+                DateTime dt = DateTime.ParseExact(cbNgay.Value.ToShortDateString(), "dd/mm/yyyy", CultureInfo.InvariantCulture);
+                string ngayThangNam = dt.ToString("mm/dd/yyyy");
+
                 string monchinh = this.txtMonChinh.Text;
                 string moncanh = this.txtMonCanh.Text;
                 string monphu = this.txtMonPhu.Text;
-                string montrangmieng = this.txtMonTrangMieng.Text;                
-                _qldd.ThemDinhDuong(makh, _b, thu, tuan, ngaythangnam, monchinh, moncanh, monphu, montrangmieng);
+                string montrangmieng = this.txtMonTrangMieng.Text;
+
+                qlddBLL.ThemDinhDuong(makh, _b, thu, tuan, ngayThangNam, monchinh, moncanh, monphu, montrangmieng);
 
             }
-            catch (Exception ex) { 
-                
-            }
+            catch (Exception ex)
+            {
 
+            }
+            MessageBox.Show("Thêm thực đơn thành công!", "Thông báo");
+            Reset();
         }
 
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbKhoi_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LoadCBLop();
+        }
+
+        private void Reset()
+        {
+            Action<Control.ControlCollection> func = null;
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+            func(Controls);
+            this.ActiveControl = txtMonChinh;
         }
     }
 }
