@@ -32,6 +32,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtMaNhanVien = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.ckNu = new System.Windows.Forms.CheckBox();
             this.ckNam = new System.Windows.Forms.CheckBox();
             this.cbChucVu = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.txtMaNhanVienPhanQuyen = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.ckNu = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -118,6 +118,18 @@
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 16;
             this.label3.Text = "Mã nhân viên";
+            // 
+            // ckNu
+            // 
+            this.ckNu.AutoSize = true;
+            this.ckNu.Location = new System.Drawing.Point(188, 220);
+            this.ckNu.Name = "ckNu";
+            this.ckNu.Size = new System.Drawing.Size(40, 17);
+            this.ckNu.TabIndex = 4;
+            this.ckNu.Tag = "";
+            this.ckNu.Text = "Nữ";
+            this.ckNu.UseVisualStyleBackColor = true;
+            this.ckNu.CheckedChanged += new System.EventHandler(this.ckNu_CheckedChanged);
             // 
             // ckNam
             // 
@@ -237,7 +249,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(505, 378);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Phân quyền";
+            this.tabPage2.Text = "Phân Công";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -380,9 +392,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(154, 22);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(194, 37);
+            this.label9.Size = new System.Drawing.Size(178, 37);
             this.label9.TabIndex = 14;
-            this.label9.Text = "Phân Quyền";
+            this.label9.Text = "Phân Công";
             // 
             // label8
             // 
@@ -392,18 +404,6 @@
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 14;
             this.label8.Text = "Mã nhân viên";
-            // 
-            // ckNu
-            // 
-            this.ckNu.AutoSize = true;
-            this.ckNu.Location = new System.Drawing.Point(188, 220);
-            this.ckNu.Name = "ckNu";
-            this.ckNu.Size = new System.Drawing.Size(40, 17);
-            this.ckNu.TabIndex = 4;
-            this.ckNu.Tag = "";
-            this.ckNu.Text = "Nữ";
-            this.ckNu.UseVisualStyleBackColor = true;
-            this.ckNu.CheckedChanged += new System.EventHandler(this.ckNu_CheckedChanged);
             // 
             // QuanLyNhanVien
             // 

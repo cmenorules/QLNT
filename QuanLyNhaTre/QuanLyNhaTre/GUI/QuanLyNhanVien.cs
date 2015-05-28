@@ -131,7 +131,7 @@ namespace QuanLyNhaTre
             CheckInputPhanQuyen();
             foreach(int item in listQuyen)
             {
-                listCheckBox[item].Checked = true;
+                listCheckBox[item-1].Checked = true;
             }
         }
         public int indexOfCheckBox(CheckBox ck)
