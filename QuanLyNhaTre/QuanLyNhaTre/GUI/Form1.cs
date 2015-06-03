@@ -103,6 +103,12 @@ namespace QuanLyNhaTre
         {
             QuanLyNhaTre.GUI.QuanLyBaoCao.BaoCao frm = new GUI.QuanLyBaoCao.BaoCao();
             frm.Show();
+        }
+
+        private void danhMucToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyNhaTre.GUI.QuanLyDanhMuc.DanhMuc _dm = new GUI.QuanLyDanhMuc.DanhMuc();
+            _dm.Show();
         }        
     }
 }
