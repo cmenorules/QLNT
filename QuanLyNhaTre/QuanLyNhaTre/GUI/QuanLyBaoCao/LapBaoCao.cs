@@ -29,19 +29,18 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
         {
             
             bw = new BackgroundWorker();
-           // bw.RunWorkerAsync();
-            //Shown += new EventHandler(LapBaoCao_Shown);
-            // To report progress from the background worker we need to set this property
+           
             bw.WorkerReportsProgress = true;
-            // This event will be raised on the worker thread when the worker starts
+           
             bw.DoWork += backgroundWorker1_DoWork;
-            // This event will be raised when we call ReportProgress
+           
             bw.ProgressChanged += backgroundWorker1_ProgressChanged;
-            
-            
+
+            // Xác định tên của giáo viên để load tên các pé của lớp giáo viên phụ trách
             string sql_tmp = "select TREEM.MaTre, TREEM.HoTen as TenHocSinh,NHANVIEN.HoTen as TenNhanVien, KHOI.TenKhoi + ' ' + PHONGHOC.TenPhong as Lop,HocKy, NamHoc, Thu, Tuan, NgayThangNam, MonChinh, MonCanh, MonPhu, MonTrangMieng from TREEM, NHANVIEN, DINHDUONG, KEHOACHGIANGDAY, KHOI, PHONGHOC, DANGKYHOC, CHUONGTRINHHOC where KEHOACHGIANGDAY.MaKeHoach = DINHDUONG.MaKeHoach and KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and KEHOACHGIANGDAY.MaPhong = PHONGHOC.MaPhong and KEHOACHGIANGDAY.MaKeHoach = DANGKYHOC.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien = NHANVIEN.MaNhanVien and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and	DANGKYHOC.MaTre = TREEM.MaTre and NHANVIEN.MaNhanVien ='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "'";
             tmp = new DataTable();
             tmp = DataConnection.getInstance().Read(sql_tmp);
+            
             progressBar_LapBaoCao.Maximum = 100;
             progressBar_LapBaoCao.Minimum = 0;
         }
@@ -65,12 +64,18 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
         private void LapBaoCao_Shown(object sender, EventArgs e)
         {
             for (int i = 0; i < tmp.Rows.Count; i++)
-            {               
+            {
+                // sql Lấy báo cáo về dinh dưỡng
                 string sql_overall = "select TREEM.HoTen as TenHocSinh,NHANVIEN.HoTen as TenNhanVien, KHOI.TenKhoi + ' ' + PHONGHOC.TenPhong as Lop,HocKy, NamHoc, Thu, Tuan, NgayThangNam, MonChinh, MonCanh, MonPhu, MonTrangMieng from TREEM, NHANVIEN, DINHDUONG, KEHOACHGIANGDAY, KHOI, PHONGHOC, DANGKYHOC, CHUONGTRINHHOC where KEHOACHGIANGDAY.MaKeHoach = DINHDUONG.MaKeHoach and KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and KEHOACHGIANGDAY.MaPhong = PHONGHOC.MaPhong and KEHOACHGIANGDAY.MaKeHoach = DANGKYHOC.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien = NHANVIEN.MaNhanVien and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and	DANGKYHOC.MaTre = TREEM.MaTre and NHANVIEN.MaNhanVien ='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "' and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "'";
+                // Tên của bảng trong dataset
                 string table_showdd = "ShowDinhDuong";
+                // sql Lấy báo cáo về sức khỏe
                 string sql_health = "select NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, HoHap from PHIEUSUCKHOE, DANGKYHOC, TREEM where PHIEUSUCKHOE.MaDangKy = DANGKYHOC.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "'";
+                // Tên của bảng trong dataset
                 string table_showsk = "ShowSucKhoe";
+                // sql Lấy báo cáo về phiếu bé ngoan
                 string sql_goodbaby = "select Ngay, PhatTrienTheChat, PhatTrienNhanThuc, PhatTrienNangKhieu, PhatTrienNgonNgu, PhatTrienQuanHe, BeNgoan from PHIEUTONGKET, DANGKYHOC, TREEM where DANGKYHOC.MaDangKy = PHIEUTONGKET.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "'";
+                // Tên của bảng trong dataset
                 string table_showtk = "ShowTongKet";
                 
                 DataSet data_showdd = new DataSet();
@@ -87,26 +92,39 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
                 //cReportOverall.Subreports[0].DataSourceConnections.Clear();
                 cReportOverall.Subreports["CrystalReportHealth.rpt"].SetDataSource(data_showsk.Tables[0]);
                 cReportOverall.Subreports["CrystalReportGoodBaby.rpt"].SetDataSource(data_showtk.Tables[0]);
-
+                //đường dẫn đến file báo cáo của bé đã lập
                 string path = tmp.Rows[i]["MaTre"].ToString() + ".pdf";
                 cReportOverall.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, path);
 
                 //Gửi mail
+                //Lấy các hoạt động lạ hoặc không tốt của pé
+                string sql_hoatdong = "select HoatDong,PHIEUHOATDONG.Ngay,PHIEUHOATDONG.DanhGia from PHIEUHOATDONG,TREEM, DANGKYHOC where PHIEUHOATDONG.MaDangKy = DANGKYHOC.MaDangKy and TREEM.MaTre = DANGKYHOC.MaTre and TREEM.MaTre ='" + tmp.Rows[i]["MaTre"] + "'";
+                DataTable dt_hoatdong = DataConnection.getInstance().Read(sql_hoatdong);
+                string show_hoatdong = "";
+                if (dt_hoatdong.Rows.Count != 0)
+                {
+                    foreach (DataRow dr in dt_hoatdong.Rows)
+                    {
+                        show_hoatdong += "Ngay: " + dr[1].ToString() + "; Hành động: " + dr[0].ToString() + "; Đánh giá: " + dr[2].ToString() + "\n";
+                    }
+                }
+                // Lấy email và mật khẩu mail của nhân viên; đưa vào hàm sendMail
                 string sql_emailGV = "select MaNhanVien, Email, MatKhau from NHANVIEN where MaNhanVien='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "'";
                 DataTable dt_emailGV = DataConnection.getInstance().Read(sql_emailGV);
                 sendMail = new SendMail(dt_emailGV.Rows[0][1].ToString(), dt_emailGV.Rows[0][2].ToString());
-
+                //Lấy email người giám hộ và tên của pé
                 string sql_emailNGH = "select HoTen,EmailNguoiGiamHo from TREEM,HOSOTREEM where HOSOTREEM.MaHoSoTreEm = TREEM.MaHoSoTreEm and TREEM.MaTre= '" + tmp.Rows[i]["MaTre"].ToString() + "'";
                 DataTable dt_emailNGH = DataConnection.getInstance().Read(sql_emailNGH);
-
+                //Lấy tên nhà trẻ
                 string sql_tenTruong = "select TenNhaTre from THONGTINNHATRE";
                 DataTable dt_tenTruong = DataConnection.getInstance().Read(sql_tenTruong);
-
-                string bodyMail = "Báo cáo tổng quát tháng " + DateTime.Now.Month.ToString() + " của bé " + dt_emailNGH.Rows[0][0].ToString();
+                
+                string bodyMail = "Báo cáo tổng quát tháng " + DateTime.Now.Month.ToString() + " của bé " + dt_emailNGH.Rows[0][0].ToString()+"\n";
+                bodyMail += show_hoatdong;
                 string subjectMail = "Trường mẫu giáo " + dt_tenTruong.Rows[0][0].ToString();
-
+                
                 sendMail.Send(dt_emailNGH.Rows[0][1].ToString(), subjectMail, bodyMail, path);
-                // backroundwoker
+                // backroundwoker báo cáo tiến trình
                 bw.ReportProgress((int)((i+1) * 100)  / tmp.Rows.Count);                
             }
             MessageBox.Show("Lập báo cáo thành công");
