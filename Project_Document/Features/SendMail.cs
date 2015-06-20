@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace MailTest
 {
+	//Them cai dong j di
 	// chú ý: mail muốn gửi phải "turn on less security App" của fromMail, đăng nhập vào mail của mình và theo đường dẫn theo dể setting
 	// https://www.google.com/settings/security/lesssecureapps?pli=1
     //lớp này chỉ sử dụng cho mail người gởi, người nhận là gmail
