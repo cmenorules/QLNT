@@ -112,6 +112,7 @@
     <Compile Include="DataAccessLayer\QuanLySucKhoeDAL.cs" />
     <Compile Include="DataAccessLayer\ThietLapHeThongDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyTreEmDAL.cs" />
+    <Compile Include="GUI\KiemTraNhapLieu.cs" />
     <Compile Include="GUI\QuanLyBaoCao\BaoCao.cs">
       <SubType>Form</SubType>
     </Compile>

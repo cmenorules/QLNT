@@ -1,4 +1,5 @@
 ﻿using QuanLyNhaTre.DataAccessLayer;
+using QuanLyNhaTre.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,12 +22,14 @@ namespace QuanLyNhaTre.QuanLyHeThong
 
         private DangNhapDAL dangNhapDAL;
         private string email;
-        private string matKhau;    
+        private string matKhau;
+        private KiemTraNhapLieu kt = KiemTraNhapLieu.getInstance();
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             email = txtEmail.Text;
             matKhau = txtMatKhau.Text;
+            
             if (email.Contains("'--") || email == "" || matKhau == "")
                 MessageBox.Show("Email hoặc mật khẩu không đúng. Vui lòng nhập lại!", "Cảnh báo");
             else

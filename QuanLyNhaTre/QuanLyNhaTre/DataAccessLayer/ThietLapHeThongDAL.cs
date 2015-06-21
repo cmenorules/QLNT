@@ -15,27 +15,29 @@ namespace QuanLyNhaTre.DataAccessLayer
         string initialCatalog;
 
         public ThietLapHeThongDAL(string path, string databaseName)
-        {
-            dtCon.SetupConnection(path);
+        {            
             dataSource = path;
             initialCatalog = databaseName;
-        }
+        }        
 
-        public bool TaoDatabase()
+        public int TaoDatabase()
         {
+            if (!dtCon.SetupConnection(dataSource))
+                return 1;//sai đường dẫn
             string sqlCheck = "select name from master.dbo.sysdatabases where ('[' + name + ']' = '" + initialCatalog + "' OR name = '" + initialCatalog + "')";
             if (dtCon.Read(sqlCheck).Rows.Count == 0)
             {
                 string sqlCreateDatabase = "create database " + initialCatalog;
-                dtCon.Write(sqlCreateDatabase);
+                if (!dtCon.Write(sqlCreateDatabase))
+                    return 2;//tên database không hợp lệ
                 dtCon.Write("use " + initialCatalog);
                 string[] sql_query = File.ReadAllLines(@"..\..\Resources/SQLQuery.txt");
                 foreach (string sql in sql_query)
-                    dtCon.Write(sql);
-                return true;
+                    if (!dtCon.Write(sql))
+                        return 3;//sai cú pháp
+                return 0;//hoàn tất
             }
-            MessageBox.Show("Tên database này đã tồn tại. Vui lòng nhập lại tên khác", "Thông báo");
-            return false;
+            return 4;//tên database đã tồn tại
         }
 
         public void NhapThongTinTruong(string ten, string diaChi, string email, long sdt)
