@@ -20,7 +20,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
             InitializeComponent();
         }
         ReportDocument cReportOverall = new ReportDocument();
-
+        public string month = "";
         private void XemBaoCao_Load(object sender, EventArgs e)
         {
             //cReportHealth.Load(@"C:\Users\norules\Desktop\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportHealth.rpt");
@@ -28,11 +28,14 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
             //cReportOverall.Subreports["CrystalReportHealth"].Load(@"C:\Users\norules\Desktop\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportHealth.rpt");
             
 
-            string sql_overall = "select TREEM.HoTen as TenHocSinh,NHANVIEN.HoTen as TenNhanVien, KHOI.TenKhoi + ' ' + PHONGHOC.TenPhong as Lop,HocKy, NamHoc, Thu, Tuan, NgayThangNam, MonChinh, MonCanh, MonPhu, MonTrangMieng from TREEM, NHANVIEN, DINHDUONG, KEHOACHGIANGDAY, KHOI, PHONGHOC, DANGKYHOC, CHUONGTRINHHOC where KEHOACHGIANGDAY.MaKeHoach = DINHDUONG.MaKeHoach and KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and KEHOACHGIANGDAY.MaPhong = PHONGHOC.MaPhong and KEHOACHGIANGDAY.MaKeHoach = DANGKYHOC.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien = NHANVIEN.MaNhanVien and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and	DANGKYHOC.MaTre = TREEM.MaTre and NHANVIEN.MaNhanVien ='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "' and TREEM.MaTre = '" + BaoCao.MaTre + "'";
+            string sql_overall = "select TREEM.HoTen as TenHocSinh,NHANVIEN.HoTen as TenNhanVien, KHOI.TenKhoi + ' ' + PHONGHOC.TenPhong as Lop,HocKy, NamHoc, Thu, Tuan, NgayThangNam, MonChinh, MonCanh, MonPhu, MonTrangMieng "+
+                "from TREEM, NHANVIEN, DINHDUONG, KEHOACHGIANGDAY, KHOI, PHONGHOC, DANGKYHOC, CHUONGTRINHHOC"+
+                " where KEHOACHGIANGDAY.MaKeHoach = DINHDUONG.MaKeHoach and KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and KEHOACHGIANGDAY.MaPhong = PHONGHOC.MaPhong and KEHOACHGIANGDAY.MaKeHoach = DANGKYHOC.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien = NHANVIEN.MaNhanVien and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and "+
+                "DANGKYHOC.MaTre = TREEM.MaTre and NHANVIEN.MaNhanVien ='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "' and TREEM.MaTre = '" + BaoCao.MaTre + "' and MONTH(DINHDUONG.NgayThangNam)='"+month+"'";
             string table_showdd = "ShowDinhDuong";
-            string sql_health = "select NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, HoHap from PHIEUSUCKHOE, DANGKYHOC, TREEM where PHIEUSUCKHOE.MaDangKy = DANGKYHOC.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + BaoCao.MaTre + "'";
+            string sql_health = "select NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, HoHap from PHIEUSUCKHOE, DANGKYHOC, TREEM where PHIEUSUCKHOE.MaDangKy = DANGKYHOC.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + BaoCao.MaTre + "' and MONTH(PHIEUSUCKHOE.NgayKham)='" + month + "'";
             string table_showsk = "ShowSucKhoe";
-            string sql_goodbaby = "select Ngay, PhatTrienTheChat, PhatTrienNhanThuc, PhatTrienNangKhieu, PhatTrienNgonNgu, PhatTrienQuanHe, BeNgoan from PHIEUTONGKET, DANGKYHOC, TREEM where DANGKYHOC.MaDangKy = PHIEUTONGKET.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + BaoCao.MaTre + "'";
+            string sql_goodbaby = "select Ngay, PhatTrienTheChat, PhatTrienNhanThuc, PhatTrienNangKhieu, PhatTrienNgonNgu, PhatTrienQuanHe, BeNgoan from PHIEUTONGKET, DANGKYHOC, TREEM where DANGKYHOC.MaDangKy = PHIEUTONGKET.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + BaoCao.MaTre + "' and MONTH(PHIEUTONGKET.Ngay)='" + month + "'";
             string table_showtk = "ShowTongKet";
             DataSet data_showdd = new DataSet();
             DataSet data_showsk = new DataSet();
@@ -42,7 +45,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
             data_showsk = DataConnection.getInstance().Read(sql_health, table_showsk);
             data_showtk = DataConnection.getInstance().Read(sql_goodbaby, table_showtk);
 
-            cReportOverall.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\PTTK HTTT\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
+            cReportOverall.Load(@"D:\Study\2014-2015\hk2\Phân tích thiết kế hệ thống\Quản lý nhà trẻ\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
             //cReportOverall.DataSourceConnections.Clear();
             cReportOverall.SetDataSource(data_showdd.Tables[0]);
             //cReportOverall.Subreports[0].DataSourceConnections.Clear();
