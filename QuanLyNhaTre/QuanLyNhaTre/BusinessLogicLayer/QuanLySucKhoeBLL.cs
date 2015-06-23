@@ -17,7 +17,7 @@ namespace QuanLyNhaTre.BusinessLogicLayer
             return _qlSucKhoeDal.LayDanhSachKhoi();
             
         }
-        public DataTable LayDanhSachPhong(int maKhoi, int namHoc)
+        public DataTable LayDanhSachLop(int maKhoi, int namHoc)
         {
            return _qlSucKhoeDal.LayDanhSachLop(maKhoi,namHoc);
             
@@ -34,6 +34,7 @@ namespace QuanLyNhaTre.BusinessLogicLayer
         {
             return _qlSucKhoeDal.LayThongTinTre(maDangKy);
         }
+        
         public void ThemPhieuSucKhoeVang(string ngayKham, int maDangKy)
         {
             _qlSucKhoeDal.ThemPhieuSucKhoe(ngayKham, 0, 0, "v", "v", "v", "v", maDangKy);
@@ -43,13 +44,14 @@ namespace QuanLyNhaTre.BusinessLogicLayer
         {
             _qlSucKhoeDal.ThemPhieuSucKhoe(ngayKham, chieuCao, canNang, daLieu, taiMuiHong, rangHamMat, hoHap, maDangKy);
         }
-        public DataTable LayDanhSachPhieuSucKhoe(int nam, int thang, int maKhoi)
-        {
-            return _qlSucKhoeDal.LayDanhSachPhieuSucKhoe(nam, thang, maKhoi);
-        }
+ 
         public DataTable LayDanhSachPhieuSucKhoe(int nam, int thang, int maKhoi, int maLop)
         {
             return _qlSucKhoeDal.LayDanhSachPhieuSucKhoe(nam, thang, maKhoi, maLop);
+        }
+        public DataTable LayDanhSachPhieuSucKhoe()
+        {
+            return _qlSucKhoeDal.LayDanhSachPhieuSucKhoe();
         }
         public DataTable LayDanhSachPhieuSucKhoe(int maTre)
         {

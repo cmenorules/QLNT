@@ -48,15 +48,21 @@ namespace QuanLyNhaTre.DataAccessLayer
         }
         public DataTable LayDanhSachPhieuSucKhoe(int maTre)
         {
-            return _connection.Read("select MaPhieuSucKhoe, Hoten, NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, ChieuCao"+
+            return _connection.Read("select MaPhieuSucKhoe, Hoten, NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, HoHap"+
                 " from PHIEUSUCKHOE join DANGKYHOC on PHIEUSUCKHOE.MaDangKy= DANGKYHOC.MaDangKy "+ 
                 " join TREEM on DANGKYHOC.MaTre= TREEM.MaTre where TREEM.MaTre=" + maTre);
         }
 
+        public DataTable LayDanhSachPhieuSucKhoe()
+        {
+            return _connection.Read("select MaPhieuSucKhoe, Hoten, NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, HoHap" +
+                " from PHIEUSUCKHOE join DANGKYHOC on PHIEUSUCKHOE.MaDangKy= DANGKYHOC.MaDangKy " +
+                " join TREEM on DANGKYHOC.MaTre= TREEM.MaTre");
+        }
         public void ThemPhieuSucKhoe(string ngayKham, int chieuCao, int canNang,
             string daLieu, string taiMuiHong, string rangHamMat, string hoHap, int maDangKy)
         {
-            _connection.Write("set dateformat dmy");
+            //_connection.Write("set dateformat dmy");
             string cmd = " Insert into PHIEUSUCKHOE(NgayKham, ChieuCao, CanNang, DaLieu,TaiMuiHong, RangHamMat, HoHap, MaDangKy) values('{0}',{1}, {2}, N'{3}', N'{4}', N'{5}',N'{6}',{7})";
             _connection.Write(string.Format(cmd, ngayKham, chieuCao, canNang, daLieu, taiMuiHong, rangHamMat, hoHap, maDangKy));
 

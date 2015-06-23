@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyNhaTre.DataAccessLayer;
+using System.Text.RegularExpressions;
 
 namespace QuanLyNhaTre
 {
@@ -46,11 +47,14 @@ namespace QuanLyNhaTre
             //cbKhoi.SelectedIndex = 1;
         }
         // Lấy danh sách mã lớp theo chuẩn TênKhối-MãPhòng
-        public void LoadComboBoxLop(int maKhoi, ComboBox cb)
+        public int LoadComboBoxLop(int maKhoi, ComboBox cb)
         {
-            cb.DataSource = _qlSucKhoeBLL.LayDanhSachPhong(maKhoi, dtpNgayThucHien.Value.Date.Year);
+            DataTable dt = _qlSucKhoeBLL.LayDanhSachLop(maKhoi, dtpNgayThucHien.Value.Date.Year);
+            if (dt.Rows.Count < 1) return 0;
+            cb.DataSource = dt;
             cb.ValueMember = "MaKeHoach";
             cb.DisplayMember = "MaKeHoach";
+            return dt.Rows.Count;
             //cbLop.SelectedIndex = 1;
 
         }
@@ -74,7 +78,7 @@ namespace QuanLyNhaTre
         private void cbKhoi_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int maKhoi = Int32.Parse(cbKhoi.SelectedValue.ToString());
-            LoadComboBoxLop(maKhoi, cbLop);
+            if (LoadComboBoxLop(maKhoi, cbLop) < 1) return;
             int maKeHoach = int.Parse(cbLop.SelectedValue.ToString());
             LoadTxtMaTre(maKeHoach);
         }
@@ -274,6 +278,7 @@ namespace QuanLyNhaTre
             txtMaTreXemKetQuaKham.Enabled = false;
             int maKhoi = Int32.Parse(cbKhoiXemKetQuaKham.SelectedValue.ToString());
             LoadComboBoxLop(maKhoi, cbLopXemKetQuaKham);
+            dgvKQKham.DataSource = _qlSucKhoeBLL.LayDanhSachPhieuSucKhoe();
             
         }
         private void cbXemTheo_SelectionChangeCommitted(object sender, EventArgs e)
@@ -333,7 +338,14 @@ namespace QuanLyNhaTre
             else
             {
                 if (txtMaTreXemKetQuaKham.Text == "") return;
-                int maTre = int.Parse(txtMaTreXemKetQuaKham.Text);
+                int maTre = 0;
+                 string str = @"^\d{1,7}$";
+                 Regex rg = new Regex(str);
+                 if(!rg.IsMatch(txtMaTreXemKetQuaKham.Text))
+                  {
+                    MessageBox.Show("Mã trẻ không hợp lệ!");
+                      return;
+                  }
                 DataTable dt= _qlSucKhoeBLL.LayDanhSachPhieuSucKhoe(maTre);
                  if(dt.Rows.Count==0)
                 {
