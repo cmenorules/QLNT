@@ -13,7 +13,21 @@ namespace testSMS
         private SerialPort _port;
         public SendSMS()
         {
-            _port = new SerialPort("COM6", 115200);
+            string[] ports = SerialPort.GetPortNames();
+            foreach (string p in ports)
+            {
+                try
+                {
+                    _port = new SerialPort(p, 115200);
+                    _port.Open();
+                    _port.Close();
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
+                break;
+            }            
         }
         public void send(string num, string message)
         {
