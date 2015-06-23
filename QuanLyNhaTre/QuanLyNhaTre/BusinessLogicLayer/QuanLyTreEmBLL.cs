@@ -14,12 +14,12 @@ namespace QuanLyNhaTre.BusinessLogicLayer
             quanLyTreEmDAL = new DataAccessLayer.QuanLyTreEmDAL();
         }
 
-        DataAccessLayer.QuanLyTreEmDAL quanLyTreEmDAL;        
+        DataAccessLayer.QuanLyTreEmDAL quanLyTreEmDAL;
 
         public void ThemHoSoTreEm(string hoTenCha, string hoTenMe, string hoTenNguoiGiamHo, string emailNguoiGiamHo, int soDienThoaiNguoiGiamHo, string DiaChi)
-        {            
+        {
             quanLyTreEmDAL.ThemHoSoTreEm(hoTenCha, hoTenMe, hoTenNguoiGiamHo, emailNguoiGiamHo, soDienThoaiNguoiGiamHo, DiaChi);
-            
+
         }
 
         public void ThemTreEm(string hoTen, string tenThanMat, string gioiTinh, string ngaySinh,
@@ -61,6 +61,16 @@ namespace QuanLyNhaTre.BusinessLogicLayer
         public DataTable LayThongTinHoSoTreEm(int maHoSo)
         {
             return quanLyTreEmDAL.LayThongTinHoSoTre(maHoSo);
+        }
+
+        public string LaySoDienThoai(string maTre)
+        {
+            DataTable dt = quanLyTreEmDAL.LaySoDienThoaiNguoiGiamHo(maTre);
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["SoDienThoaiNguoiGiamHo"].ToString();
+            }
+            return "";
         }
 
         public void CapNhatThongTinTre(int maTre, string hoTen, string tenThanMat, string gioiTinh, string ngaySinh,

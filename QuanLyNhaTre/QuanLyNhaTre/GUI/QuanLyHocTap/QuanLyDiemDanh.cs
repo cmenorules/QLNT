@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyNhaTre.BusinessLogicLayer;
 using QuanLyNhaTre.QuanLyHeThong;
 
 
@@ -74,6 +75,33 @@ namespace QuanLyNhaTre.QuanLyHocTap
             }
 
             MessageBox.Show("Đã lưu thông tin");
+        }
+
+        private void btn_nhacNho_Click(object sender, EventArgs e)
+        {
+            QuanLyTreEmBLL treEmBLL = new QuanLyTreEmBLL();
+            SendSMS sms = new SendSMS();            
+            foreach (DataGridViewRow x in dtg_danhSach.Rows)
+            {                                                
+                    if(x.Cells["DaDiHoc"].Value.ToString().ToLower() == "false")
+                    {
+                        try
+                        {
+                            string sdt = treEmBLL.LaySoDienThoai(x.Cells["MaTre"].Value.ToString());
+                            //x.Cells["MaTre"]
+                            sms.send(sdt, "i kill u!");
+                            //c++;
+                        }
+                        catch (Exception ee)
+                        {
+                            MessageBox.Show(ee.Message);
+                        }
+
+                    }
+                    
+            }
+
+            MessageBox.Show("Đã Nhắc Nhở!");
         }
 
 

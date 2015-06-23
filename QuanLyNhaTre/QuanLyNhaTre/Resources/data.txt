@@ -5244,3 +5244,47 @@ insert into NHOMCHUCNANG values(9, 25)
 insert into QUYENHAN values (9, 1)
 Insert into NhanVien(HoTen, Email, MatKhau) values (N'Luận Pro',N'luantf','user')
 Insert into QUYENHAN (MaNhanVien, MaNhomNguoiDung)values (10,8)
+insert into PHIEUDIEMDANH values(1,'Tuesday',26,'6/23/2015 8:25:20 AM')
+insert into CHITIETPHIEUDIEMDANH values(4,1,0,0)
+insert into CHITIETPHIEUDIEMDANH values(4,2,0,0)
+insert into CHITIETPHIEUDIEMDANH values(4,3,0,0)
+insert into CHITIETPHIEUDIEMDANH values(4,4,0,0)
+insert into CHITIETPHIEUDIEMDANH values(4,5,0,0)
+insert into CHITIETPHIEUDIEMDANH values(4,6,0,0)
+insert into CHITIETPHIEUDIEMDANH values(4,7,0,0)
+insert into CHITIETPHIEUDIEMDANH values(4,8,0,0)
+insert into CHITIETPHIEUDIEMDANH values(4,9,0,0)
+insert into CHITIETPHIEUDIEMDANH values(4,10,0,0)
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 1
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 2
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 3
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 4
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 5
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 6
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'False', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 7
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'False', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 8
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'False', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 9
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'False', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 10
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 1
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 2
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 3
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 4
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 5
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'False', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 6
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'False', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 7
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'False', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 8
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'False', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 9
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'False', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 10
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 1
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 2
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 3
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 4
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 5
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 6
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 7
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 8
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 9
+update CHITIETPHIEUDIEMDANH set  DaDiHoc = 'True', DaDonVe = 'False' where MaPhieuDiemDanh = 4 and MaTre = 10
+update HOSOTREEM set HoTenCha = 'Trần Văn Hữu',HoTenMe = 'Võ Tất Thiên',HoTenNguoiGiamHo = 'Lê Thị Mận',EmailNguoiGiamHo = 'coxanh21294@gmail.com',SoDienThoaiNguoiGiamHo = '1676857350',DiaChi = 'Đà Nẵng' where MaHoSoTreEm =26
+update HOSOTREEM set HoTenCha = 'Trần Văn Hữu',HoTenMe = 'Võ Tất Thiên',HoTenNguoiGiamHo = 'Lê Thị Mận',EmailNguoiGiamHo = 'coxanh21294@gmail.com',SoDienThoaiNguoiGiamHo = '1676857350',DiaChi = 'Đà Nẵng' where MaHoSoTreEm =26
+update HOSOTREEM set HoTenCha = 'Trần Văn Hữu',HoTenMe = 'Võ Tất Thiên',HoTenNguoiGiamHo = 'Lê Thị Mận',EmailNguoiGiamHo = 'coxanh21294@gmail.com',SoDienThoaiNguoiGiamHo = '1676857350',DiaChi = 'Đà Nẵng' where MaHoSoTreEm =26

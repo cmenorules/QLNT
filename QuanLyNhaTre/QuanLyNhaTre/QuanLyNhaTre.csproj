@@ -94,17 +94,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicLayer\DangNhapBLL.cs" />
+    <Compile Include="BusinessLogicLayer\QuanLyDanhMucBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLyDinhDuongBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLyTreEmBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLyHocTapBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLyNhanVienBLL.cs" />
     <Compile Include="BusinessLogicLayer\QuanLySucKhoeBLL.cs" />
     <Compile Include="BusinessLogicLayer\RoleMap.cs" />
+    <Compile Include="BusinessLogicLayer\SendSMS.cs" />
     <Compile Include="BusinessLogicLayer\TimetableItem.cs" />
     <Compile Include="DataAccessLayer\DangNhapDAL.cs" />
     <Compile Include="DataAccessLayer\DAO.cs" />
     <Compile Include="DataAccessLayer\DataConnection.cs" />
     <Compile Include="DataAccessLayer\PhanQuyenDAL.cs" />
+    <Compile Include="DataAccessLayer\QuanLyDanhMucDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyDinhDuongDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyBaoCaoDAL.cs" />
     <Compile Include="DataAccessLayer\QuanLyHocTapDAL.cs" />
@@ -154,6 +157,12 @@
     </Compile>
     <Compile Include="GUI\QuanLyBaoCao\XemBaoCao.Designer.cs">
       <DependentUpon>XemBaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\DanhMuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\DanhMuc.Designer.cs">
+      <DependentUpon>DanhMuc.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\QuanLyHocTap\GhiHanhViLa.cs">
       <SubType>Form</SubType>
@@ -271,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyBaoCao\XemBaoCao.resx">
       <DependentUpon>XemBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyDanhMuc\DanhMuc.resx">
+      <DependentUpon>DanhMuc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyHocTap\GhiHanhViLa.resx">
       <DependentUpon>GhiHanhViLa.cs</DependentUpon>

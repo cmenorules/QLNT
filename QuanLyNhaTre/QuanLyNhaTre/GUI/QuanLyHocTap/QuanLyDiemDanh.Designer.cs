@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_nhacNho = new System.Windows.Forms.Button();
             this.btn_dong = new System.Windows.Forms.Button();
             this.btn_capNhat = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -90,18 +91,29 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_nhacNho);
             this.groupBox1.Controls.Add(this.btn_dong);
             this.groupBox1.Controls.Add(this.btn_capNhat);
             this.groupBox1.Location = new System.Drawing.Point(664, 164);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(150, 90);
+            this.groupBox1.Size = new System.Drawing.Size(150, 117);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức năng";
             // 
+            // btn_nhacNho
+            // 
+            this.btn_nhacNho.Location = new System.Drawing.Point(21, 54);
+            this.btn_nhacNho.Name = "btn_nhacNho";
+            this.btn_nhacNho.Size = new System.Drawing.Size(110, 23);
+            this.btn_nhacNho.TabIndex = 5;
+            this.btn_nhacNho.Text = " Nhắc Nhở Đi Học";
+            this.btn_nhacNho.UseVisualStyleBackColor = true;
+            this.btn_nhacNho.Click += new System.EventHandler(this.btn_nhacNho_Click);
+            // 
             // btn_dong
             // 
-            this.btn_dong.Location = new System.Drawing.Point(21, 54);
+            this.btn_dong.Location = new System.Drawing.Point(21, 81);
             this.btn_dong.Name = "btn_dong";
             this.btn_dong.Size = new System.Drawing.Size(110, 23);
             this.btn_dong.TabIndex = 5;
@@ -144,6 +156,7 @@
             // 
             // cb_maLop
             // 
+            this.cb_maLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_maLop.FormattingEnabled = true;
             this.cb_maLop.Location = new System.Drawing.Point(232, 27);
             this.cb_maLop.Name = "cb_maLop";
@@ -272,5 +285,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DaDiHoc;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DaDonVe;
+        private System.Windows.Forms.Button btn_nhacNho;
     }
 }

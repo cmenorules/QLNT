@@ -35,6 +35,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Phòng",
@@ -73,7 +74,7 @@
             this.ClientSize = new System.Drawing.Size(893, 534);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);            
+            this.Controls.Add(this.comboBox1);
             this.Name = "DanhMuc";
             this.Text = "DanhMuc";
             this.ResumeLayout(false);

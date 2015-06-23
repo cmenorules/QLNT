@@ -85,6 +85,11 @@ namespace QuanLyNhaTre.DataAccessLayer
             return dt_con.Read("select * from HOSOTREEM where MaHoSoTreEm = " + maHoSo);
         }
 
+        public DataTable LaySoDienThoaiNguoiGiamHo(string maTre)
+        {
+            return dt_con.Read("select SoDienThoaiNguoiGiamHo from HOSOTREEM where HOSOTREEM.MaHoSoTreEm in(select TREEM.MaHoSoTreEm from TREEM where TREEM.MaTre = "+maTre+")" );
+        }
+
         public void CapNhatThongTinTre(int maTre, string hoTen, string tenThanMat, string gioiTinh, string ngaySinh,
             string danToc, string tonGiao, int doiTuongUuTien, string tinhCach, string thoiQuen)
         {
