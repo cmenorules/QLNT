@@ -66,15 +66,15 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
             for (int i = 0; i < tmp.Rows.Count; i++)
             {
                 // sql Lấy báo cáo về dinh dưỡng
-                string sql_overall = "select TREEM.HoTen as TenHocSinh,NHANVIEN.HoTen as TenNhanVien, KHOI.TenKhoi + ' ' + PHONGHOC.TenPhong as Lop,HocKy, NamHoc, Thu, Tuan, NgayThangNam, MonChinh, MonCanh, MonPhu, MonTrangMieng from TREEM, NHANVIEN, DINHDUONG, KEHOACHGIANGDAY, KHOI, PHONGHOC, DANGKYHOC, CHUONGTRINHHOC where KEHOACHGIANGDAY.MaKeHoach = DINHDUONG.MaKeHoach and KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and KEHOACHGIANGDAY.MaPhong = PHONGHOC.MaPhong and KEHOACHGIANGDAY.MaKeHoach = DANGKYHOC.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien = NHANVIEN.MaNhanVien and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and	DANGKYHOC.MaTre = TREEM.MaTre and NHANVIEN.MaNhanVien ='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "' and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "'";
+                string sql_overall = "select TREEM.HoTen as TenHocSinh,NHANVIEN.HoTen as TenNhanVien, KHOI.TenKhoi + ' ' + PHONGHOC.TenPhong as Lop,HocKy, NamHoc, Thu, Tuan, NgayThangNam, MonChinh, MonCanh, MonPhu, MonTrangMieng from TREEM, NHANVIEN, DINHDUONG, KEHOACHGIANGDAY, KHOI, PHONGHOC, DANGKYHOC, CHUONGTRINHHOC where KEHOACHGIANGDAY.MaKeHoach = DINHDUONG.MaKeHoach and KEHOACHGIANGDAY.MaChuongTrinh = CHUONGTRINHHOC.MaChuongTrinh and KEHOACHGIANGDAY.MaPhong = PHONGHOC.MaPhong and" + " KEHOACHGIANGDAY.MaKeHoach = DANGKYHOC.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien = NHANVIEN.MaNhanVien and CHUONGTRINHHOC.MaKhoi = KHOI.MaKhoi and DANGKYHOC.MaTre = TREEM.MaTre and NHANVIEN.MaNhanVien ='" + QuanLyDangNhap.getInstance().LayMaNhanVien() + "' and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "' and MONTH(DINHDUONG.NgayThangNam) =" + DateTime.Now.Month;
                 // Tên của bảng trong dataset
                 string table_showdd = "ShowDinhDuong";
                 // sql Lấy báo cáo về sức khỏe
-                string sql_health = "select NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, HoHap from PHIEUSUCKHOE, DANGKYHOC, TREEM where PHIEUSUCKHOE.MaDangKy = DANGKYHOC.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "'";
+                string sql_health = "select NgayKham, ChieuCao, CanNang, DaLieu, TaiMuiHong, RangHamMat, HoHap from PHIEUSUCKHOE, DANGKYHOC, TREEM where PHIEUSUCKHOE.MaDangKy = DANGKYHOC.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "' and MONTH(PHIEUSUCKHOE.NgayKham)=" + DateTime.Now.Month;
                 // Tên của bảng trong dataset
                 string table_showsk = "ShowSucKhoe";
                 // sql Lấy báo cáo về phiếu bé ngoan
-                string sql_goodbaby = "select Ngay, PhatTrienTheChat, PhatTrienNhanThuc, PhatTrienNangKhieu, PhatTrienNgonNgu, PhatTrienQuanHe, BeNgoan from PHIEUTONGKET, DANGKYHOC, TREEM where DANGKYHOC.MaDangKy = PHIEUTONGKET.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "'";
+                string sql_goodbaby = "select Ngay, PhatTrienTheChat, PhatTrienNhanThuc, PhatTrienNangKhieu, PhatTrienNgonNgu, PhatTrienQuanHe, BeNgoan from PHIEUTONGKET, DANGKYHOC, TREEM where DANGKYHOC.MaDangKy = PHIEUTONGKET.MaDangKy and DANGKYHOC.MaTre = TREEM.MaTre and TREEM.MaTre = '" + tmp.Rows[i]["MaTre"].ToString() + "' and MONTH(PHIEUTONGKET.Ngay)=" + DateTime.Now.Month;
                 // Tên của bảng trong dataset
                 string table_showtk = "ShowTongKet";
                 
@@ -86,7 +86,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
                 data_showsk = DataConnection.getInstance().Read(sql_health, table_showsk);
                 data_showtk = DataConnection.getInstance().Read(sql_goodbaby, table_showtk);
 
-                cReportOverall.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\PTTK HTTT\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
+                cReportOverall.Load(@"D:\Study\2014-2015\hk2\Phân tích thiết kế hệ thống\Quản lý nhà trẻ\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
                 //cReportOverall.DataSourceConnections.Clear();
                 cReportOverall.SetDataSource(data_showdd.Tables[0]);
                 //cReportOverall.Subreports[0].DataSourceConnections.Clear();
@@ -99,11 +99,11 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
                 //Gửi mail
                 //Lấy lấy phiếu điểm danh và tính tổng số ngày điểm danh
                 string maNV = QuanLyDangNhap.getInstance().LayMaNhanVien();
-                string sql_phieudiemdanh = "select * from PHIEUDIEMDANH,KEHOACHGIANGDAY where PHIEUDIEMDANH.MaKeHoach = KEHOACHGIANGDAY.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien ='" + maNV + "'";
+                string sql_phieudiemdanh = "select * from PHIEUDIEMDANH,KEHOACHGIANGDAY where PHIEUDIEMDANH.MaKeHoach = KEHOACHGIANGDAY.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien ='" + maNV + "' and MONTH(PHIEUDIEMDANH.NgayThangNam)=" + DateTime.Now.Month;
                 DataTable dt_phieudiemdanh = DataConnection.getInstance().Read(sql_phieudiemdanh);
                 int soNgayDiemDanh = dt_phieudiemdanh.Rows.Count;
                 //Lấy chi tiết phiếu điểm danh và tính số ngày đi học
-                string sql_ctphieudiemdanh = "select * from CHITIETPHIEUDIEMDANH where MaTre ='" + tmp.Rows[i]["MaTre"] + "'";
+                string sql_ctphieudiemdanh = "select * from CHITIETPHIEUDIEMDANH,PHIEUDIEMDANH where MaTre ='" + tmp.Rows[i]["MaTre"] + "' and CHITIETPHIEUDIEMDANH.MaPhieuDiemDanh = PHIEUDIEMDANH.MaPhieuDiemDanh and MONTH(PHIEUDIEMDANH.NgayThangNam)=" + DateTime.Now.Month;
                 DataTable dt_ctphieudiemdanh = DataConnection.getInstance().Read(sql_ctphieudiemdanh);
                 int soNgayDiHoc = 0;
                 foreach(DataRow dr in dt_ctphieudiemdanh.Rows)

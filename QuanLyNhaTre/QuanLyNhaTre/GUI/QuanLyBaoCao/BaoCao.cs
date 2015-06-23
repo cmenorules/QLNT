@@ -23,10 +23,10 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
             LapBaoCao lbc = new LapBaoCao();
             lbc.ShowDialog();
         }
-
+        XemBaoCao xbc = new XemBaoCao();
         private void btn_Xem_Click(object sender, EventArgs e)
         {
-            XemBaoCao xbc = new XemBaoCao();
+            
             xbc.Show();
         }
 
@@ -37,7 +37,8 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            
+            dateTimePicker1.ResetText();
+            cBox_TenBe.ResetText();
         }
         static int matre;
         private void BaoCao_Load(object sender, EventArgs e)
@@ -73,6 +74,11 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
         private void cBox_TenBe_SelectionChangeCommitted(object sender, EventArgs e)
         {
             matre = Int32.Parse(cBox_TenBe.SelectedValue.ToString());
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            xbc.month = dateTimePicker1.Value.Month.ToString();
         }
 
  
