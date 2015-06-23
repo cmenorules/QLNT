@@ -97,6 +97,24 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
                 cReportOverall.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, path);
 
                 //Gửi mail
+                //Lấy lấy phiếu điểm danh và tính tổng số ngày điểm danh
+                string maNV = QuanLyDangNhap.getInstance().LayMaNhanVien();
+                string sql_phieudiemdanh = "select * from PHIEUDIEMDANH,KEHOACHGIANGDAY where PHIEUDIEMDANH.MaKeHoach = KEHOACHGIANGDAY.MaKeHoach and KEHOACHGIANGDAY.MaNhanVien ='" + maNV + "'";
+                DataTable dt_phieudiemdanh = DataConnection.getInstance().Read(sql_phieudiemdanh);
+                int soNgayDiemDanh = dt_phieudiemdanh.Rows.Count;
+                //Lấy chi tiết phiếu điểm danh và tính số ngày đi học
+                string sql_ctphieudiemdanh = "select * from CHITIETPHIEUDIEMDANH where MaTre ='" + tmp.Rows[i]["MaTre"] + "'";
+                DataTable dt_ctphieudiemdanh = DataConnection.getInstance().Read(sql_ctphieudiemdanh);
+                int soNgayDiHoc = 0;
+                foreach(DataRow dr in dt_ctphieudiemdanh.Rows)
+                {
+                    if (dr["DaDiHoc"].ToString()=="true")
+                        {
+                            soNgayDiHoc++;
+                        }
+                }
+                //thông báo số ngày đi học / số ngày điểm danh
+                string show_diemdanh = "Tổng số ngày đi học: " + soNgayDiHoc + "/" + soNgayDiemDanh + "<br>";
                 //Lấy các hoạt động lạ hoặc không tốt của pé
                 string sql_hoatdong = "select HoatDong,PHIEUHOATDONG.Ngay,PHIEUHOATDONG.DanhGia from PHIEUHOATDONG,TREEM, DANGKYHOC where PHIEUHOATDONG.MaDangKy = DANGKYHOC.MaDangKy and TREEM.MaTre = DANGKYHOC.MaTre and TREEM.MaTre ='" + tmp.Rows[i]["MaTre"] + "'";
                 DataTable dt_hoatdong = DataConnection.getInstance().Read(sql_hoatdong);
@@ -105,7 +123,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
                 {
                     foreach (DataRow dr in dt_hoatdong.Rows)
                     {
-                        show_hoatdong += "Ngay: " + dr[1].ToString() + "; Hành động: " + dr[0].ToString() + "; Đánh giá: " + dr[2].ToString() + "\n";
+                        show_hoatdong += "Ngay: " + dr[1].ToString() + "; Hành động: " + dr[0].ToString() + "; Đánh giá: " + dr[2].ToString() + "<br>";
                     }
                 }
                 // Lấy email và mật khẩu mail của nhân viên; đưa vào hàm sendMail
@@ -119,7 +137,8 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
                 string sql_tenTruong = "select TenNhaTre from THONGTINNHATRE";
                 DataTable dt_tenTruong = DataConnection.getInstance().Read(sql_tenTruong);
                 
-                string bodyMail = "Báo cáo tổng quát tháng " + DateTime.Now.Month.ToString() + " của bé " + dt_emailNGH.Rows[0][0].ToString()+"\n";
+                string bodyMail = "Báo cáo tổng quát tháng " + DateTime.Now.Month.ToString() + " của bé " + dt_emailNGH.Rows[0][0].ToString()+"<br>";
+                bodyMail += show_diemdanh;
                 bodyMail += show_hoatdong;
                 string subjectMail = "Trường mẫu giáo " + dt_tenTruong.Rows[0][0].ToString();
                 

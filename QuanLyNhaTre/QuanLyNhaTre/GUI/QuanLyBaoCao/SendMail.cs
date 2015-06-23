@@ -27,6 +27,7 @@ namespace MailTest
             _smtpServer.Timeout = 30000;
             _smtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
             _fromMail = fromMail;
+            _mail.IsBodyHtml = true;
         }
         // Hàm gửi 1 mail tới 1 mail, không đính kèm
         // + toMail là mail mình muốn gửi vd thaoho21294@gmail.com
