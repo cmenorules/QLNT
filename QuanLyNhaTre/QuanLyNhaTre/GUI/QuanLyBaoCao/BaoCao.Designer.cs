@@ -199,6 +199,7 @@
             // 
             // cBox_TenBe
             // 
+            this.cBox_TenBe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBox_TenBe.FormattingEnabled = true;
             this.cBox_TenBe.Location = new System.Drawing.Point(80, 80);
             this.cBox_TenBe.Name = "cBox_TenBe";
