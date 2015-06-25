@@ -76,6 +76,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Name = "DanhMuc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DanhMuc";
             this.ResumeLayout(false);
             this.PerformLayout();

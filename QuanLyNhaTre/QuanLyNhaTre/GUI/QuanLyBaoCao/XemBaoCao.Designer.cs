@@ -50,7 +50,9 @@
             this.ClientSize = new System.Drawing.Size(780, 363);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "XemBaoCao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XemBaoCao";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.XemBaoCao_Load);
             this.ResumeLayout(false);
 

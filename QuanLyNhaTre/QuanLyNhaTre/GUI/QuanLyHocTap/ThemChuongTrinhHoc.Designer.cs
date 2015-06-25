@@ -53,6 +53,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btn_next = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cb_khoi = new System.Windows.Forms.ComboBox();
             this.dt_ngayApDung = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button8 = new System.Windows.Forms.Button();
@@ -61,7 +62,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
             this.cb_tuan = new System.Windows.Forms.ComboBox();
-            this.cb_khoi = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -332,6 +332,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin";
             // 
+            // cb_khoi
+            // 
+            this.cb_khoi.FormattingEnabled = true;
+            this.cb_khoi.Items.AddRange(new object[] {
+            "Mầm",
+            "Lá",
+            "Chồi"});
+            this.cb_khoi.Location = new System.Drawing.Point(47, 28);
+            this.cb_khoi.Name = "cb_khoi";
+            this.cb_khoi.Size = new System.Drawing.Size(108, 21);
+            this.cb_khoi.TabIndex = 6;
+            // 
             // dt_ngayApDung
             // 
             this.dt_ngayApDung.Location = new System.Drawing.Point(419, 28);
@@ -409,18 +421,6 @@
             this.cb_tuan.Size = new System.Drawing.Size(99, 21);
             this.cb_tuan.TabIndex = 13;
             // 
-            // cb_khoi
-            // 
-            this.cb_khoi.FormattingEnabled = true;
-            this.cb_khoi.Items.AddRange(new object[] {
-            "Mầm",
-            "Lá",
-            "Chồi"});
-            this.cb_khoi.Location = new System.Drawing.Point(47, 28);
-            this.cb_khoi.Name = "cb_khoi";
-            this.cb_khoi.Size = new System.Drawing.Size(108, 21);
-            this.cb_khoi.TabIndex = 6;
-            // 
             // ThemChuongTrinhHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,6 +433,7 @@
             this.Controls.Add(this.btn_next);
             this.Controls.Add(this.label4);
             this.Name = "ThemChuongTrinhHoc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThemChuongTrinhHoc";
             this.Load += new System.EventHandler(this.ThemChuongTrinhHoc_Load);
             this.groupBox1.ResumeLayout(false);

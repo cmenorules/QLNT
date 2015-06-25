@@ -86,6 +86,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar_LapBaoCao);
             this.Name = "LapBaoCao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đang xử lý...";
             this.Load += new System.EventHandler(this.LapBaoCao_Load);
             this.Shown += new System.EventHandler(this.LapBaoCao_Shown);

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnXem = new System.Windows.Forms.Button();
             this.txtMaTreXemKetQuaKham = new System.Windows.Forms.TextBox();
             this.cbXemTheo = new System.Windows.Forms.ComboBox();
-            this.btnXem = new System.Windows.Forms.Button();
             this.lbMaTreXemKetQuaKham = new System.Windows.Forms.Label();
             this.gbChiTiet = new System.Windows.Forms.GroupBox();
             this.cbKhoiXemKetQuaKham = new System.Windows.Forms.ComboBox();
@@ -129,6 +129,16 @@
             this.tabPage3.Text = "Xem kết quả khám";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(143, 161);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(227, 24);
+            this.btnXem.TabIndex = 4;
+            this.btnXem.Text = "Xem";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            // 
             // txtMaTreXemKetQuaKham
             // 
             this.txtMaTreXemKetQuaKham.Location = new System.Drawing.Point(286, 68);
@@ -148,16 +158,6 @@
             this.cbXemTheo.Size = new System.Drawing.Size(121, 21);
             this.cbXemTheo.TabIndex = 7;
             this.cbXemTheo.SelectionChangeCommitted += new System.EventHandler(this.cbXemTheo_SelectionChangeCommitted);
-            // 
-            // btnXem
-            // 
-            this.btnXem.Location = new System.Drawing.Point(143, 161);
-            this.btnXem.Name = "btnXem";
-            this.btnXem.Size = new System.Drawing.Size(227, 24);
-            this.btnXem.TabIndex = 4;
-            this.btnXem.Text = "Xem";
-            this.btnXem.UseVisualStyleBackColor = true;
-            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // lbMaTreXemKetQuaKham
             // 
@@ -846,6 +846,7 @@
             this.ClientSize = new System.Drawing.Size(582, 591);
             this.Controls.Add(this.tcXemKetQuaKham);
             this.Name = "QuanLySucKhoe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuanLySucKhoe";
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();

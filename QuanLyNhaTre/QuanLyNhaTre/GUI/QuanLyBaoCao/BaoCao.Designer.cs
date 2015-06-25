@@ -249,6 +249,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "BaoCao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo cáo";
             this.Load += new System.EventHandler(this.BaoCao_Load);
             this.groupBox1.ResumeLayout(false);

@@ -438,6 +438,7 @@
             this.Controls.Add(this.txt_maLop);
             this.Controls.Add(this.txt_maGiaoVien);
             this.Name = "GhiNhanKetQua";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GhiNhanKetQua";
             this.Load += new System.EventHandler(this.GhiNhanKetQua_Load);
             this.groupBox1.ResumeLayout(false);

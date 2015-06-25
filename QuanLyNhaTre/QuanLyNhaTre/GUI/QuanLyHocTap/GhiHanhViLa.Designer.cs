@@ -378,6 +378,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_maGiaoVien);
             this.Name = "GhiHanhViLa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GhiHanhViLa";
             this.Load += new System.EventHandler(this.GhiHanhViLa_Load);
             this.groupBox1.ResumeLayout(false);

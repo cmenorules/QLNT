@@ -382,6 +382,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label12);
             this.Name = "PhanCongGiangDay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PhanCongGiangDay";
             this.Load += new System.EventHandler(this.PhanCongGiangDay_Load);
             this.groupBox2.ResumeLayout(false);

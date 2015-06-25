@@ -544,6 +544,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "QuanLyNhapHoc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Trẻ Em";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

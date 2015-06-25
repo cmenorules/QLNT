@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyNhaTre.GUI.QuanLyHocTap;
 
 namespace QuanLyNhaTre
 {
@@ -109,6 +110,18 @@ namespace QuanLyNhaTre
         {
             QuanLyNhaTre.GUI.QuanLyDanhMuc.DanhMuc _dm = new GUI.QuanLyDanhMuc.DanhMuc();
             _dm.Show();
+        }
+
+        private void ghiNhậnHànhViLạToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GhiHanhViLa l = new GhiHanhViLa();
+            l.ShowDialog();
+        }
+
+        private void them_chuongTrinh_Click(object sender, EventArgs e)
+        {
+            ThemChuongTrinhHoc t = new ThemChuongTrinhHoc();
+            t.ShowDialog();
         }        
     }
 }

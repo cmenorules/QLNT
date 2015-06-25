@@ -263,6 +263,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "QuanLyDinhDuong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý dinh dưỡng";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

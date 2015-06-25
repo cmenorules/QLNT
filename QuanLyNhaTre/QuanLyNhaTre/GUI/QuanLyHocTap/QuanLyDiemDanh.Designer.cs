@@ -254,6 +254,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Name = "QuanLyDiemDanh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuanLyDiemDanh";
             this.Load += new System.EventHandler(this.QuanLyDiemDanh_Load);
             this.groupBox1.ResumeLayout(false);

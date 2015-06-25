@@ -48,8 +48,8 @@ namespace QuanLyNhaTre
                 string thu = cbNgay.Value.DayOfWeek.ToString();
                 int tuan = Int32.Parse(tbTuan.Text);
 
-                DateTime dt = DateTime.ParseExact(cbNgay.Value.ToShortDateString(), "dd/mm/yyyy", CultureInfo.InvariantCulture);
-                string ngayThangNam = dt.ToString("mm/dd/yyyy");
+
+                string ngayThangNam = cbNgay.Value.ToString();
 
                 string monchinh = this.txtMonChinh.Text;
                 string moncanh = this.txtMonCanh.Text;
@@ -61,7 +61,7 @@ namespace QuanLyNhaTre
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
             MessageBox.Show("Thêm thực đơn thành công!", "Thông báo");
             Reset();

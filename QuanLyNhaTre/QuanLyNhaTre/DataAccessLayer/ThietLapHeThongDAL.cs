@@ -101,15 +101,25 @@ namespace QuanLyNhaTre.DataAccessLayer
             dtCon.Write("insert into CHUCNANG values ('troGiupToolStripMenuItem')");
             dtCon.Write("insert into CHUCNANG values ('huongDanSuDungToolStripMenuItem')");
             dtCon.Write("insert into CHUCNANG values ('aboutToolStripMenuItem')");
+            dtCon.Write("insert into CHUCNANG values ('ghi_hanhVi')");
+            dtCon.Write("insert into CHUCNANG values ('them_chuongTrinh')");
             #endregion
         }
 
         public void ThietLapTaiKhoanQuanTri(string ten, string email, string matKhau)
         {
             dtCon.Write("insert into NHANVIEN values (N'" + ten + "', '" + email + "', '" + matKhau + "')");
-            for (int i = 1; i < 26; i++)
+            for (int i = 1; i < 28; i++)
             {
                 dtCon.Write("insert into NHOMCHUCNANG values(9, " + i + ")");
+                dtCon.Write("insert into NHOMCHUCNANG values(1, " + i + ")");
+                dtCon.Write("insert into NHOMCHUCNANG values(2, " + i + ")");
+                dtCon.Write("insert into NHOMCHUCNANG values(3, " + i + ")");
+                dtCon.Write("insert into NHOMCHUCNANG values(4, " + i + ")");
+                dtCon.Write("insert into NHOMCHUCNANG values(5, " + i + ")");
+                dtCon.Write("insert into NHOMCHUCNANG values(6, " + i + ")");
+                dtCon.Write("insert into NHOMCHUCNANG values(7, " + i + ")");
+                dtCon.Write("insert into NHOMCHUCNANG values(8, " + i + ")");
             }
             dtCon.Write("insert into QUYENHAN values (9, 1)");
         }
