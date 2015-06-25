@@ -31,7 +31,11 @@ namespace QuanLyNhaTre.DataAccessLayer
                 if (!dtCon.Write(sqlCreateDatabase))
                     return 2;//tên database không hợp lệ
                 dtCon.Write("use " + initialCatalog);
-                string[] sql_query = File.ReadAllLines(@"..\..\Resources/SQLQuery.txt");
+                //dung cho no vo resource trong project nua c
+                 //cho vo thu mục bin luôn
+                //file nào?
+                //file setting nữa
+                string[] sql_query = File.ReadAllLines(@"SQLQuery.txt");
                 foreach (string sql in sql_query)
                     if (!dtCon.Write(sql))
                         return 3;//sai cú pháp

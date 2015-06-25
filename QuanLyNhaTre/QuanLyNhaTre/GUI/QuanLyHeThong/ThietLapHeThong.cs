@@ -35,7 +35,7 @@ namespace QuanLyNhaTre.QuanLyHeThong
                             setting.ThietLapTaiKhoanQuanTri(txtTenNQT.Text, txtEmailNQT.Text, txtMatKhauNQT.Text);
 
                             string content = txtDuongDan.Text + "\r\n" + txtDatabaseName.Text.Replace(" ", "");
-                            File.WriteAllText(@"..\..\Resources/setting.xml", content);
+                            File.WriteAllText(@"setting.xml", content);
 
                             MessageBox.Show("Thiết lập hệ thống thành công. \n Vui lòng đăng nhập để sử dụng hệ thống", "Thông báo");
 

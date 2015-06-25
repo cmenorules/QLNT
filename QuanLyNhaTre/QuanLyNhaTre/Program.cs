@@ -24,7 +24,7 @@ namespace QuanLyNhaTre
             //Application.Run(new QuanLyNhaTre.QuanLyHocTap.QuanLyDiemDanh());
             //Application.Run(new QuanLyNhaTre.QuanLyHocTap.PhanCongGiangDay());
             //Application.Run(new QuanLyNhaTre.QuanLyHocTap.ThemChuongTrinhHoc());
-            if (File.Exists(@"..\..\Resources/setting.xml"))
+            if (File.Exists(@"setting.xml"))
                 Application.Run(new QuanLyHeThong.DangNhap());
             else
                 Application.Run(new QuanLyHeThong.ThietLapHeThong());

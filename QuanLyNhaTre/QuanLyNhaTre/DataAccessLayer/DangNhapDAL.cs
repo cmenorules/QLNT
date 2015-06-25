@@ -16,7 +16,7 @@ namespace QuanLyNhaTre.DataAccessLayer
 
         public DangNhapDAL()
         {
-            string[] setting = File.ReadAllLines(@"..\..\Resources/setting.xml");
+            string[] setting = File.ReadAllLines(@"setting.xml");
             dataSource = setting[0];
             initialCatalog = setting[1];
             dtCon.SetupConnection(dataSource, initialCatalog);       

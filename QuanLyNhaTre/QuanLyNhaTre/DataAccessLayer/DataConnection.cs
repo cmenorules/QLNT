@@ -79,7 +79,7 @@ namespace QuanLyNhaTre.DataAccessLayer
                 sql_cmd.ExecuteNonQuery();
                 sql_cmd.Dispose();
 
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"..\..\Resources/data.txt", true))
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"data.txt", true))
                 {
                     file.WriteLine(sql_query);
                 }
