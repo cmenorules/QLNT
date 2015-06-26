@@ -52,12 +52,23 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
             DataTable dt_dshs_theolop = new DataTable();
             string maKh = bll.LayKeHoachGiangDay(QuanLyDangNhap.getInstance().LayMaNhanVien(), dateTimePicker1.Value.Year.ToString()).Rows[0]["MaKeHoach"].ToString();
             dt_dshs_theolop = bll.LayDanhSachLop(maKh);
-            cBox_TenBe.DataSource = dt_dshs_theolop;
-            cBox_TenBe.SelectedIndex = 1;
-            cBox_TenBe.SelectedIndex--;
-            cBox_TenBe.DisplayMember = "HoTen";
-            cBox_TenBe.ValueMember = "MaTre";
-            matre = Int32.Parse(cBox_TenBe.SelectedValue.ToString());
+            if (dt_dshs_theolop.Rows.Count == 0)
+            {
+                MessageBox.Show("Chưa có dữ liệu !!!");
+                cBox_TenBe.Enabled = false;
+                btn_XacNhan.Enabled = false;
+                btn_Xem.Enabled = false;
+            }
+            else
+            {
+                cBox_TenBe.DataSource = dt_dshs_theolop;
+                cBox_TenBe.SelectedIndex = 1;
+                cBox_TenBe.SelectedIndex--;
+                cBox_TenBe.DisplayMember = "HoTen";
+                cBox_TenBe.ValueMember = "MaTre";
+                matre = Int32.Parse(cBox_TenBe.SelectedValue.ToString());
+            }
+
         }
 
         private void cBox_TenBe_SelectedIndexChanged(object sender, EventArgs e)
