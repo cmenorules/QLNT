@@ -41,21 +41,28 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
             DataSet data_showsk = new DataSet();
             DataSet data_showtk = new DataSet();
 
-            data_showdd = DataConnection.getInstance().Read(sql_overall, table_showdd);
-            data_showsk = DataConnection.getInstance().Read(sql_health, table_showsk);
-            data_showtk = DataConnection.getInstance().Read(sql_goodbaby, table_showtk);
+            DataTable dt_check = DataConnection.getInstance().Read(sql_overall);
+            if (dt_check.Rows.Count == 0)
+            {
+                MessageBox.Show("Chưa có dữ liệu !!!");
+                Close();
+                //loi do la 
+            }
+            else
+            {
+                data_showdd = DataConnection.getInstance().Read(sql_overall, table_showdd);
+                data_showsk = DataConnection.getInstance().Read(sql_health, table_showsk);
+                data_showtk = DataConnection.getInstance().Read(sql_goodbaby, table_showtk);
 
-            cReportOverall.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\PTTK HTTT\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
-            //cReportOverall.DataSourceConnections.Clear();
-            cReportOverall.SetDataSource(data_showdd.Tables[0]);
-            //cReportOverall.Subreports[0].DataSourceConnections.Clear();
-            cReportOverall.Subreports["CrystalReportHealth.rpt"].SetDataSource(data_showsk.Tables[0]);
-            cReportOverall.Subreports["CrystalReportGoodBaby.rpt"].SetDataSource(data_showtk.Tables[0]);
-            crystalReportViewer1.ReportSource = cReportOverall;
-            crystalReportViewer1.Refresh();
-            
-            
-
+                cReportOverall.Load(@"E:\TÀI LIỆU ĐẠI HỌC\HK6\PTTK HTTT\QLNT\trunk\QuanLyNhaTre\QuanLyNhaTre\GUI\QuanLyBaoCao\CrystalReportOverall.rpt");
+                //cReportOverall.DataSourceConnections.Clear();
+                cReportOverall.SetDataSource(data_showdd.Tables[0]);
+                //cReportOverall.Subreports[0].DataSourceConnections.Clear();
+                cReportOverall.Subreports["CrystalReportHealth.rpt"].SetDataSource(data_showsk.Tables[0]);
+                cReportOverall.Subreports["CrystalReportGoodBaby.rpt"].SetDataSource(data_showtk.Tables[0]);
+                crystalReportViewer1.ReportSource = cReportOverall;
+                crystalReportViewer1.Refresh();
+            }
           
         }
     }

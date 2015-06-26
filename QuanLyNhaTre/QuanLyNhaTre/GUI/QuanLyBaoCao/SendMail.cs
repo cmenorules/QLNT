@@ -47,7 +47,8 @@ namespace MailTest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+                //MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+                throw new Exception();
                 // MessageBox.Show(ex.ToString());
             }
         }
@@ -71,7 +72,8 @@ namespace MailTest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+                //MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+                throw new Exception();
                 //MessageBox.Show(ex.ToString());
             }
         }
@@ -97,7 +99,8 @@ namespace MailTest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+                //MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+                throw new Exception();
                 //MessageBox.Show(ex.ToString());
             }
         }
@@ -126,7 +129,8 @@ namespace MailTest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+                //MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+                throw new Exception();
                 //MessageBox.Show(ex.ToString());
             }
         }
@@ -158,7 +162,8 @@ namespace MailTest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+                //MessageBox.Show("Lỗi hệ thống, hãy thử lại!");
+                throw new Exception();
                 //MessageBox.Show(ex.ToString());
             }
         }

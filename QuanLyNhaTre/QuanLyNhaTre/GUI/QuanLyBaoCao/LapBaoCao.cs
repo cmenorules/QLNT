@@ -50,6 +50,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
             bw.RunWorkerAsync();
         }
 
+        bool done = false;
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressBar_LapBaoCao.Value = (e.ProgressPercentage);
@@ -142,11 +143,28 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
                 bodyMail += show_hoatdong;
                 string subjectMail = "Trường mẫu giáo " + dt_tenTruong.Rows[0][0].ToString();
                 
-                sendMail.Send(dt_emailNGH.Rows[0][1].ToString(), subjectMail, bodyMail, path);
+               
                 // backroundwoker báo cáo tiến trình
-                bw.ReportProgress((int)((i+1) * 100)  / tmp.Rows.Count);                
+                bw.ReportProgress((int)((i+1) * 100)  / tmp.Rows.Count);
+                try
+                {
+                    sendMail.Send(dt_emailNGH.Rows[0][1].ToString(), subjectMail, bodyMail, path);
+                    done = true;
+                }
+                catch(Exception exx)
+                {
+                    done = false;
+                    MessageBox.Show("Error");
+                    break;
+                    
+                    
+                    //no co thoat dau :D
+                    //ok
+                    
+                }
             }
-            MessageBox.Show("Lập báo cáo thành công");
+            if(done)
+                MessageBox.Show("Lập báo cáo thành công");
             Thread.Sleep(200);
             Close();
         }

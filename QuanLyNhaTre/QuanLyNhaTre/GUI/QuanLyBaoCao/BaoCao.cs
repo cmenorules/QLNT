@@ -26,7 +26,8 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
         XemBaoCao xbc = new XemBaoCao();
         private void btn_Xem_Click(object sender, EventArgs e)
         {
-            
+            xbc = new XemBaoCao();
+            xbc.month = dateTimePicker1.Value.Month.ToString();
             xbc.Show();
         }
 
@@ -44,7 +45,7 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
         private void BaoCao_Load(object sender, EventArgs e)
         {
 
-
+            xbc.month = "1";
             label_NgayLapBaoCao.Text = DateTime.Now.Date.ToString();
             try
             {
