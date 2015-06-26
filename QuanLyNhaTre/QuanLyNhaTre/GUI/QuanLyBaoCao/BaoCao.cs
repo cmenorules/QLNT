@@ -43,30 +43,32 @@ namespace QuanLyNhaTre.GUI.QuanLyBaoCao
         static int matre;
         private void BaoCao_Load(object sender, EventArgs e)
         {
-            
-            
-            label_NgayLapBaoCao.Text = DateTime.Now.Date.ToString();
-            label_TenGiaoVien.Text = QuanLyDangNhap.getInstance().LayHoTen();
-            label_ChuNhiemLop.Text = bll.LayKeHoachGiangDay(QuanLyDangNhap.getInstance().LayMaNhanVien(), DateTime.Now.Year.ToString()).Rows[0]["Lop"].ToString();
 
-            DataTable dt_dshs_theolop = new DataTable();
-            string maKh = bll.LayKeHoachGiangDay(QuanLyDangNhap.getInstance().LayMaNhanVien(), dateTimePicker1.Value.Year.ToString()).Rows[0]["MaKeHoach"].ToString();
-            dt_dshs_theolop = bll.LayDanhSachLop(maKh);
-            if (dt_dshs_theolop.Rows.Count == 0)
+
+            label_NgayLapBaoCao.Text = DateTime.Now.Date.ToString();
+            try
             {
-                MessageBox.Show("Chưa có dữ liệu !!!");
-                cBox_TenBe.Enabled = false;
-                btn_XacNhan.Enabled = false;
-                btn_Xem.Enabled = false;
-            }
-            else
-            {
+                label_TenGiaoVien.Text = QuanLyDangNhap.getInstance().LayHoTen();
+                label_ChuNhiemLop.Text = bll.LayKeHoachGiangDay(QuanLyDangNhap.getInstance().LayMaNhanVien(), DateTime.Now.Year.ToString()).Rows[0]["Lop"].ToString();
+
+                DataTable dt_dshs_theolop = new DataTable();
+                string maKh = bll.LayKeHoachGiangDay(QuanLyDangNhap.getInstance().LayMaNhanVien(), dateTimePicker1.Value.Year.ToString()).Rows[0]["MaKeHoach"].ToString();
+                dt_dshs_theolop = bll.LayDanhSachLop(maKh);
+
                 cBox_TenBe.DataSource = dt_dshs_theolop;
                 cBox_TenBe.SelectedIndex = 1;
                 cBox_TenBe.SelectedIndex--;
                 cBox_TenBe.DisplayMember = "HoTen";
                 cBox_TenBe.ValueMember = "MaTre";
                 matre = Int32.Parse(cBox_TenBe.SelectedValue.ToString());
+               
+            }
+            catch
+            {
+                MessageBox.Show("Chưa có dữ liệu !!!");
+                cBox_TenBe.Enabled = false;
+                btn_XacNhan.Enabled = false;
+                btn_Xem.Enabled = false;
             }
 
         }
